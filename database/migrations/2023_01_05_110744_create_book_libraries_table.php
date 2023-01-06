@@ -14,8 +14,10 @@ class CreateBookLibrariesTable extends Migration
     public function up()
     {
         Schema::create('book_libraries', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->primary(['bookId', 'libraryId']);
+            $table->foreignId('bookId')->constrained('books');
+            $table->foreignId('libraryId')->constrained('libraries');
+            $table->integer('stock');
         });
     }
 
