@@ -1,6 +1,6 @@
-@extends('layout.header')
+@extends('master.template')
 
-@section('title_web', 'login')
+@section('title', 'Log In')
 
 @section('body')
     <form action="/authenticate" method="post">
@@ -17,10 +17,8 @@
             </div>
             <div class="d-flex flex-column align-items-center">
                 <button type="submit" class="btn btn-primary mt-4">Login</button>
-                <p class="mt-4">not have account? <a href="#">Register</a></p>
+                <p class="mt-4">Not have account? <a href="/register">Register</a></p>
             </div>
         </div>
     </form>
 @endsection
-
-@extends('layout.footer')

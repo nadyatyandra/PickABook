@@ -1,9 +1,7 @@
-@extends('layout.header')
+@extends('master.template')
 
-@yield('title', 'register')
+@section('title', 'Register')
 
 @section('body')
-
+    <h5>asd</h5>
 @endsection
-
-@extends('layout.footer')
