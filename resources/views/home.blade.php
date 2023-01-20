@@ -1,8 +1,8 @@
-@extends('layout.headerMember')
+@extends('master.template')
 
-@section('header_member', 'Home')
+@section('title', 'Home')
 
-@section('main_body')
+@section('body')
 
 <!-- commercials -->
 <div id="carouselAutoplaying" class="carousel slide" data-bs-ride="carousel">
