@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,5 @@ use App\Http\Controllers\AuthController;
 Route::get('/login', [AuthController::class, 'login']);
 
 Route::get('/register', [AuthController::class, 'register']);
+
+Route::get('/home', [BookController::class, 'home']);
