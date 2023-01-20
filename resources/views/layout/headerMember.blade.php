@@ -51,7 +51,7 @@
         </div>
     </div>
     </nav>
-    <div style="background-color: Coral">
+    <div style="background-color: light">
         <br>
             @yield('main_body')
         <br>
