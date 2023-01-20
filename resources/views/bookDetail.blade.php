@@ -13,6 +13,7 @@
             <div class="card-body">
                 <h1 class="card-title">Book Title</h1>
                 <h4 class="card-text">Author</h4>
+                <p class="card-text">ISBN</p>
                 <p class="card-text">Release date</p>
                 <p class="card-text">Book Publisher</p>
                 <p class="card-text">Available Library</p>
