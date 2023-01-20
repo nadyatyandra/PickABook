@@ -1,9 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\PageController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +22,13 @@ use App\Http\Controllers\PageController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
+Route::get('/storage/app/public/images/{folder}/{name}', function($folder, $name){
+    $content = Storage::get('public/images/'.$folder.'/'.$name);
+    $mime = Storage::mimeType('public/images/'.$folder.'/'.$name);
+    $response = Response::make($content, 200);
+    return $response->header('Content-Type', $mime);
+});
 
 Route::get('/login', [AuthController::class, 'login']);
 
