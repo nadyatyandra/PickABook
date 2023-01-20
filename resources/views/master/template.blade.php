@@ -14,6 +14,7 @@
     <style>
         body {
             font-family: "Roboto";
+            background: #f8f9fa;
         }
     </style>
 </head>

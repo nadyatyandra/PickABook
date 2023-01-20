@@ -36,6 +36,8 @@ Route::get('/register', [AuthController::class, 'register']);
 
 Route::get('/home', [BookController::class, 'home']);
 
+Route::get('/bookDetail', [BookController::class, 'bookDetail']);
+
 Route::get('/notFound', [PageController::class, 'notFound'])->name('notFound');
 
 Route::fallback(function(){

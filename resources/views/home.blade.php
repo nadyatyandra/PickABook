@@ -40,28 +40,20 @@
             <div class="bookoutline card me-4" style="width: 10rem;">
                 <img src="..." class="card-img-top" alt="...">
                 <div class="bookcard card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <h5 class="card-title">Book Title</h5>
+                    <p class="card-text">Author</p>
                 </div>
-                <a href="#" class="booksbtn btn">Book Detail</a>
-            </div>
-            <div class="bookoutline card me-4" style="width: 10rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="bookcard card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-                <a href="#" class="booksbtn btn">Book Detail</a>
+                <a href="#" class="booksbtn btn btn-outline-dark">Book Detail</a>
             </div>
         </div>
         </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselRelease" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="below-carousel carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#carouselRelease" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="below-carousel carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
     </button>
 </div>
@@ -70,35 +62,22 @@
 <div class="card container-fluid mt-3 w-75 pb-3 mb-3" style="background-color: light">
     <h1 class="text-center">Best Author 2023</h1>
     <div>
-        <button type="button" class="btn authorbutton">Author1</button>
+        <button type="button" class="btn btn-outline-dark">Author</button>
     </div>
 </div>
 
 <style>
     .booksbtn{
-        /* background-color:white; */
         display:none;
     }
-    /* .booksbtn:hover{
-        background-color:white;
-        color:black;
-    } */
     .bookcard:hover + .booksbtn, .booksbtn:hover{
         display: inline;
     }
-    .bookoutline{
-        border-color: White;
-    }
-    /* .bookoutline:hover{
-        border-color: black;
-    } */
-    .authorbutton{
-        /* background-color:black; */
-        border-color: black;
-    }
-    .authorbutton:hover{
-        background-color:black;
-        color:white;
+    .below-carousel{
+        /* outline:black;
+        border: 1px solid black; */
+        border-radius:50%;
+        background-color:black
     }
 </style>
 
