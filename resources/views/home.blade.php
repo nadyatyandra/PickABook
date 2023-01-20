@@ -45,6 +45,14 @@
                 </div>
                 <a href="#" class="booksbtn btn">Book Detail</a>
             </div>
+            <div class="bookoutline card me-4" style="width: 10rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="bookcard card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+                <a href="#" class="booksbtn btn">Book Detail</a>
+            </div>
         </div>
         </div>
     </div>
@@ -59,7 +67,7 @@
 </div>
 
 <!-- authors -->
-<div class="card container-fluid mt-3 w-75 pb-3" style="background-color: light">
+<div class="card container-fluid mt-3 w-75 pb-3 mb-3" style="background-color: light">
     <h1 class="text-center">Best Author 2023</h1>
     <div>
         <button type="button" class="btn authorbutton">Author1</button>
@@ -68,28 +76,29 @@
 
 <style>
     .booksbtn{
-        background-color:orange;
+        /* background-color:white; */
         display:none;
     }
-    .booksbtn:hover{
+    /* .booksbtn:hover{
         background-color:white;
-        color:orange;
-    }
+        color:black;
+    } */
     .bookcard:hover + .booksbtn, .booksbtn:hover{
         display: inline;
     }
     .bookoutline{
         border-color: White;
     }
-    .bookoutline:hover{
-        border-color: orange;
-    }
+    /* .bookoutline:hover{
+        border-color: black;
+    } */
     .authorbutton{
-        background-color:orange;
+        /* background-color:black; */
+        border-color: black;
     }
     .authorbutton:hover{
-        background-color:white;
-        color:orange;
+        background-color:black;
+        color:white;
     }
 </style>
 

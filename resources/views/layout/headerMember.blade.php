@@ -35,15 +35,4 @@
         </form>
         </div>
     </div>
-<<<<<<< HEAD
-    </nav>
-    <div style="background-color: light">
-        <br>
-            @yield('main_body')
-        <br>
-    </div>
-</body>
-</html>
-=======
 </nav>
->>>>>>> e6c499e6ca50ef282247e9f2bbb1cb8e59657bb3
