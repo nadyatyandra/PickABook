@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,9 @@ Route::get('/login', [AuthController::class, 'login']);
 Route::get('/register', [AuthController::class, 'register']);
 
 Route::get('/home', [BookController::class, 'home']);
+
+Route::get('/notFound', [PageController::class, 'notFound'])->name('notFound');
+
+Route::fallback(function(){
+    return redirect()->route('notFound');
+});

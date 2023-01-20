@@ -11,7 +11,7 @@
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </head>
 <body>
-     @include('layout.headerGuest') {{-- sementara --}}
+    @include('layout.headerGuest') {{-- sementara --}}
     @yield('body')
     @include('layout.footer')
 </body>
