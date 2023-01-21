@@ -40,6 +40,8 @@ Route::get('/bookDetail', [BookController::class, 'bookDetail']);
 
 Route::get('/notFound', [PageController::class, 'notFound'])->name('notFound');
 
+Route::get('/landing', [PageController::class, 'landingPage'])->name('landing');
+
 Route::fallback(function(){
     return redirect()->route('notFound');
 });
