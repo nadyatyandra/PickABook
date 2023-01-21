@@ -38,6 +38,8 @@ Route::get('/home', [BookController::class, 'home']);
 
 Route::get('/bookDetail', [BookController::class, 'bookDetail']);
 
+Route::get('/manageBook', [BookController::class, 'getBookDetail']);
+
 Route::get('/notFound', [PageController::class, 'notFound'])->name('notFound');
 
 Route::get('/landing', [PageController::class, 'landingPage'])->name('landing');

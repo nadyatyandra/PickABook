@@ -13,4 +13,8 @@ class BookController extends Controller
     public function bookDetail(){
         return view('bookDetail');
     }
+
+    public function getBookDetail(){
+        return view('manageBook');
+    }
 }
