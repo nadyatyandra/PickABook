@@ -15,6 +15,12 @@ class CreateMembersTable extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('userId');
+            $table->foreign('userId')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->longText('address');
+            $table->string('KTP_Photo');
+            $table->string('phoneNumber');
+            $table->decimal('Balance', 10, 2)->default('0.0');
             $table->timestamps();
         });
     }
