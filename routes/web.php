@@ -34,7 +34,8 @@ Route::get('/login', [AuthController::class, 'login'])->name('login');
 
 Route::get('/register', [AuthController::class, 'register']);
 
-Route::get('/home', [BookController::class, 'home']);
+// might want to change the route to '/'
+Route::get('/home', [BookController::class, 'home'])->name('home');
 
 Route::get('/bookDetail', [BookController::class, 'bookDetail']);
 

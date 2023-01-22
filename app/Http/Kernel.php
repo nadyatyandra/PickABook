@@ -63,5 +63,14 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+
+        // guestM = used for pages where only non-logged in users could access (login, register, etc)
+        // userM = used for pages accessible for both member and admin
+        // memberM = used for pages only accessible for users (innaccessible for admins)
+        // adminM = used for pages only accessible for admins (innaccessible for members)
+        'guestM' => GuestMiddleware::class,
+        'memberM' => MemberMiddleware::class,
+        'adminM' => AdminMiddleware::class,
+        'userM' => UserMiddleware::class,
     ];
 }
