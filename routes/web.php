@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\PageController;
-
+use App\Http\Controllers\CartHeaderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +39,8 @@ Route::get('/home', [BookController::class, 'home']);
 Route::get('/bookDetail', [BookController::class, 'bookDetail']);
 
 Route::get('/category', [BookController::class, 'category']);
+
+Route::get('/cart', [CartHeaderController::class, 'cart']);
 
 Route::get('/manageBook', [BookController::class, 'getBookDetail']);
 
