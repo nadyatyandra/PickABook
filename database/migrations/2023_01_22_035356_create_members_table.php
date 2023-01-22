@@ -18,7 +18,7 @@ class CreateMembersTable extends Migration
             $table->unsignedBigInteger('userId');
             $table->foreign('userId')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->longText('address');
-            $table->string('KTP_Photo');
+            $table->string('KTP_Photo')->nullable();
             $table->string('phoneNumber');
             $table->decimal('Balance', 10, 2)->default('0.0');
             $table->timestamps();

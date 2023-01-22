@@ -30,7 +30,7 @@ Route::get('/storage/app/public/images/{folder}/{name}', function($folder, $name
     return $response->header('Content-Type', $mime);
 });
 
-Route::get('/login', [AuthController::class, 'login']);
+Route::get('/login', [AuthController::class, 'login'])->name('login');
 
 Route::get('/register', [AuthController::class, 'register']);
 
