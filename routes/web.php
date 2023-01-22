@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\CartHeaderController;
+use App\Http\Controllers\CourierController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,7 @@ Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/register', [AuthController::class, 'register']);
 
 // might want to change the route to '/'
+// Reply: maybe '/' is more suitable for welcome page(?)
 Route::get('/home', [BookController::class, 'home'])->name('home');
 
 Route::get('/bookDetail', [BookController::class, 'bookDetail']);
@@ -42,6 +44,8 @@ Route::get('/bookDetail', [BookController::class, 'bookDetail']);
 Route::get('/category', [BookController::class, 'category']);
 
 Route::get('/cart', [CartHeaderController::class, 'cart']);
+
+Route::get('/pickup', [CourierController::class, 'pickup']);
 
 Route::get('/manageBook', [BookController::class, 'getBookDetail']);
 
