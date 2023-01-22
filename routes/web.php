@@ -37,7 +37,7 @@ Route::get('/register', [AuthController::class, 'register']);
 // might want to change the route to '/'
 Route::get('/home', [BookController::class, 'home'])->name('home');
 
-Route::get('/bookDetail', [BookController::class, 'bookDetail']);
+Route::get('/bookDetail/{id}', [BookController::class, 'bookDetail']);
 
 Route::get('/category', [BookController::class, 'category']);
 
@@ -51,4 +51,13 @@ Route::get('/landing', [PageController::class, 'landingPage'])->name('landing');
 
 Route::fallback(function(){
     return redirect()->route('notFound');
+});
+
+// get image. feel free to change the directory.
+Route::get('/storage/app/public/{folder}/{name}', function($folder, $name){
+    $content = Storage::get('public/'.$folder.'/'.$name);
+    $mime = Storage::mimeType('public/'.$folder.'/'.$name);
+    $response = Response::make($content, 200);
+    $response->header('Content-Type', $mime);
+    return $response;
 });
