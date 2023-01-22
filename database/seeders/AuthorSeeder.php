@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Author;
 use Illuminate\Database\Seeder;
 
 class AuthorSeeder extends Seeder
@@ -13,6 +14,14 @@ class AuthorSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $authors = [
+            [
+                'name' => 'Brandon Sanderson',
+                'photoPath' => 'brandon.jpg'
+            ],
+        ];
+        foreach($authors as $key => $value){
+            Author::create($value);
+        }
     }
 }

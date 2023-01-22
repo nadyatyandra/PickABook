@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 
-class AuthController extends Controller
+class AuthController extends BaseController
 {
     public function loginPage(){
         return view('login');

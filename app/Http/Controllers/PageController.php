@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PageController extends Controller
+class PageController extends BaseController
 {
     public function notFound(){
         return view('notFound');

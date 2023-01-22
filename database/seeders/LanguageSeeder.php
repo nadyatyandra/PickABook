@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Language;
 use Illuminate\Database\Seeder;
 
 class LanguageSeeder extends Seeder
@@ -13,6 +14,13 @@ class LanguageSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $languages = [
+            [
+                'name' => 'English',
+            ],
+        ];
+        foreach($languages as $key => $value){
+            Language::create($value);
+        }
     }
 }
