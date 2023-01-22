@@ -19,7 +19,7 @@
     </style>
 </head>
 <body>
-    @include('layout.headerAdmin') {{-- sementara --}}
+    @include('layout.headerMember') {{-- sementara --}}
     @yield('body')
     @include('layout.footer')
 </body>

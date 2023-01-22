@@ -15,10 +15,15 @@
                 <h4 class="card-text">Author</h4>
                 <p class="card-text">ISBN</p>
                 <p class="card-text">Release date</p>
-                <p class="card-text">Book Publisher</p>
-                <p class="card-text">Available Library</p>
                 <p class="card-text">Book Stock</p>
-                <button class="btn btn-outline-dark col-6" type="submit">Add To Cart</button>
+                <p class="card-text">Book Publisher</p>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Choose Available Library</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+                <button class="btn btn-outline-dark col-6 mt-4" type="submit">Add To Cart</button>
             </div>
             </div>
         </div>
