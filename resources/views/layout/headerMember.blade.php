@@ -14,9 +14,9 @@
                 Categories
                 </a>
                 <ul class="dropdown-menu bg-dark">
-                    <li><a class="dropdown-item text-white" href="#">Action</a></li>
-                    <li><a class="dropdown-item text-white" href="#">Another action</a></li>
-                    <li><a class="dropdown-item text-white" href="#">Something else here</a></li>
+                    @foreach ($categories as $category)
+                        <li><a class="dropdown-item text-white" href="#">{{$category->name}}</a></li>
+                    @endforeach
                 </ul>
             </li>
             <li class="nav-item">
