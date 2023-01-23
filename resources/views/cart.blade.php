@@ -9,25 +9,34 @@
 </div>
 
 <div class="d-flex flex-wrap justify-content-center">
-    <div class="card mb-3 mt-4 w-75">
-        <div class="row g-0">
-            <div class="col-md-4">
-            <img src="..." class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">Book title</h5>
-                    <p class="card-text">Library Name</p>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <div class="d-grid gap-2 d-md-flex">
-                        <form action="..." method = "post">
-                            <button type="submit" class="btn btn-danger">Remove from Cart</button>
-                        </form>
+    @foreach ($cartHeaders as $cartHeader)
+        <div class="card mb-3 mt-4 w-75">
+            {{-- ui design belum --}}
+            <h3>{{$cartHeader->library->name}}</h3>
+            @foreach ($cartHeader->cartDetail as $cartDetail)
+                <div class="row g-0">
+                    <div class="col-md-4">
+                    {{-- img size has to be changed --}}
+                    <img src="{{url('storage\app\public\books\\'.$cartDetail->book->photoPath)}}" class="img-fluid rounded-start" alt="{{$cartDetail->book->title}}">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{$cartDetail->book->title}}</h5>
+                            <p class="card-text">{{$cartDetail->book->author->name}}</p>
+                            <p class="card-text">{{$cartDetail->book->synopsis}}</p>
+                            <div class="d-grid gap-2 d-md-flex">
+                                <form method="post" action="/cart/delete/{{$cartHeader->libraryId}}/{{$cartDetail->bookId}}">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-danger">Remove from Cart</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            @endforeach
         </div>
-    </div>
+    @endforeach
 </div>
 
 @endsection

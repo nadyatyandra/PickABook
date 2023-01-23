@@ -17,7 +17,7 @@ class CreateCartDetailsTable extends Migration
             $table->primary(['cartHeaderId', 'bookId']);
             $table->unsignedBigInteger('cartHeaderId');
             $table->unsignedBigInteger('bookId');
-            $table->foreign('cartHeaderId')->references('id')->on('order_headers')->onDelete('cascade')->onDelete('cascade');
+            $table->foreign('cartHeaderId')->references('id')->on('cart_headers')->onDelete('cascade')->onDelete('cascade');
             $table->foreign('bookId')->references('id')->on('books')->onDelete('cascade')->onDelete('cascade');
             $table->timestamps();
         });

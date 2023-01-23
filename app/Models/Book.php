@@ -20,4 +20,8 @@ class Book extends Model
     public function library(){
         return $this->belongsToMany(Library::class, 'book_libraries', 'bookId', 'libraryId');
     }
+
+    public function cartDetail(){
+        return $this->hasMany(CartDetail::class, 'bookId', 'id');
+    }
 }

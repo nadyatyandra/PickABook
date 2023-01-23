@@ -26,6 +26,8 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             MemberSeeder::class,
             BookLibrarySeeder::class,
+            CartHeaderSeeder::class,
+            CartDetailSeeder::class,
 
         ]);
         // \App\Models\User::factory(10)->create();
