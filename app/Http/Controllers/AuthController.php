@@ -20,13 +20,13 @@ class AuthController extends BaseController
 
     public function register(Request $request){
         $request->validate([
-            'nik' => 'required|min:13|max:13',
-            'name' => 'required|string|min:3|max:40|unique:users',
+            'nik' => 'required|min:16|max:16|unique:users',
+            'name' => 'required|string',
             'email' => 'required|string|email|unique:users',
             'password' => 'required|string|min:5|max:20',
             'confirmed' => 'required|same:password',
             'address' => 'required|string|min:5',
-            'number' => 'required|min:10|max:13'
+            'number' => 'required|min:9|max:14'
         ]);
 
         $newUser = new User();
@@ -57,7 +57,7 @@ class AuthController extends BaseController
         // assumption cuma pakai email & password
         $cred = $request->validate([
             'email' => 'required|email|string',
-            'password' => 'required|min:5|max:20|string'
+            'password' => 'required|string'
         ]);
 
         // remember me (remove if not used)
@@ -69,13 +69,13 @@ class AuthController extends BaseController
         if(!Auth::attempt($cred, $request->input('remember'))){
             return redirect()->back()->withErrors('Invalid Credentials');
         }
-        return redirect('/');
+        return redirect()->route('home');
     }
 
     public function logout(Request $request){
         Auth::logout();
 
         // redirect, could return route aswell.
-        return redirect('/');
+        return redirect()->route('landing');
     }
 }

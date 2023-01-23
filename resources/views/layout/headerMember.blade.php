@@ -36,6 +36,11 @@
             <input class="form-control me-2" type="search" placeholder="Search book name/author/ISBN" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
+        {{-- temporary for testing logout. feel free to change it :) --}}
+        <form class="d-flex" role="logout" action="/logout" method="post">
+            @csrf
+            <button class="btn btn-outline-danger" type="submit">Logout</button>
+        </form>
         </div>
     </div>
 </nav>

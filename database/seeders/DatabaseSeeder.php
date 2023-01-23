@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             PublisherSeeder::class,
             BookSeeder::class,
             BookCategorySeeder::class,
-
+            RoleSeeder::class
         ]);
         // \App\Models\User::factory(10)->create();
     }

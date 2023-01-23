@@ -32,9 +32,14 @@ use App\Http\Controllers\CourierController;
 //     return $response->header('Content-Type', $mime);
 // });
 
-Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/login', [AuthController::class, 'loginPage'])->name('login');
+Route::post('/authenticate', [AuthController::class, 'login']);
 
-Route::get('/register', [AuthController::class, 'register']);
+Route::get('/register', [AuthController::class, 'registerPage']);
+Route::post('/register', [AuthController::class, 'register']);
+
+//route utk logout
+Route::post('/logout', [AuthController::class, 'logout']);
 
 // might want to change the route to '/'
 // Reply: maybe '/' is more suitable for welcome page(?)
