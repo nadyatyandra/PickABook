@@ -12,27 +12,26 @@
             <div class="col-md-8">
             <div class="card-body">
                 <h1 class="card-title">{{$book->title}}</h1>
-                <h4 class="card-text">Author</h4>
-                {{-- after model relation has been determined, with function name author --}}
-                {{-- <h4 class="card-text">{{$book->author->name}}</h4> --}}
-
+                <h4 class="card-text">{{$book->author->name}}</h4>
                 <p class="card-text">ISBN: {{$book->ISBN}}</p>
                 <p class="card-text">{{$book->publishedYear}}</p>
-
-                {{-- get stock from BookLibrary pivot table, and sum it. --}}
-                <p class="card-text">Book Stock</p>
+                <p class="card-text">Stock: {{$stock}}</p>
 
                 <p class="card-text">Book Publisher</p>
                 {{-- after model relation has been determined on publisher, with function name publisher--}}
                 {{-- <p class="card-text">{{$book->publisher->name}}</p> --}}
 
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Choose Available Library</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                </select>
-                <button class="btn btn-outline-dark col-6 mt-4" type="submit">Add To Cart</button>
+                <form action="/add-book/{{$book->id}}" method="post">
+                    @csrf
+                    <select class="form-select" aria-label="Default select example" name='library'>
+                        {{-- error when no library was chosen --}}
+                        <option selected disabled>Choose Available Library</option>
+                        @foreach ($book->library as $library)
+                            <option value="{{$library->id}}">{{$library->name}}</option>
+                        @endforeach
+                    </select>
+                    <button class="btn btn-outline-dark col-6 mt-4" type="submit">Add To Cart</button>
+                </form>
             </div>
             </div>
         </div>
