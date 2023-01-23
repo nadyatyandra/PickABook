@@ -24,6 +24,12 @@ class CategorySeeder extends Seeder
             [
                 'name' => 'Comedy'
             ],
+            [
+                'name' => 'Fiction'
+            ],
+            [
+                'name' => 'Education'
+            ],
         ];
         foreach($categories as $key => $value){
             Category::create($value);
