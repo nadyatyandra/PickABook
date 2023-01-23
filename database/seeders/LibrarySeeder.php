@@ -23,5 +23,8 @@ class LibrarySeeder extends Seeder
                 'address' => 'Jln. Maju Jaya No 501'
             ],
         ];
+        foreach ($libraries as $key => $value) {
+            Role::create($value);
+        }
     }
 }
