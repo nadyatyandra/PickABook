@@ -19,7 +19,7 @@
             <tbody>
             @foreach ($books as $book)
                 <tr>
-                    <th scope="row" class="text-center">{{$loop->index}}</th>
+                    <th scope="row" class="text-center">{{$loop->index + 1}}</th>
                     <td>{{$book->ISBN}}</td>
                     <td>{{$book->title}}</td>
                     <td>{{$book->author->name}}</td>
