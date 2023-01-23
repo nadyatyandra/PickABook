@@ -32,10 +32,11 @@ use App\Http\Controllers\CourierController;
 //     return $response->header('Content-Type', $mime);
 // });
 
-Route::get('/login', [AuthController::class, 'loginPage'])->name('login');
+
+Route::get('/login', [AuthController::class, 'loginPage'])->name('login')->middleware('guestM');
 Route::post('/authenticate', [AuthController::class, 'login']);
 
-Route::get('/register', [AuthController::class, 'registerPage'])->name('register');
+Route::get('/register', [AuthController::class, 'registerPage'])->name('register')->middleware('guestM');
 Route::post('/register', [AuthController::class, 'register']);
 
 //route utk logout
@@ -43,21 +44,21 @@ Route::post('/logout', [AuthController::class, 'logout']);
 
 // might want to change the route to '/'
 // Reply: maybe '/' is more suitable for welcome page(?)
-Route::get('/home', [BookController::class, 'home'])->name('home');
+Route::get('/home', [BookController::class, 'home'])->name('home')->middleware('userM');
 
 Route::get('/bookDetail/{id}', [BookController::class, 'bookDetail']);
 
-Route::get('/category/{name}', [BookController::class, 'category']);
+Route::get('/category/{name}', [BookController::class, 'category'])->name('category');
 
-Route::get('/cart', [CartHeaderController::class, 'cart'])->name('cart');
+Route::get('/cart', [CartHeaderController::class, 'cart'])->name('cart')->middleware('memberM');
 
-Route::get('/pickup', [CourierController::class, 'pickup']);
+Route::get('/pickup', [CourierController::class, 'pickup'])->name('pickup')->middleware('memberM');
 
-Route::get('/manageBook', [BookController::class, 'getBookDetail']);
+Route::get('/manageBook', [BookController::class, 'getBookDetail'])->name('manageBook')->middleware('adminM');
 
 Route::get('/notFound', [PageController::class, 'notFound'])->name('notFound');
 
-Route::get('/landing', [PageController::class, 'landingPage'])->name('landing');
+Route::get('/landing', [PageController::class, 'landingPage'])->name('landing')->middleware('guestM');
 
 Route::fallback(function(){
     return redirect()->route('notFound');
