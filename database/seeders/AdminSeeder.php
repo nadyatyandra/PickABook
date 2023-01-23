@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Admin;
 use Illuminate\Database\Seeder;
 
 class AdminSeeder extends Seeder
@@ -13,6 +14,15 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $admins = [
+            [
+                'userId' => 2,
+                'libraryId' => 1
+            ],
+
+        ];
+        foreach ($admins as $key => $value) {
+            Admin::create($value);
+        }
     }
 }

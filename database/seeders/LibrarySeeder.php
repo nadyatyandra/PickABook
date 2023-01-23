@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Library;
 use Illuminate\Database\Seeder;
 
 class LibrarySeeder extends Seeder
@@ -15,16 +16,16 @@ class LibrarySeeder extends Seeder
     {
         $libraries = [
             [
-                'name' => 'Perpustakaan Adidaya'
+                'name' => 'Perpustakaan Adidaya',
                 'address' => 'Jln. Pati Sukem no.109C'
             ],
             [
-                'name' => 'Perpustakaan Bergerak'
+                'name' => 'Perpustakaan Bergerak',
                 'address' => 'Jln. Maju Jaya No 501'
             ],
         ];
         foreach ($libraries as $key => $value) {
-            Role::create($value);
+            Library::create($value);
         }
     }
 }

@@ -20,7 +20,12 @@ class DatabaseSeeder extends Seeder
             PublisherSeeder::class,
             BookSeeder::class,
             BookCategorySeeder::class,
-            RoleSeeder::class
+            RoleSeeder::class,
+            LibrarySeeder::class,
+            UserSeeder::class,
+            AdminSeeder::class,
+            MemberSeeder::class,
+
         ]);
         // \App\Models\User::factory(10)->create();
     }

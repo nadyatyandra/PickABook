@@ -35,7 +35,7 @@ use App\Http\Controllers\CourierController;
 Route::get('/login', [AuthController::class, 'loginPage'])->name('login');
 Route::post('/authenticate', [AuthController::class, 'login']);
 
-Route::get('/register', [AuthController::class, 'registerPage']);
+Route::get('/register', [AuthController::class, 'registerPage'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
 
 //route utk logout
@@ -49,7 +49,7 @@ Route::get('/bookDetail/{id}', [BookController::class, 'bookDetail']);
 
 Route::get('/category/{name}', [BookController::class, 'category']);
 
-Route::get('/cart', [CartHeaderController::class, 'cart']);
+Route::get('/cart', [CartHeaderController::class, 'cart'])->name('cart');
 
 Route::get('/pickup', [CourierController::class, 'pickup']);
 
