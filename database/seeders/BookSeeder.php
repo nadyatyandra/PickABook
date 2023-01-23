@@ -30,12 +30,12 @@ class BookSeeder extends Seeder
                 'authorId' => 9,
                 'publisherId' => 1,
                 'title' => 'The Final Empire',
-                'ISBN' => '1234567890123',
+                'ISBN' => '9780575089914',
                 'photoPath' => 'the-final-empire.jpg',
-                'synopsis' => 'For years, frontier lawman turned big-city senator Waxillium Ladrian has hunted the shadowy organization the Set - with his late uncle and his sister among their leaders - since they started kidnapping people with the power of Allomancy in their bloodlines. When Detective Marasi Colms and her partner, Wayne, find stockpiled weapons bound for the Outer City of Bilming, this opens a new lead. Conflict between the capital, Elendel, and the Outer Cities only favors the Set, and their tendrils now reach to the Elendel Senate - whose corruption Wax and his wife, Steris, have sought to expose - and Bilming is even more entangled.',
+                'synopsis' => 'A thousand years ago evil came to the land and has ruled with an iron hand ever since. The sun shines fitfully under clouds of ash that float down endlessly from the constant eruption of volcanoes. A dark lord rules through the aristocratic families and ordinary folk are condemned to lives in servitude, sold as goods, labouring in the ash fields.',
                 'languageId' => 1,
-                'publishedYear' => 2022,
-                'weight' => 800
+                'publishedYear' => 2009,
+                'weight' => 465
             ],
             [
                 'authorId' => 1,

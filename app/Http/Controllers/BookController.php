@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
 use App\Models\Book;
+use App\Models\BookLibrary;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BookController extends BaseController
 {
@@ -36,6 +39,10 @@ class BookController extends BaseController
     }
 
     public function getBookDetail(){
-        return view('manageBook');
+        $userId = Auth::user()->id;
+        $libraryId = Admin::where('userId', $userId)->get()->first()->libraryId;
+        $books = Book::whereRelation('library', 'libraryId', $libraryId)->get();
+        // dd($books);
+        return view('manageBook', compact('books'));
     }
 }
