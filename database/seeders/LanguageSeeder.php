@@ -18,6 +18,12 @@ class LanguageSeeder extends Seeder
             [
                 'name' => 'English',
             ],
+            [
+                'name' => 'Indonesia',
+            ],
+            [
+                'name' => 'Japanese',
+            ],
         ];
         foreach($languages as $key => $value){
             Language::create($value);
