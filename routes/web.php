@@ -24,12 +24,13 @@ use App\Http\Controllers\CourierController;
 //     return view('welcome');
 // });
 
-Route::get('/storage/app/public/images/{folder}/{name}', function($folder, $name){
-    $content = Storage::get('public/images/'.$folder.'/'.$name);
-    $mime = Storage::mimeType('public/images/'.$folder.'/'.$name);
-    $response = Response::make($content, 200);
-    return $response->header('Content-Type', $mime);
-});
+// currently unused since images are stored directly in /public/{folder}/{name}
+// Route::get('/storage/app/public/images/{folder}/{name}', function($folder, $name){
+//     $content = Storage::get('public/images/'.$folder.'/'.$name);
+//     $mime = Storage::mimeType('public/images/'.$folder.'/'.$name);
+//     $response = Response::make($content, 200);
+//     return $response->header('Content-Type', $mime);
+// });
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 
@@ -41,7 +42,7 @@ Route::get('/home', [BookController::class, 'home'])->name('home');
 
 Route::get('/bookDetail/{id}', [BookController::class, 'bookDetail']);
 
-Route::get('/category', [BookController::class, 'category']);
+Route::get('/category/{name}', [BookController::class, 'category']);
 
 Route::get('/cart', [CartHeaderController::class, 'cart']);
 

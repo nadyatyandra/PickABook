@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
             LanguageSeeder::class,
             PublisherSeeder::class,
             BookSeeder::class,
+            BookCategorySeeder::class,
+
         ]);
         // \App\Models\User::factory(10)->create();
     }
