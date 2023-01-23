@@ -13,6 +13,14 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $authors = [
+            [
+                'name' => 'Admin'
+            ],
+            [
+                'name' => 'Member'
+            ],
+            
+        ];
     }
 }
