@@ -27,6 +27,11 @@ class CartHeaderController extends BaseController
 
         CartDetail::where('cartHeaderId', '=', $cartHeaderId, 'and')->where('bookId', $bookId)->delete();
 
+        // when no book remaining in cart detail for that library
+        if(!CartDetail::where('cartHeaderId', $cartHeaderId)->first()){
+            CartHeader::whereId($cartHeaderId)->delete();
+        }
+
         return redirect()->route('cart');
     }
 }

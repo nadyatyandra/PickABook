@@ -9,6 +9,9 @@
 </div>
 
 <div class="d-flex flex-wrap justify-content-center">
+    @if ($cartHeaders == '[]')
+        <h3>Cart is empty</h3>
+    @endif
     @foreach ($cartHeaders as $cartHeader)
         <div class="card mb-3 mt-4 w-75">
             {{-- ui design belum --}}
