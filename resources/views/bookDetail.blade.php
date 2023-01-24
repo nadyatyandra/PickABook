@@ -7,7 +7,7 @@
     <div class="card mb-3 mt-4 w-75">
         <div class="row g-0">
             <div class="col-md-4">
-            <img src="{{url('storage\app\public\books\\'.$book->photoPath)}}" class="img-fluid rounded-start" alt="{{$book->photoPath}}">
+            <img src="{{url('storage\app\public\images\books\\'.$book->photoPath)}}" class="img-fluid rounded-start" alt="{{$book->photoPath}}">
             </div>
             <div class="col-md-8">
             <div class="card-body">
