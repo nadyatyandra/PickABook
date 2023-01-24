@@ -65,45 +65,13 @@
 
     <!-- authors -->
     <div class="card container-fluid mt-3 w-75 pb-3 mb-3" style="background-color: light">
-        <h1 class="text-center mt-2">Best Author 2023</h1>
-        <div>
-            <button type="button" class="btn btn-outline-dark">Author</button>
+        <h1 class="text-center mt-3">Best Author 2023</h1>
+        <div class="d-flex flex-row m-1 justify-content-center">
+            @foreach ($authors as $author)
+                <button type="button" class="btn btn-outline-{{$colours[$loop->index%5]}} mx-1">{{$author->name}}</button>
+            @endforeach
         </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselRelease" data-bs-slide="prev">
-        <span class="below-carousel carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselRelease" data-bs-slide="next">
-        <span class="below-carousel carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-</div>
-
-<!-- authors -->
-<div class="card container-fluid mt-3 w-75 pb-3 mb-3" style="background-color: light">
-    <h1 class="text-center">Best Author 2023</h1>
-    <div>
-        @foreach ($authors as $author)
-            <button type="button" class="btn btn-outline-{{$colours[$loop->index%5]}}">{{$author->name}}</button>
-        @endforeach
-    </div>
-</div>
-
-<style>
-    .booksbtn{
-        display:none;
-    }
-    .bookcard:hover + .booksbtn, .booksbtn:hover{
-        display: inline;
-    }
-    .below-carousel{
-        /* outline:black;
-        border: 1px solid black; */
-        border-radius:50%;
-        background-color:black
-    }
-</style>
 
     <style>
         .booksbtn{
