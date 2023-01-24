@@ -72,7 +72,6 @@ class AdminController extends BaseController
         $newBook->weight = $request->inputWeight;
         $newBook->save();
 
-
         //add new BookId to a library?
 
         //add new BookId to a category?
