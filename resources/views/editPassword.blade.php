@@ -6,7 +6,7 @@
 <form action="" method="post">
     @csrf
     <div class="d-flex flex-column align-items-center container-fluid justify-content-center" style="background-color: bisque">
-        <h1 class="text-center">Edit Password</h1>
+        <h1 class="text-center my-3">Edit Password</h1>
         <div class="col-md-6 mb-4">
             <label for="password" class="form-label">Password</label>
             <input type="password" class="form-control" name='password' id="password" placeholder="(min 5 letters)">
@@ -18,12 +18,10 @@
         @if ($errors->any())
             <p class="text-center text-warning">{{$errors->first()}}</p>
         @endif
-        <div class="d-flex flex-column align-items-center">
-            <button type="submit" class="btn btn-primary mt-4">Register</button>
+        <div class="d-flex justify-content-between mb-4">
+            <button type="submit" class='btn btn-outline-dark mx-2'>Save Password</button>
+            <button type="submit" class='btn btn-dark mx-2'>Back</button>
         </div>
-        <br>
-        <a class="btn btn-outline-danger text-red" type="button" href="{{route('profile')}}">Back</a>
-        <br>
     </div>
 </form>
 @endsection

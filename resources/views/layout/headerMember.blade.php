@@ -15,7 +15,7 @@
                 </a>
                 <ul class="dropdown-menu bg-dark">
                     @foreach ($categories as $category)
-                        <li><a class="dropdown-item text-white" href="/category/{{$category->name}}">{{$category->name}}</a></li>
+                        <li><a class="dropdown dropdown-item text-white" href="/category/{{$category->name}}">{{$category->name}}</a></li>
                     @endforeach
                 </ul>
             </li>
@@ -23,7 +23,7 @@
                 <a class="nav-link {{Route::is('cart')? 'active' : ''}}" href="{{route('cart')}}">Cart</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{Route::is('pickup')? 'active' : ''}}" href="{{route('pickup')}}">PickUp</a>
+                <a class="nav-link {{Route::is('pickup')? 'active' : ''}}" href="{{route('pickup')}}">Pick Up</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link {{Route::is('asdfasdf')? 'active' : ''}}" href="{{route('history')}}">History</a>
@@ -44,3 +44,10 @@
         </div>
     </div>
 </nav>
+
+<style>
+    .dropdown-item:hover{
+        /* display: inline; */
+        background-color:darkgray;
+    }
+</style>
