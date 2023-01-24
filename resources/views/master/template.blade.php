@@ -16,6 +16,25 @@
             font-family: "Roboto";
             background: #f8f9fa;
         }
+
+        .pagination > li > a{
+            background-color: #212529;
+            color: white;
+        }
+
+        .pagination > li > a:hover{
+            transition-duration: 0.2s;
+            background-color: #e5e5e5;
+            color: #212529;
+        }
+
+        .pagination > .active > span,
+        .pagination > .active > span:focus,
+        .pagination > .active > span:hover {
+            background-color: white;
+            color: #212529;
+            border-color: #e9ecef;
+        }
     </style>
 </head>
 <body>

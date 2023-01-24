@@ -65,8 +65,11 @@ Route::get('/updateBook', [BookController::class, 'updateBook'])->name('updateBo
 Route::get('/insertBook', [BookController::class, 'insertBook'])->name('insertBook')->middleware('adminM');
 
 Route::get('/manageOrder', [OrderHeaderController::class, 'manageOrder'])->name('manageOrder')->middleware('adminM');
-
 Route::get('/orderDetail/{id}', [OrderHeaderController::class, 'orderDetail'])->name('orderDetail')->middleware('adminM');
+
+Route::get('/books', [BookController::class, 'viewAll'])->name('books')->middleware('userM');
+
+Route::get('/search', [BookController::class, 'searchBook'])->name('search')->middleware('userM');
 
 Route::get('/notFound', [PageController::class, 'notFound'])->name('notFound');
 

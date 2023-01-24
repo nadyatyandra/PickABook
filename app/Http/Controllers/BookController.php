@@ -31,6 +31,16 @@ class BookController extends BaseController
         return view('home', compact('books_newRelease', 'books_popular', 'books_editorsPick', 'authors', 'colours'));
     }
 
+    public function viewAll(){
+        $books = Book::Paginate(6);
+        return view('books', compact('books'));
+    }
+
+    public function searchBook(Request $request){
+        $books = Book::where('title', 'LIKE', "%$request->q%")->Paginate(6);
+        return view('books', compact('books'));
+    }
+
     // param boleh id, boleh ISBN. ISBN might be better.
     public function bookDetail($id){
         $book = Book::whereId($id)->first();
