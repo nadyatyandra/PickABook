@@ -30,11 +30,14 @@ class BookController extends BaseController
         return view('home', compact('books_newRelease', 'books_popular', 'books_editorsPick', 'authors', 'colours'));
     }
 
-    public function search(Request $request){
-        if($request->has('search')){
-            $data = Book::where('title', 'LIKE', '%'. $request->search. '%')->get();
-        }
-        return view('search', compact('data'));
+    public function viewAll(){
+        $books = Book::Paginate(6);
+        return view('books', compact('books'));
+    }
+
+    public function searchBook(Request $request){
+        $books = Book::where('title', 'LIKE', "%$request->q%")->Paginate(6);
+        return view('books', compact('books'));
     }
 
     // param boleh id, boleh ISBN. ISBN might be better.
