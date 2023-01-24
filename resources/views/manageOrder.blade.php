@@ -1,9 +1,10 @@
 @extends('master.template')
 
-@section('title', 'Manage Book')
+@section('title', 'Manage Order')
 
 @section('body')
-    <div class='align-items-center p-5'>
+<h1>haha</h1>
+    {{-- <div class='align-items-center p-5'>
         <a href="{{route('insertBook')}}" class="btn btn-outline-dark me-3 my-3">Insert Book</a>
         <table class="table">
             <thead class="table-dark justify-content-center text-center">
@@ -36,5 +37,5 @@
                 @endforeach
             </tbody>
         </table>
-    </div>
+    </div> --}}
 @endsection

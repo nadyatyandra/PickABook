@@ -12,8 +12,8 @@
             <li class="nav-item">
                 <a class="nav-link {{Route::is('manageBook')? 'active' : ''}}" href="/manageBook">Manage Book</a>
             </li>
-            <li class="nav-item {{Route::is('asdfasdf')? 'active' : ''}}">
-                <a class="nav-link" href="#">Manage Order</a>
+            <li class="nav-item">
+                <a class="nav-link {{Route::is('manageOrder')? 'active' : ''}}" href="/manageOrder">Manage Order</a>
             </li>
             <li class="nav-item {{Route::is('profile')? 'active' : ''}}">
                 <a class="nav-link" href="{{route('profile')}}">Profile</a>

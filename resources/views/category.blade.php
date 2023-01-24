@@ -14,7 +14,7 @@
                 <h3>No Book Found...</h3>
             @endif
             @foreach ($books as $book)
-                <div class="card me-4" style="width: 10rem;">
+                <div class="card me-4 p-1" style="width: 10rem;">
                     <img src="{{url('storage\app\public\books\\'.$book->photoPath)}}" class="card-img-top" alt="...">
                     <div class="bookcard card-body">
                         <h5 class="card-title">{{$book->title}}</h5>
