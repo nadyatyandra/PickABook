@@ -10,6 +10,7 @@ use App\Models\Category;
 use App\Models\Language;
 use App\Models\Publisher;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -23,7 +24,6 @@ class AdminController extends BaseController
         return redirect()->route('manageBook');
     }
 
-
     public function edit($bookId){
 
         $currBook = Book::where('bookId', $bookId)->first()->bookId;
@@ -35,10 +35,32 @@ class AdminController extends BaseController
 
     }
 
-    public function updateBook(){
+    public function updateBook(Request $request, $bookId){
 
+        $image = $request->file('inputImage');
+        $imageName = $image->getClientOriginalName();
+
+        // Please check path
+        Storage::putFileAs('public/images/books/', $image, $imageName);
+        $inputPhotopath = $imageName;
+
+        Book::where('id', $bookId) //Eloquent?
+        ->update([
+            'authorId' => $request->inputAuthor,
+            'publisherId' => $request->inputPublisher,
+            'title' => $request->inputTitle,
+            'ISBN' => $request->inputISBN,
+            'photoPath' => $inputPhotopath,
+            'synopsis' => $request->inputSynopsis,
+            'languageId' => $request->inputLanguageId,
+            'publishedYear' => $request->inputPublishedYear,
+            'weight' => $request->inputWeight,
+        ]);
+
+        return redirect()->route('manageBook');
 
     }
+        
 
     public function create(){
     
