@@ -20,13 +20,15 @@ class BookController extends BaseController
         // $books = DB::table('books');
         // return view('home', compact('books'));
         // return view('home');
+        $books_editorsPick = Book::whereRelation('group', 'groupId', 1)->get();
+        $books_popular = Book::whereRelation('group', 'groupId', 2)->get();
         $books_newRelease = Book::whereRelation('group', 'groupId', 3)->get();
 
         // change n in take(n) to change the number of authors shown
         $authors = Author::all()->shuffle()->take(6);
         $colours = ['primary', 'dark', 'danger', 'warning', 'success'];
         // dd($books_newRelease);
-        return view('home', compact('books_newRelease', 'authors', 'colours'));
+        return view('home', compact('books_newRelease', 'books_popular', 'books_editorsPick', 'authors', 'colours'));
     }
 
     // param boleh id, boleh ISBN. ISBN might be better.
