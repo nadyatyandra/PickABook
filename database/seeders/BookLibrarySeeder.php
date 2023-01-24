@@ -30,6 +30,11 @@ class BookLibrarySeeder extends Seeder
                 'libraryId' => 2,
                 'stock' => 3
             ],
+            [
+                'bookId' => 5,
+                'libraryId' => 2,
+                'stock' => 2
+            ],
         ];
         foreach($book_libraries as $key => $value){
             BookLibrary::create($value);

@@ -115,6 +115,18 @@ class BookController extends BaseController
         return view('category', compact('books', 'name'));
     }
 
+    public function bookAuthor($name){
+        $author = Author::where('name', $name)->first();
+        if($author == NULL){
+            return redirect()->route('home');
+        }
+
+        $books = Book::whereHas('author', function($x) use ($name){
+            $x->where('name', $name);
+        })->orderBy('books.id')->get();
+        return view('booksByAuthor', compact('books', 'name', 'author'));
+    }
+
     public function getBookDetail(){
         $userId = Auth::user()->id;
         $libraryId = Admin::where('userId', $userId)->get()->first()->libraryId;

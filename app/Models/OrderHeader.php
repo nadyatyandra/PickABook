@@ -20,4 +20,8 @@ class OrderHeader extends Model
     public function library(){
         return $this->belongsTo(Library::class, 'libraryId', 'id');
     }
+
+    public function user(){
+        return $this->belongsTo(User::class, 'memberId', 'id');
+    }
 }

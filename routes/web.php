@@ -46,6 +46,7 @@ Route::get('/bookDetail/{id}', [BookController::class, 'bookDetail'])->middlewar
 Route::post('add-book/{bookId}', [BookController::class, 'addBookToCart']);
 
 Route::get('/category/{name}', [BookController::class, 'category'])->name('category');
+Route::get('/BooksBy/{authorName}', [BookController::class, 'bookAuthor'])->name('bookAuthor');
 
 Route::get('/cart', [CartHeaderController::class, 'cart'])->name('cart')->middleware('memberM');
 Route::delete('/cart/delete/{libraryId}/{bookId}', [CartHeaderController::class, 'removeFromCart']);
