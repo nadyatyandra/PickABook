@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Author;
 use App\Models\Book;
 use App\Models\BookLibrary;
+use App\Models\Category;
+use App\Models\Language;
+use App\Models\Publisher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -22,8 +26,18 @@ class AdminController extends BaseController
     public function updateBook(){
 
 
-
     }
+
+    public function create(){
+    
+        $authors = Author::get(); // Eloquent?
+        $publishers = Publisher::get();
+        $languages = Language::get();
+        $categories = Category::get();
+
+        return view('insertBook', compact('publishers', 'languages', 'categories', 'authors'));
+    }
+
 
     public function insertBook(Request $request){
 
@@ -45,6 +59,11 @@ class AdminController extends BaseController
         $newBook->publishedYear = $request->inputPublishedYear;
         $newBook->weight = $request->inputWeight;
         $newBook->save();
+
+
+        //add new BookId to a library?
+
+        //add new BookId to a category?
 
         return redirect()->route('manageBook');
 
