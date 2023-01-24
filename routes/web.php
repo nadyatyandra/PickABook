@@ -58,6 +58,10 @@ Route::get('/history', [MemberController::class, 'history'])->name('history')->m
 Route::get('/manageBook', [BookController::class, 'getBookDetail'])->name('manageBook')->middleware('adminM');
 Route::delete('admin/delete-book/{bookId}', [AdminController::class, 'deleteBook']);
 
+Route::get('/updateBook', [BookController::class, 'updateBook'])->name('updateBook')->middleware('adminM');
+
+Route::get('/insertBook', [BookController::class, 'insertBook'])->name('insertBook')->middleware('adminM');
+
 Route::get('/notFound', [PageController::class, 'notFound'])->name('notFound');
 
 Route::get('/landing', [PageController::class, 'landingPage'])->name('landing')->middleware('guestM');

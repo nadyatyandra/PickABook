@@ -4,7 +4,7 @@
 
 @section('body')
     <div class='align-items-center p-5'>
-        <a href="#" class="btn btn-outline-dark me-3 my-3">Insert Book</a>
+        <a href="{{route('insertBook')}}" class="btn btn-outline-dark me-3 my-3">Insert Book</a>
         <table class="table">
             <thead class="table-dark justify-content-center text-center">
                 <tr>
@@ -19,14 +19,14 @@
             <tbody>
                 @foreach ($books as $book)
                     <tr>
-                        <th scope="row" class="text-center">{{$loop->index + 1}}</th>
-                        <td>{{$book->ISBN}}</td>
-                        <td>{{$book->title}}</td>
-                        <td>{{$book->author->name}}</td>
-                        <td>{{$book->publishedYear}}</td>
-                        <td class="text-center d-flex justify-content-center">
+                        <th scope="row" class="text-center align-middle">{{$loop->index + 1}}</th>
+                        <td class="align-middle">{{$book->ISBN}}</td>
+                        <td class="align-middle">{{$book->title}}</td>
+                        <td class="align-middle">{{$book->author->name}}</td>
+                        <td class="align-middle">{{$book->publishedYear}}</td>
+                        <td class="text-center d-flex justify-content-center align-middle">
                             {{-- update book kyknya butuh 1 page sendiri --}}
-                            <a href="#" class="btn btn-outline-dark me-2">Update Book</a>
+                            <a href="{{route('updateBook')}}" class="btn btn-outline-dark me-2">Update Book</a>
 
                             <form action="/admin/delete-book/{{$book->id}}" method="post">
                                 @csrf

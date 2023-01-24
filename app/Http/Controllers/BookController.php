@@ -112,4 +112,16 @@ class BookController extends BaseController
         // dd($books);
         return view('manageBook', compact('books'));
     }
+
+    public function updateBook(){
+        return view('updateBook');
+    }
+
+    public function insertBook(){
+        return view('insertBook');
+    }
+
+    public function history(){
+        return view('history');
+    }
 }
