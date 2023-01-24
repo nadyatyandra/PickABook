@@ -25,7 +25,7 @@
                     @csrf
                     <select class="form-select" aria-label="Default select example" name='library'>
                         {{-- error when no library was chosen --}}
-                        <option selected disabled>Choose Available Library</option>
+                        <option selected disabled value="0">Choose Available Library</option>
                         @foreach ($book->library as $library)
                             <option value="{{$library->id}}">{{$library->name}}</option>
                         @endforeach

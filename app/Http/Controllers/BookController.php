@@ -31,10 +31,15 @@ class BookController extends BaseController
             return redirect()->route('home');
         }
 
-        $stock = BookLibrary::groupBy('bookId')
-                ->selectRaw('SUM(`stock`) as total_stock')
-                ->where('bookId', $id)
-                ->first()->total_stock;
+        $stock = 0;
+
+        // book exists in at least 1 library
+        if(BookLibrary::where('bookId', $id)->first()){
+            $stock = BookLibrary::groupBy('bookId')
+            ->selectRaw('SUM(`stock`) as total_stock')
+            ->where('bookId', $id)
+            ->first()->total_stock;
+        }
 
         // dd($stock);
         return view('bookDetail', compact('book', 'stock'));
