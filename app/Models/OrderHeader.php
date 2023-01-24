@@ -16,4 +16,8 @@ class OrderHeader extends Model
     public function status(){
         return $this->belongsTo(Status::class, 'statusId', 'id');
     }
+
+    public function library(){
+        return $this->belongsTo(Library::class, 'libraryId', 'id');
+    }
 }

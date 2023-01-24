@@ -5,27 +5,33 @@
 @section('body')
 
 <div class="d-flex flex-wrap justify-content-center">
+    @if ($summary == '[]')
+        <h3>No Order to Pick-Up</h3>
+    @else
     <div class="card mb-3 mt-4 w-75">
-    <p class="m-4">Order Book Summary</p>
+    <p class="m-4">Order Book Summary - {{$summary->library->name}}</p>
     <div class="d-flex flex-wrap justify-content-center">
-        <div class="card mb-3 mt-4 w-75">
-            <div class="row g-0">
-                <div class="col-md-4">
-                <img src="..." class="img-fluid rounded-start" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">Book title</h5>
-                        <p class="card-text">ISBN</p>
-                        <small class="text-muted">Borrow date:</small>
-                        <br>
-                        <small class="text-muted">Return date:</small>
+        @foreach ($summary->orderDetail as $orderDetail)
+            <div class="card mb-3 mt-4 w-75">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                    <img src="..." class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{$orderDetail->book->title}}</h5>
+                            <p class="card-text">{{$orderDetail->book->ISBN}}</p>
+                            <small class="text-muted">Borrow date:</small>
+                            <br>
+                            <small class="text-muted">Return date:</small>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+            @endforeach
+        @endif
     </div>
-
+        @if ($summary != '[]')
         <div class="m-4">
             <p>Choose pick-up method</p>
             <div>
@@ -73,6 +79,7 @@
         <div class="d-grid gap-2 d-md-flex justify-content-md-end m-4">
             <button class="btn btn-outline-success disabled" type="button">Confirm Order</button>
         </div>
+        @endif
     </div>
 </div>
 
