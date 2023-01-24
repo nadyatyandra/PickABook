@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\DB;
 class BookController extends BaseController
 {
     public function home(){
-        return view('home');
+        $books_newRelease = Book::whereRelation('group', 'groupId', 3)->get();
+        // dd($books_newRelease);
+        return view('home', compact('books_newRelease'));
     }
 
     // param boleh id, boleh ISBN. ISBN might be better.

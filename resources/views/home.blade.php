@@ -37,14 +37,16 @@
     <div class="card container-fluid mt-3 w-75 pb-5" style="background-color: light">
         <h1 class="text-center mt-2">New Release</h1>
         <div class="d-flex flex-wrap mt-2">
-            <div class="bookoutline card me-4" style="width: 10rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="bookcard card-body">
-                    <h5 class="card-title">Book Title</h5>
-                    <p class="card-text">Author</p>
+            @foreach ($books_newRelease as $book)
+                <div class="bookoutline card me-4" style="width: 10rem;">
+                    <img src="{{url('storage\app\public\books\\'.$book->photoPath)}}" class="card-img-top" alt="{{$book->title}}">
+                    <div class="bookcard card-body">
+                        <h5 class="card-title">{{$book->title}}</h5>
+                        <p class="card-text">{{$book->author->name}}</p>
+                    </div>
+                    <a href="/bookDetail/{{$book->id}}" class="booksbtn btn btn-outline-dark">Book Detail</a>
                 </div>
-                <a href="#" class="booksbtn btn btn-outline-dark">Book Detail</a>
-            </div>
+            @endforeach
         </div>
         </div>
     </div>

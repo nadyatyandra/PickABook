@@ -28,7 +28,8 @@ class DatabaseSeeder extends Seeder
             BookLibrarySeeder::class,
             CartHeaderSeeder::class,
             CartDetailSeeder::class,
-
+            GroupSeeder::class,
+            BookGroupSeeder::class
         ]);
         // \App\Models\User::factory(10)->create();
     }
