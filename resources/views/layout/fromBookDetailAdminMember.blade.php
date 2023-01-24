@@ -4,10 +4,11 @@
 
 @section('body')
     <div class="d-flex flex-wrap justify-content-center">
-        <div class="card mb-3 mt-4 w-75">
-            <div class="row g-0">
-                <div class="col-md-4">
-                <img src="{{url('storage\app\public\images\books\\'.$book->photoPath)}}" class="img-fluid rounded-start" alt="{{$book->photoPath}}">
+        <div class="card mb-3 mt-4 w-75 p-5 align-items-center">
+        {{-- <div class="card w-75 row justify-content-center d-flex align-items-center mx-auto my-4"> --}}
+            <div class="row align-items-center">
+                <div class="col-md-4 px-1">
+                    <img src="{{url('storage\app\public\images\books\\'.$book->photoPath)}}" class="img-fluid rounded-start" alt="{{$book->photoPath}}">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">

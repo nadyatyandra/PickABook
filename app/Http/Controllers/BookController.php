@@ -37,15 +37,6 @@ class BookController extends BaseController
             return redirect()->route('home');
         }
 
-        if(Auth::check()){
-            if(Auth::user()->role_id == 1){
-                return view('bookDetailAdmin', compact('product'));
-            }
-            else if(Auth::user()->role_id == 2){
-                return view('bookDetailMember', compact('product'));
-            }
-        }
-
         $stock = 0;
 
         // book exists in at least 1 library
