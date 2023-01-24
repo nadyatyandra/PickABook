@@ -17,8 +17,11 @@
                 <h5>Library Name:</h5>
                 <h5>Book ISBN:</h5>
                 <h5>Book Title:</h5>
-                <h5>Courier ID:</h5>
-                <h5>Courier Name:</h5>
+                <h5>Delivery Method:</h5>
+                {{-- @if () --}}
+                    <h5>Courier ID:</h5>
+                    <h5>Courier Name:</h5>
+                {{-- @endif --}}
                 <h5>Borrow date: {{$date}}</h5>
                 <h5>Return date: {{$returnDate}}</h5>
                 <h5>Status ID: {{$order->statusId}}</h5>

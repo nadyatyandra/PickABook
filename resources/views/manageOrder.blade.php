@@ -11,7 +11,7 @@
                     <th scope="col">Member</th>
                     <th scope="col">Library</th>
                     <th scope="col">Book Title</th>
-                    <th scope="col">Courier</th>
+                    <th scope="col">Method</th>
                     <th scope="col">Borrow Date</th>
                     <th scope="col">Return Date</th>
                     <th scope="col">Status</th>
