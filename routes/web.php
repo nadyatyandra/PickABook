@@ -49,8 +49,9 @@ Route::get('/category/{name}', [BookController::class, 'category'])->name('categ
 Route::get('/cart', [CartHeaderController::class, 'cart'])->name('cart')->middleware('memberM');
 Route::delete('/cart/delete/{libraryId}/{bookId}', [CartHeaderController::class, 'removeFromCart']);
 
-Route::get('/checkout', [CourierController::class, 'checkout'])->middleware('memberM');
+// Route::get('/checkout', [CourierController::class, 'checkout'])->middleware('memberM');
 Route::get('/pickup', [CourierController::class, 'pickup'])->name('pickup')->middleware('memberM');
+Route::post('/pickup/confirm/{orderId}', [CourierController::class, 'checkout']);
 
 Route::get('/history', [MemberController::class, 'history'])->name('history')->middleware('memberM');
 
