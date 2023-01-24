@@ -15,8 +15,8 @@
             <li class="nav-item {{Route::is('asdfasdf')? 'active' : ''}}">
                 <a class="nav-link" href="#">Manage Order</a>
             </li>
-            <li class="nav-item {{Route::is('asdfasdf')? 'active' : ''}}">
-                <a class="nav-link" href="#">Profile</a>
+            <li class="nav-item {{Route::is('profile')? 'active' : ''}}">
+                <a class="nav-link" href="{{route('profile')}}">Profile</a>
             </li>
         </ul>
         <form class="d-flex" role="search">

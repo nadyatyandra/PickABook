@@ -17,8 +17,8 @@
             </div>
             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; height: 3%" class="square bg-light mt-1"></div>
             <div class="pt-3">
-                <a class="btn btn-light mx-5 btn-lg" href="/login">Log In</a>
-                <a class="btn btn-outline-light mx-5 btn-lg" href="/register">Register</a>
+                <a class="btn btn-light mx-5 btn-lg" href="{{route('login')}}">Log In</a>
+                <a class="btn btn-outline-light mx-5 btn-lg" href="{{route('register')}}">Register</a>
             </div>
 
         </div>

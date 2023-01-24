@@ -29,7 +29,7 @@
                 <a class="nav-link {{Route::is('asdfasdf')? 'active' : ''}}" href="#">History</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{Route::is('asdfasdf')? 'active' : ''}}" href="#">Profile</a>
+                <a class="nav-link {{Route::is('profile')? 'active' : ''}}" href="{{route('profile')}}">Profile</a>
             </li>
         </ul>
         <form class="d-flex" role="search">
