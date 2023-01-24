@@ -1,4 +1,4 @@
-@extends('layout.profile')
+@extends('layout.fromProfileAdminMember')
 
 @section('contentProfile')
 <h6 class="card-subtitle mb-2 mt-2">Library Name: {{$data->library->name}}</h6>
