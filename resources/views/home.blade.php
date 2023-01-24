@@ -64,7 +64,9 @@
 <div class="card container-fluid mt-3 w-75 pb-3 mb-3" style="background-color: light">
     <h1 class="text-center">Best Author 2023</h1>
     <div>
-        <button type="button" class="btn btn-outline-dark">Author</button>
+        @foreach ($authors as $author)
+            <button type="button" class="btn btn-outline-{{$colours[$loop->index%5]}}">{{$author->name}}</button>
+        @endforeach
     </div>
 </div>
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Author;
 use App\Models\Book;
 use App\Models\BookLibrary;
 use App\Models\CartDetail;
@@ -19,8 +20,12 @@ class BookController extends BaseController
         // return view('home', compact('books'));
         // return view('home');
         $books_newRelease = Book::whereRelation('group', 'groupId', 3)->get();
+
+        // change n in take(n) to change the number of authors shown
+        $authors = Author::all()->shuffle()->take(6);
+        $colours = ['primary', 'dark', 'danger', 'warning', 'success'];
         // dd($books_newRelease);
-        return view('home', compact('books_newRelease'));
+        return view('home', compact('books_newRelease', 'authors', 'colours'));
     }
 
     // param boleh id, boleh ISBN. ISBN might be better.
