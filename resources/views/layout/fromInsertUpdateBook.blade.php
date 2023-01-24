@@ -23,6 +23,10 @@
                 <input type="number" class="form-control" name='publishedYear' id="publishedYear" placeholder="(4 digits)" @yield('publishedYearValue')>
             </div>
             <div class="col-md-6 mb-4">
+                <label for="stock" class="form-label">Stock</label>
+                <input type="number" class="form-control" name='stock' id="stock" placeholder=">0" @yield('stockValue')>
+            </div>
+            <div class="col-md-6 mb-4">
                 <label for="author" class="form-label">Author</label>
                 <select class="form-select" aria-label="Default select example" name='author'>
                     @yield('authorOption')
