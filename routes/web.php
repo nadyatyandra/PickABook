@@ -8,6 +8,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\CartHeaderController;
 use App\Http\Controllers\CourierController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,6 +63,10 @@ Route::get('/manageBook', [BookController::class, 'getBookDetail'])->name('manag
 Route::get('/notFound', [PageController::class, 'notFound'])->name('notFound');
 
 Route::get('/landing', [PageController::class, 'landingPage'])->name('landing')->middleware('guestM');
+
+Route::get('/profile', [ProfileController::class, 'profile'])->name('profile')->middleware('userM');
+Route::get('/editProfile', [ProfileController::class, 'editProfile'])->name('editProfile')->middleware('memberM');
+Route::get('/editPassword', [ProfileController::class, 'editPassword'])->name('editPassword')->middleware('userM');
 
 Route::fallback(function(){
     return redirect()->route('notFound');

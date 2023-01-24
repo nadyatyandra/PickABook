@@ -20,7 +20,7 @@
             @endif
             <div class="d-flex flex-column align-items-center">
                 <button type="submit" class="btn btn-primary mt-4">Login</button>
-                <p class="mt-4">Not have account? <a href="/register">Register Now!</a></p>
+                <p class="mt-4">Not have account? <a href="{{route('register')}}">Register Now!</a></p>
             </div>
         </div>
     </form>
