@@ -1,11 +1,11 @@
 @extends('master.template')
 
-@section('title', 'pickup')
+@section('title', 'Pick Up')
 
 @section('body')
 
 <div class="d-flex flex-wrap justify-content-center">
-    <div class="card mb-3 mt-4 w-75">  
+    <div class="card mb-3 mt-4 w-75">
     <p class="m-4">Order Book Summary</p>
     <div class="d-flex flex-wrap justify-content-center">
         <div class="card mb-3 mt-4 w-75">
@@ -31,7 +31,7 @@
             <div>
                 <input type="radio" onclick="javascript:pickupCheck();" class="btn-check" name="options" id="self" autocomplete="off">
                 <label class="btn btn-outline-secondary" for="self">Self Pick-Up</label>
-                
+
                 <input type="radio" onclick="javascript:pickupCheck();" class="btn-check" name="options" id="courier" autocomplete="off">
                 <label class="btn btn-outline-secondary" for="courier">Courier Pick-Up</label>
                 <br>
@@ -42,7 +42,7 @@
                 The Library Address is as below:
                 </div>
                 <div id="ifCourier" style="display:none">
-                Choose your Courier
+                Choose your Courier (Payment Method Available only COD)
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="JNE" id="JNE">
                         <label class="form-check-label" for="JNE">
@@ -67,9 +67,11 @@
                             Si Cepat
                         </label>
                     </div>
-
                 </div>
             </div>
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end m-4">
+            <button class="btn btn-outline-success disabled" type="button">Confirm Order</button>
         </div>
     </div>
 </div>
