@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Admin;
 use App\Models\Author;
 use App\Models\Book;
+use App\Models\BookCategory;
 use App\Models\BookLibrary;
 use App\Models\Category;
 use App\Models\Language;
@@ -57,6 +58,12 @@ class AdminController extends BaseController
             'weight' => $request->inputWeight,
         ]);
 
+        BookCategory::where('bookId', $bookId)
+        ->first()
+        ->update([
+            'categoryId' => $request->categoryId
+        ]);
+
         return redirect()->route('manageBook');
 
     }
@@ -94,11 +101,40 @@ class AdminController extends BaseController
         $newBook->weight = $request->inputWeight;
         $newBook->save();
 
-        //add new BookId to a library?
 
         //add new BookId to a category?
+
+        $bookId = Book::latest()->first()->id;
+        $newBookCategories = new BookCategory();
+        $newBookCategories->bookId = $bookId;
+        $newBookCategories->categoryId = $request->categoryId;
+        $newBookCategories->save();
 
         return redirect()->route('manageBook');
 
     }
+
+    public function addToLibrary(Request $request){
+
+        $request->validate([
+            'ISBN' => 'required|min:13|max:13|unique:books',
+            'stock' => 'required|min:1',
+        ]); //Validate ISBN
+
+        $currBook = Book::where('ISBN', $request->input('ISBN'))
+        ->first;
+
+        $userId = Auth::user()->id;
+        $libraryId = Admin::where('userId', $userId)->first()->libraryId;
+
+        $newBookLibrary = new BookLibrary();
+        $newBookLibrary->bookId = $currBook->bookId;
+        $newBookLibrary->libraryId = $libraryId;
+        $newBookLibrary->stock = $request->input('stock');
+        $newBookLibrary->save(); //Add to Library
+
+        return redirect()->route('manageBook');
+
+    }
+
 }
