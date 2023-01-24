@@ -25,15 +25,6 @@ use App\Http\Controllers\ProfileController;
 //     return view('welcome');
 // });
 
-// currently unused since images are stored directly in /public/{folder}/{name}
-// Route::get('/storage/app/public/images/{folder}/{name}', function($folder, $name){
-//     $content = Storage::get('public/images/'.$folder.'/'.$name);
-//     $mime = Storage::mimeType('public/images/'.$folder.'/'.$name);
-//     $response = Response::make($content, 200);
-//     return $response->header('Content-Type', $mime);
-// });
-
-
 Route::get('/login', [AuthController::class, 'loginPage'])->name('login')->middleware('guestM');
 Route::post('/authenticate', [AuthController::class, 'login']);
 
@@ -67,23 +58,13 @@ Route::get('/notFound', [PageController::class, 'notFound'])->name('notFound');
 Route::get('/landing', [PageController::class, 'landingPage'])->name('landing')->middleware('guestM');
 
 Route::get('/profile', [ProfileController::class, 'profile'])->name('profile')->middleware('userM');
-Route::get('/editProfile', [ProfileController::class, 'editProfile'])->name('editProfile')->middleware('memberM');
-Route::get('/editPassword', [ProfileController::class, 'editPassword'])->name('editPassword')->middleware('userM');
+Route::get('/profile/editProfile', [ProfileController::class, 'editProfile'])->name('editProfile')->middleware('memberM');
+Route::get('/profile/editPassword', [ProfileController::class, 'editPassword'])->name('editPassword')->middleware('userM');
 
 Route::fallback(function(){
     return redirect()->route('notFound');
 });
 
-// get image. feel free to change the directory. -> error
-// Route::get('/storage/app/public/{folder}/{name}', function($folder, $name){
-//     $content = Storage::get('public/'.$folder.'/'.$name);
-//     $mime = Storage::mimeType('public/'.$folder.'/'.$name);
-//     $response = Response::make($content, 200);
-//     $response->header('Content-Type', $mime);
-//     return $response;
-// });
-
-// get image buat landing ga error
 Route::get('/storage/app/public/images/{folder}/{name}', function($folder, $name){
     $content = Storage::get('public/images/'.$folder.'/'.$name);
     $mime = Storage::mimeType('public/images/'.$folder.'/'.$name);
