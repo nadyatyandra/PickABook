@@ -24,6 +24,12 @@
     @endforeach
 @endsection
 
+@section('categoryOption')
+    @foreach ($categories as $category)
+        <option value="{{$category->id}}">{{$category->name}}</option>
+    @endforeach
+@endsection
+
 @section('publisherOption')
     @foreach ($publishers as $publisher)
         <option value="{{$publisher->id}}">{{$publisher->name}}</option>

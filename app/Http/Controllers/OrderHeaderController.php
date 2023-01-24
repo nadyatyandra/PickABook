@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\OrderHeader;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -12,7 +13,8 @@ class OrderHeaderController extends Controller
         return view('manageOrder', compact('orders'));
     }
 
-    public function orderDetail(){
-        return view('orderDetail');
+    public function orderDetail($id){
+        $order = OrderHeader::findOrFail($id);
+        return view('orderDetail', compact('order'));
     }
 }

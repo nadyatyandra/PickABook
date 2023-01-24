@@ -54,6 +54,10 @@
 
 @endsection
 
+@section('categoryOption')
+
+@endsection
+
 @section('publisherOption')
 
 @endsection

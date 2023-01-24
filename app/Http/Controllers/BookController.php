@@ -121,8 +121,9 @@ class BookController extends BaseController
         $authors = DB::table('authors')->get();
         $publishers = DB::table('publishers')->get();
         $languages = DB::table('languages')->get();
+        $categories = DB::table('categories')->get();
         $libraries = DB::table('libraries')->get();
-        return view('insertBook', compact('publishers', 'authors', 'languages', 'libraries'));
+        return view('insertBook', compact('publishers', 'authors', 'languages', 'categories', 'libraries'));
     }
 
     public function history(){

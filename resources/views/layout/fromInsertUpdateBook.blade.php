@@ -35,6 +35,12 @@
                 </select>
             </div>
             <div class="col-md-6 mb-4">
+                <label for="category" class="form-label">Category</label>
+                <select class="form-select" aria-label="Default select example" name='category'>
+                    @yield('categoryOption')
+                </select>
+            </div>
+            <div class="col-md-6 mb-4">
                 <label for="publisher" class="form-label">Publisher</label>
                 <select class="form-select" aria-label="Default select example" name='publisher'>
                     @yield('publisherOption')
