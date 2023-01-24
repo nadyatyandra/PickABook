@@ -24,4 +24,8 @@ class Book extends Model
     public function cartDetail(){
         return $this->hasMany(CartDetail::class, 'bookId', 'id');
     }
+
+    public function group(){
+        return $this->belongsToMany(Group::class, 'book_groups', 'bookId', 'groupId');
+    }
 }

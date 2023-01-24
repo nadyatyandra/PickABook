@@ -18,6 +18,9 @@ class BookController extends BaseController
         // $books = DB::table('books');
         // return view('home', compact('books'));
         return view('home');
+        $books_newRelease = Book::whereRelation('group', 'groupId', 3)->get();
+        // dd($books_newRelease);
+        return view('home', compact('books_newRelease'));
     }
 
     // param boleh id, boleh ISBN. ISBN might be better.
