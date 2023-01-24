@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Admin extends Model
 {
     use HasFactory;
+
+    public function library(){
+        return $this->belongsTo(Library::class, 'libraryId', 'id');
+    }
 }

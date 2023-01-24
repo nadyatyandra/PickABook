@@ -16,4 +16,8 @@ class Library extends Model
     public function cartHeader(){
         return $this->hasMany(CartHeader::class, 'libraryId', 'id');
     }
+
+    public function admin(){
+        return $this->hasMany(Admin::class, 'libraryId', 'id');
+    }
 }
