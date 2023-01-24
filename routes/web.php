@@ -48,7 +48,7 @@ Route::get('/category/{name}', [BookController::class, 'category'])->name('categ
 Route::get('/cart', [CartHeaderController::class, 'cart'])->name('cart')->middleware('memberM');
 Route::delete('/cart/delete/{libraryId}/{bookId}', [CartHeaderController::class, 'removeFromCart']);
 
-Route::get('/checkout', [CourierController::class, 'checkout'])->middleware('memberMW');
+Route::get('/checkout', [CourierController::class, 'checkout'])->middleware('memberM');
 Route::get('/pickup', [CourierController::class, 'pickup'])->name('pickup')->middleware('memberM');
 
 Route::get('/history', [BookController::class, 'history'])->name('history')->middleware('memberM');
@@ -62,7 +62,9 @@ Route::get('/landing', [PageController::class, 'landingPage'])->name('landing')-
 
 Route::get('/profile', [ProfileController::class, 'profile'])->name('profile')->middleware('userM');
 Route::get('/profile/editProfile', [ProfileController::class, 'editProfile'])->name('editProfile')->middleware('memberM');
-Route::get('/profile/editPassword', [ProfileController::class, 'editPassword'])->name('editPassword')->middleware('userM');
+
+Route::get('/profile/editPassword', [ProfileController::class, 'editPasswordPage'])->name('editPassword')->middleware('userM');
+Route::post('/profile/editPassword', [ProfileController::class, 'editPassword']);
 
 Route::fallback(function(){
     return redirect()->route('notFound');

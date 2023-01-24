@@ -7,7 +7,7 @@ use App\Models\BookLibrary;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AdminController extends Controller
+class AdminController extends BaseController
 {
     public function deleteBook($bookId){
         $userId = Auth::user()->id;
