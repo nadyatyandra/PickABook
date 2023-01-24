@@ -13,22 +13,27 @@
 @endsection
 
 @section('authorOption')
-    {{-- CONTOH LAB --}}
-    {{-- @foreach ($brandsets as $brand) <!-- pake foreach krn datanya berbntk array -->
-        <option value="{{$brand->brandId}}">{{$brand->brandName}}</option>
-    @endforeach --}}
+    @foreach ($authors as $author)
+        <option value="{{$author->id}}">{{$author->name}}</option>
+    @endforeach
 @endsection
 
 @section('languageOption')
-
+    @foreach ($languages as $language)
+        <option value="{{$language->id}}">{{$language->name}}</option>
+    @endforeach
 @endsection
 
 @section('publisherOption')
-
+    @foreach ($publishers as $publisher)
+        <option value="{{$publisher->id}}">{{$publisher->name}}</option>
+    @endforeach
 @endsection
 
 @section('libraryOption')
-
+    @foreach ($libraries as $library)
+        <option value="{{$library->id}}">{{$library->name}}</option>
+    @endforeach
 @endsection
 
 @section('insertImage')

@@ -118,7 +118,11 @@ class BookController extends BaseController
     }
 
     public function insertBook(){
-        return view('insertBook');
+        $authors = DB::table('authors')->get();
+        $publishers = DB::table('publishers')->get();
+        $languages = DB::table('languages')->get();
+        $libraries = DB::table('libraries')->get();
+        return view('insertBook', compact('publishers', 'authors', 'languages', 'libraries'));
     }
 
     public function history(){
