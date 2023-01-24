@@ -24,9 +24,15 @@
                         <td>{{$book->title}}</td>
                         <td>{{$book->author->name}}</td>
                         <td>{{$book->publishedYear}}</td>
-                        <td class="text-center">
-                            <a href="#" class="btn btn-outline-dark">Update Book</a>
-                            <a href="#" class="btn btn-outline-danger">Delete Book</a>
+                        <td class="text-center d-flex justify-content-center">
+                            {{-- update book kyknya butuh 1 page sendiri --}}
+                            <a href="#" class="btn btn-outline-dark me-2">Update Book</a>
+
+                            <form action="/admin/delete-book/{{$book->id}}" method="post">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="btn btn-outline-danger">Delete Book</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach

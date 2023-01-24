@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
@@ -53,6 +54,7 @@ Route::get('/pickup', [CourierController::class, 'pickup'])->name('pickup')->mid
 Route::get('/history', [BookController::class, 'history'])->name('history')->middleware('memberM');
 
 Route::get('/manageBook', [BookController::class, 'getBookDetail'])->name('manageBook')->middleware('adminM');
+Route::delete('admin/delete-book/{bookId}', [AdminController::class, 'deleteBook']);
 
 Route::get('/notFound', [PageController::class, 'notFound'])->name('notFound');
 
