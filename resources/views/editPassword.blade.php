@@ -26,5 +26,6 @@
             <button type="submit" class='btn btn-outline-dark mx-2'>Save Password</button>
             <button type="submit" class='btn btn-dark mx-2' href="{{route('profile')}}">Back</button>
         </div>
-    </form>
+    </div>
+</form>
 @endsection
