@@ -42,6 +42,7 @@
                             @endif --}}
                         </td>
                         <td class="text-center d-flex justify-content-center align-middle">
+                            <a href="" class="btn btn-outline-dark me-2">View Detail</a>
                             <a href="" class="btn btn-outline-dark">Update Status</a>
                         </td>
                     </tr>
