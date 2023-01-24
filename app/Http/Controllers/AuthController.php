@@ -26,7 +26,7 @@ class AuthController extends BaseController
             'password' => 'required|string|min:5|max:20',
             'confirmed' => 'required|same:password',
             'address' => 'required|string|min:5',
-            'number' => 'required|min:9|max:14'
+            'number' => 'required|min:10|max:14'
         ]);
 
         $newUser = new User();

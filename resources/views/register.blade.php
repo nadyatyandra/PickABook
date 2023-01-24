@@ -9,15 +9,15 @@
             <h1 class="text-center">Register</h1>
             <div class="col-md-6 mb-4">
                 <label for="nik" class="form-label">NIK</label>
-                <input type="number" class="form-control" name='nik' id="nik" placeholder="(16 digits)">
+                <input type="number" class="form-control" name='nik' id="nik" placeholder="(16 digits)" value="{{old('nik')}}">
             </div>
             <div class="col-md-6 mb-4">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" name='name' id="name" placeholder="Your Name">
+                <input type="text" class="form-control" name='name' id="name" placeholder="Your Name" value="{{old('name')}}">
             </div>
             <div class="col-md-6 mb-4">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" name='email' id="email" placeholder="example@mail.com">
+                <input type="email" class="form-control" name='email' id="email" placeholder="example@mail.com" value="{{old('email')}}">
             </div>
             <div class="col-md-6 mb-4">
                 <label for="password" class="form-label">Password</label>
@@ -34,7 +34,7 @@
             {{-- DOB belum ada --}}
             <div class="col-md-6 mb-4">
                 <label for="number" class="form-label">Phone Number</label>
-                <input type="number" class="form-control" name='number' id="number" placeholder="(9-14 digits)">
+                <input type="number" class="form-control" name='number' id="number" placeholder="(10-14 digits)" value="{{old('number')}}">
             </div>
             @if ($errors->any())
                 <p class="text-center text-warning">{{$errors->first()}}</p>
