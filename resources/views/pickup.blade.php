@@ -5,7 +5,7 @@
 @section('body')
 
 <div class="d-flex flex-wrap justify-content-center">
-    @if ($summary == '[]')
+    @if ($summary == NULL)
         <h3>No Order to Pick-Up</h3>
     @else
     <div class="card mb-3 mt-4 w-75">
@@ -21,9 +21,13 @@
                         <div class="card-body">
                             <h5 class="card-title">{{$orderDetail->book->title}}</h5>
                             <p class="card-text">{{$orderDetail->book->ISBN}}</p>
-                            <small class="text-muted">Borrow date:</small>
+                            @php
+                                $date = Carbon::now()->format('d M Y');
+                                $returnDate = Carbon::now()->addDays(30)->format('d M Y');
+                            @endphp
+                            <small class="text-muted">Borrow date: {{$date}}</small>
                             <br>
-                            <small class="text-muted">Return date:</small>
+                            <small class="text-muted">Return date: {{$returnDate}}</small>
                         </div>
                     </div>
                 </div>
@@ -31,7 +35,7 @@
             @endforeach
         @endif
     </div>
-        @if ($summary != '[]')
+        @if ($summary != NULL)
         <div class="m-4">
             <p>Choose pick-up method</p>
             <div>
@@ -46,6 +50,8 @@
                 Please pick-up the book within 24 hour.
                 <br>
                 The Library Address is as below:
+                <br>
+                {{$summary->library->address}}
                 </div>
                 <div id="ifCourier" style="display:none">
                 Choose your Courier (Payment Method Available only COD)
@@ -76,9 +82,12 @@
                 </div>
             </div>
         </div>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end m-4">
-            <button class="btn btn-outline-success disabled" type="button">Confirm Order</button>
-        </div>
+        <form action="/pickup/confirm/{{$summary->id}}" method="post">
+            @csrf
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end m-4">
+                <button id='confirmOrderButton' class="btn btn-outline-success" disabled type="submit">Confirm Order</button>
+            </div>
+        </form>
         @endif
     </div>
 </div>
@@ -87,12 +96,15 @@
     function pickupCheck() {
         if (document.getElementById('self').checked) {
             document.getElementById('ifSelf').style.display = 'block';
+            document.getElementById('confirmOrderButton').disabled = false;
+
         } else{
             document.getElementById('ifSelf').style.display = 'none';
         }
 
         if (document.getElementById('courier').checked) {
             document.getElementById('ifCourier').style.display = 'block';
+            document.getElementById('confirmOrderButton').disabled = false;
         } else{
             document.getElementById('ifCourier').style.display = 'none';
         }
