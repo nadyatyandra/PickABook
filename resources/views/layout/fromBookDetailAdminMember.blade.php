@@ -5,7 +5,6 @@
 @section('body')
     <div class="d-flex flex-wrap justify-content-center">
         <div class="card mb-3 mt-4 w-75 p-5 align-items-center">
-        {{-- <div class="card w-75 row justify-content-center d-flex align-items-center mx-auto my-4"> --}}
             <div class="row align-items-center">
                 <div class="col-md-4 px-1">
                     <img src="{{url('storage\app\public\images\books\\'.$book->photoPath)}}" class="img-fluid rounded-start" alt="{{$book->photoPath}}">
@@ -29,7 +28,7 @@
     </div>
 
     <div class="d-flex flex-wrap justify-content-center">
-        <div class="card mb-3 mt-2 w-75 p-5">
+        <div class="card mb-3 mt-2 mb-4 w-75 p-5">
             <h1 class="card-title pb-2">Description</h1>
             <p class="card-text">{{$book->synopsis}}</p>
         </div>
