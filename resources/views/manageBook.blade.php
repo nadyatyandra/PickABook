@@ -17,42 +17,19 @@
                 </tr>
             </thead>
             <tbody>
-            @foreach ($books as $book)
-                <tr>
-                    <th scope="row" class="text-center">{{$loop->index + 1}}</th>
-                    <td>{{$book->ISBN}}</td>
-                    <td>{{$book->title}}</td>
-                    <td>{{$book->author->name}}</td>
-                    <td>{{$book->publishedYear}}</td>
-                    <td class="text-center">
-                        <a href="#" class="btn btn-outline-dark">Update Book</a>
-                        <a href="#" class="btn btn-outline-danger">Delete Book</a>
-                    </td>
-                </tr>
-            @endforeach
-            {{-- <tr>
-                <th scope="row" class="text-center">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td class="text-center">
-                    <a href="#" class="btn btn-outline-dark">Update Book</a>
-                    <a href="#" class="btn btn-outline-danger">Delete Book</a>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row" class="text-center">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row" class="text-center">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr> --}}
+                @foreach ($books as $book)
+                    <tr>
+                        <th scope="row" class="text-center">{{$loop->index + 1}}</th>
+                        <td>{{$book->ISBN}}</td>
+                        <td>{{$book->title}}</td>
+                        <td>{{$book->author->name}}</td>
+                        <td>{{$book->publishedYear}}</td>
+                        <td class="text-center">
+                            <a href="#" class="btn btn-outline-dark">Update Book</a>
+                            <a href="#" class="btn btn-outline-danger">Delete Book</a>
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

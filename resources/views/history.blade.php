@@ -1,6 +1,6 @@
 @extends('master.template')
 
-@section('title', 'category')
+@section('title', 'History')
 
 @section('body')
 

@@ -48,7 +48,15 @@ class BookController extends BaseController
         }
 
         // dd($stock);
-        return view('bookDetail', compact('book', 'stock'));
+        if(Auth::user()->role_id == 1){
+            return view('bookDetailAdmin', compact('book', 'stock'));
+        }
+        else if(Auth::user()->role_id == 2){
+            return view('bookDetailMember', compact('book', 'stock'));
+        }
+        else{
+            return redirect()->route('home');
+        }
     }
 
     public function addBookToCart(Request $request, $bookId){

@@ -1,6 +1,6 @@
 @extends('master.template')
 
-@section('title', 'cart')
+@section('title', 'Cart')
 
 @section('body')
 
@@ -11,18 +11,17 @@
     @foreach ($cartHeaders as $cartHeader)
     <div class="card mb-3 mt-4 w-75">
         <div class="d-flex flex-row justify-content-betwen">
-            <h3 class="m-4">{{$cartHeader->library->name}}</h3>
+            <h3>{{$cartHeader->library->name}}</h3>
             <div>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end m-4">
-                    <a class="btn btn-outline-dark" type="button" href="/pickup">Check Out</a>
+                    <a class="btn btn-outline-dark" type="button" href="...">Check Out</a>
                 </div>
             </div>
-        </div>
             @foreach ($cartHeader->cartDetail as $cartDetail)
                 <div class="row g-0">
                     <div class="col-md-4">
                     {{-- img size has to be changed --}}
-                    <img src="{{url('storage\app\public\books\\'.$cartDetail->book->photoPath)}}" class="img-fluid rounded-start ms-4" alt="{{$cartDetail->book->title}}">
+                    <img src="{{url('storage\app\public\books\\'.$cartDetail->book->photoPath)}}" class="img-fluid rounded-start" alt="{{$cartDetail->book->title}}">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
@@ -40,6 +39,7 @@
                     </div>
                 </div>
             @endforeach
+        </div>
     @endforeach
 </div>
 
