@@ -57,6 +57,8 @@ Route::delete('/cart/delete/{libraryId}/{bookId}', [CartHeaderController::class,
 
 Route::get('/pickup', [CourierController::class, 'pickup'])->name('pickup')->middleware('memberM');
 
+Route::get('/history', [BookController::class, 'history']);
+
 Route::get('/manageBook', [BookController::class, 'getBookDetail'])->name('manageBook')->middleware('adminM');
 
 Route::get('/notFound', [PageController::class, 'notFound'])->name('notFound');

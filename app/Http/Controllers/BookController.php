@@ -79,4 +79,8 @@ class BookController extends BaseController
         // dd($books);
         return view('manageBook', compact('books'));
     }
+
+    public function history(){
+        return view('history');
+    }
 }
