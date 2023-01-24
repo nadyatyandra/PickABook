@@ -10,9 +10,11 @@
     @endif
     @foreach ($cartHeaders as $cartHeader)
     <div class="card mb-3 mt-4 w-75">
-        <div class="d-flex flex-row justify-content-betwen">
+        <div class="d-flex flex-row justify-content-between">
             <h3 class="m-4">{{$cartHeader->library->name}}</h3>
-            <a class="btn btn-outline-dark justify-content-end m-4" type="button" href="/pickup">Check Out</a>
+            <div class="d-flex flex-row justify-content-end">
+                <a class="btn btn-outline-dark justify-content-end m-4" type="button" href="/pickup">Check Out</a>
+            </div>
         </div>
             @foreach ($cartHeader->cartDetail as $cartDetail)
                 <div class="row g-0">
@@ -23,8 +25,8 @@
                     <div class="col-md-8">
                         <div class="card-body">
                             <h5 class="card-title">{{$cartDetail->book->title}}</h5>
-                            <p class="card-text">{{$cartDetail->book->author->name}}</p>
-                            <p class="card-text">{{$cartDetail->book->synopsis}}</p>
+                            <p class="card-text text-muted">{{$cartDetail->book->ISBN}}</p>
+                            <p class="card-text">Weight: {{$cartDetail->book->weight}} gr</p>
                             <div class="d-grid gap-2 d-md-flex">
                                 <form method="post" action="/cart/delete/{{$cartHeader->libraryId}}/{{$cartDetail->bookId}}">
                                     @csrf
@@ -36,7 +38,7 @@
                     </div>
                 </div>
             @endforeach
+        </div>
     @endforeach
-</div>
 
 @endsection
