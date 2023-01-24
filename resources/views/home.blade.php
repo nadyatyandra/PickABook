@@ -86,8 +86,8 @@
         </button>
     </div>
 
-        <!-- editors pick -->
-        <div id="carouselRelease" class="carousel slide" data-bs-ride="carousel">
+    <!-- editors pick -->
+    <div id="carouselRelease" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="card container-fluid mt-3 w-75 pb-5" style="background-color: light">
                 <h1 class="text-center mt-3">Editor's Pick</h1>
@@ -122,6 +122,11 @@
                 <a class="btn btn-outline-{{$colours[$loop->index%5]}} mx-1" href="/BooksBy/{{$author->name}}">{{$author->name}}</a>
             @endforeach
         </div>
+    </div>
+
+    <!-- button -->
+    <div class="d-flex justify-content-center my-3">
+        <a href="{{route('books')}}" class="btn btn-dark">See More Recommendations</a>
     </div>
 
     <style>
