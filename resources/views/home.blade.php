@@ -39,7 +39,7 @@
         <div class="d-flex flex-wrap mt-2">
             @foreach ($books_newRelease as $book)
                 <div class="bookoutline card me-4" style="width: 10rem;">
-                    <img src="{{url('storage\app\public\books\\'.$book->photoPath)}}" class="card-img-top" alt="{{$book->title}}">
+                    <img src="{{url('storage\app\public\images\books\\'.$book->photoPath)}}" class="card-img-top" alt="{{$book->title}}">
                     <div class="bookcard card-body">
                         <h5 class="card-title">{{$book->title}}</h5>
                         <p class="card-text">{{$book->author->name}}</p>

@@ -58,6 +58,8 @@ Route::delete('/cart/delete/{libraryId}/{bookId}', [CartHeaderController::class,
 
 Route::get('/pickup', [CourierController::class, 'pickup'])->name('pickup')->middleware('memberM');
 
+Route::get('/history', [BookController::class, 'history']);
+
 Route::get('/manageBook', [BookController::class, 'getBookDetail'])->name('manageBook')->middleware('adminM');
 
 Route::get('/notFound', [PageController::class, 'notFound'])->name('notFound');
@@ -72,11 +74,19 @@ Route::fallback(function(){
     return redirect()->route('notFound');
 });
 
-// get image. feel free to change the directory.
-Route::get('/storage/app/public/{folder}/{name}', function($folder, $name){
-    $content = Storage::get('public/'.$folder.'/'.$name);
-    $mime = Storage::mimeType('public/'.$folder.'/'.$name);
+// get image. feel free to change the directory. -> error
+// Route::get('/storage/app/public/{folder}/{name}', function($folder, $name){
+//     $content = Storage::get('public/'.$folder.'/'.$name);
+//     $mime = Storage::mimeType('public/'.$folder.'/'.$name);
+//     $response = Response::make($content, 200);
+//     $response->header('Content-Type', $mime);
+//     return $response;
+// });
+
+// get image buat landing ga error
+Route::get('/storage/app/public/images/{folder}/{name}', function($folder, $name){
+    $content = Storage::get('public/images/'.$folder.'/'.$name);
+    $mime = Storage::mimeType('public/images/'.$folder.'/'.$name);
     $response = Response::make($content, 200);
-    $response->header('Content-Type', $mime);
-    return $response;
+    return $response->header('Content-Type', $mime);
 });
