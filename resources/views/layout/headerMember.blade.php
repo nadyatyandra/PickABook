@@ -26,7 +26,7 @@
                 <a class="nav-link {{Route::is('pickup')? 'active' : ''}}" href="{{route('pickup')}}">Pick Up</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{Route::is('asdfasdf')? 'active' : ''}}" href="{{route('history')}}">History</a>
+                <a class="nav-link {{Route::is('history')? 'active' : ''}}" href="{{route('history')}}">History</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link {{Route::is('profile')? 'active' : ''}}" href="{{route('profile')}}">Profile</a>
