@@ -44,25 +44,25 @@
                 <div id="ifCourier" style="display:none">
                 Choose your Courier (Payment Method Available only COD)
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="JNE" id="JNE">
+                        <input class="form-check-input" type="radio" name="courier" id="JNE">
                         <label class="form-check-label" for="JNE">
                             JNE express
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="Gojek" id="Gojek">
+                        <input class="form-check-input" type="radio" name="courier" id="Gojek">
                         <label class="form-check-label" for="Gojek">
                             Gojek instant
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="Grab" id="Grab">
+                        <input class="form-check-input" type="radio" name="courier" id="Grab">
                         <label class="form-check-label" for="Grab">
                             Grab instant
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="Cepat" id="Cepat">
+                        <input class="form-check-input" type="radio" name="courier" id="Cepat">
                         <label class="form-check-label" for="Cepat">
                             Si Cepat
                         </label>
