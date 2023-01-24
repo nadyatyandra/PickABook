@@ -7,11 +7,17 @@
         @if ($cartHeaders == '[]')
             <h3>Cart is empty</h3>
         @endif
+        @if ($errors->any())
+            <p class="text-warning pt-3">{{$errors->first()}}</p>
+        @endif
         @foreach ($cartHeaders as $cartHeader)
             <div class="card mb-3 mt-4 w-75 p-4">
                 <div class="d-flex flex-row justify-content-between align-items-center">
                     <h3 class="m-4">{{$cartHeader->library->name}}</h3>
-                    <a class="btn btn-outline-dark justify-content-end m-4" type="button" href="/pickup">Check Out</a>
+                    <form action="/cart/checkout/{{$cartHeader->library->id}}" method="post">
+                        @csrf
+                        <button class="btn btn-outline-dark justify-content-end m-4" type="submit">Check Out</button>
+                    </form>
                 </div>
                 @foreach ($cartHeader->cartDetail as $cartDetail)
                     <div class="row border rounded m-3 align-items-center">
