@@ -23,6 +23,18 @@ class AdminController extends BaseController
         return redirect()->route('manageBook');
     }
 
+
+    public function edit($bookId){
+
+        $currBook = Book::where('bookId', $bookId)->first()->bookId;
+        $authors = Author::get(); // Eloquent?
+        $publishers = Publisher::get();
+        $languages = Language::get();
+        $categories = Category::get();
+        return view('updateBook', compact('currBook', 'publishers', 'languages', 'categories', 'authors'));
+
+    }
+
     public function updateBook(){
 
 
