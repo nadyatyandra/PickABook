@@ -48,7 +48,7 @@
     <style>
         .bookimage{
             width: 100%;
-            height: 27vw;
+            height: 30vw;
             object-fit: cover;
         }
     </style>
