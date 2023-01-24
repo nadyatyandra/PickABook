@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Book;
 use App\Models\BookLibrary;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends BaseController
 {
@@ -19,9 +21,32 @@ class AdminController extends BaseController
 
     public function updateBook(){
 
+
+
     }
 
-    public function insertBook(){
+    public function insertBook(Request $request){
+
+        $image = $request->file('inputImage');
+        $imageName = $image->getClientOriginalName();
+
+        // Please check path
+        Storage::putFileAs('public/images/books/', $image, $imageName);
+        $inputPhotopath = $imageName;
+
+        $newBook = new Book();
+        $newBook->authorId = $request->inputAuthor;
+        $newBook->publisherId = $request->inputPublisher;
+        $newBook->title = $request->inputTitle;
+        $newBook->ISBN = $request->inputISBN;
+        $newBook->photoPath = $inputPhotopath;
+        $newBook->synopsis = $request->inputSynopsis;
+        $newBook->languageId = $request->inputLanguage;
+        $newBook->publishedYear = $request->inputPublishedYear;
+        $newBook->weight = $request->inputWeight;
+        $newBook->save();
+
+        return redirect()->route('manageBook');
 
     }
 }

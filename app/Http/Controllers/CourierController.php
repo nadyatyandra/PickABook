@@ -11,10 +11,16 @@ class CourierController extends BaseController
     public function pickup(){
         $userId = Auth::user()->id;
         $summary = OrderHeader::where('memberId', '=', $userId, 'and')->where('statusId', 1)->first();
+        // dd($summary);
         return view('pickup', compact('summary'));
     }
 
-    public function checkout(){
+    public function checkout($orderId){
+        // dd($orderId);
+        OrderHeader::whereId($orderId)->update([
+            'statusId' => 2
+        ]);
 
+        return redirect()->route('history');
     }
 }
