@@ -1,11 +1,11 @@
 @extends('master.template')
 
-@section('title', 'pickup')
+@section('title', 'Pick Up')
 
 @section('body')
 
 <div class="d-flex flex-wrap justify-content-center">
-    <div class="card mb-3 mt-4 w-75">  
+    <div class="card mb-3 mt-4 w-75">
     <p class="m-4">Order Book Summary</p>
     <div class="d-flex flex-wrap justify-content-center">
         <div class="card mb-3 mt-4 w-75">
@@ -31,7 +31,7 @@
             <div>
                 <input type="radio" onclick="javascript:pickupCheck();" class="btn-check" name="options" id="self" autocomplete="off">
                 <label class="btn btn-outline-secondary" for="self">Self Pick-Up</label>
-                
+
                 <input type="radio" onclick="javascript:pickupCheck();" class="btn-check" name="options" id="courier" autocomplete="off">
                 <label class="btn btn-outline-secondary" for="courier">Courier Pick-Up</label>
                 <br>
