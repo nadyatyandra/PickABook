@@ -6,7 +6,7 @@
 <form action="" method="post">
     @csrf
     <div class="d-flex flex-column align-items-center container-fluid justify-content-center" style="background-color: bisque">
-        <h1 class="text-center">Edit Profile</h1>
+        <h1 class="text-center my-3">Edit Profile</h1>
         <div class="col-md-6 mb-4">
             <label for="name" class="form-label">Name</label>
             <input type="text" class="form-control" name='name' id="name" placeholder="Your Name" value="{{old('name')}}">
@@ -24,14 +24,12 @@
             <input type="number" class="form-control" name='number' id="number" placeholder="(10-14 digits)" value="{{old('number')}}">
         </div>
         @if ($errors->any())
-            <p class="text-center text-warning">{{$errors->first()}}</p>
+            <p class="text-center text-danger">{{$errors->first()}}</p>
         @endif
-        <div class="d-flex flex-column align-items-center">
-            <button type="submit" class="btn btn-primary mt-4">Register</button>
+        <div class="d-flex justify-content-between mb-4">
+            <button type="submit" class='btn btn-outline-dark mx-2'>Save Changes</button>
+            <button type="submit" class='btn btn-dark mx-2' href="{{route('profile')}}">Back</button>
         </div>
-        <br>
-        <a class="btn btn-outline-danger text-red" type="button" href="{{route('profile')}}">Back</a>
-        <br>
     </div>
 </form>
 @endsection

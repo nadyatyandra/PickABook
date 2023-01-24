@@ -20,12 +20,11 @@
             <input type="password" class="form-control" name='confirmNewPassword' id="confirmNewPassword" placeholder="Confirm New Password (min 5 letters)">
         </div>
         @if ($errors->any())
-            <p class="text-center text-warning">{{$errors->first()}}</p>
+            <p class="text-center text-danger">{{$errors->first()}}</p>
         @endif
         <div class="d-flex justify-content-between mb-4">
             <button type="submit" class='btn btn-outline-dark mx-2'>Save Password</button>
-            <button type="submit" class='btn btn-dark mx-2'>Back</button>
+            <button type="submit" class='btn btn-dark mx-2' href="{{route('profile')}}">Back</button>
         </div>
-    </div>
-</form>
+    </form>
 @endsection
