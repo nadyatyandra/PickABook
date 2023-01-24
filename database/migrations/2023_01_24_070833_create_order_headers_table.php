@@ -20,6 +20,9 @@ class CreateOrderHeadersTable extends Migration
             $table->date('date');
             $table->unsignedBigInteger('adminId')->nullable();
             $table->foreign('adminId')->references('id')->on('users')->onDelete('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('statusId');
+            $table->foreign('statusId')->references('id')->on('statuses')->onDelete('cascade')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
