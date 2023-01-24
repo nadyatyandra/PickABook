@@ -6,7 +6,7 @@
     <form action="/register" method="post">
         @csrf
         <div class="d-flex flex-column align-items-center container-fluid justify-content-center" style="background-color: bisque">
-            <h1 class="text-center">Register</h1>
+            <h1 class="text-center my-3">Register</h1>
             <div class="col-md-6 mb-4">
                 <label for="nik" class="form-label">NIK</label>
                 <input type="number" class="form-control" name='nik' id="nik" placeholder="(16 digits)" value="{{old('nik')}}">
@@ -37,11 +37,11 @@
                 <input type="number" class="form-control" name='number' id="number" placeholder="(10-14 digits)" value="{{old('number')}}">
             </div>
             @if ($errors->any())
-                <p class="text-center text-warning">{{$errors->first()}}</p>
+                <p class="text-center text-danger">{{$errors->first()}}</p>
             @endif
             <div class="d-flex flex-column align-items-center">
-                <button type="submit" class="btn btn-primary mt-4">Register</button>
-                <p class="mt-4">Already have account? <a href="{{route('login')}}">Login Now!</a></p>
+                <button type="submit" class="btn btn-dark mb-3">Register</button>
+                <p class="text-center">Already have an account? <a class="text-decoration-none text-reset" href="{{route('login')}}"><u>Login now!</u></a></p>
             </div>
         </div>
     </form>

@@ -16,7 +16,7 @@
                 <input type="password" class="form-control" name='confirmed' id="confirmed" placeholder="(min 5 letters)">
             </div>
             @if ($errors->any())
-                <p class="text-center text-warning">{{$errors->first()}}</p>
+                <p class="text-center text-danger">{{$errors->first()}}</p>
             @endif
             <div class="d-flex justify-content-between mb-4">
                 <button type="submit" class='btn btn-outline-dark mx-2'>Save Password</button>

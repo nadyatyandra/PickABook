@@ -24,7 +24,7 @@
             <input type="number" class="form-control" name='number' id="number" placeholder="(10-14 digits)" value="{{old('number')}}">
         </div>
         @if ($errors->any())
-            <p class="text-center text-warning">{{$errors->first()}}</p>
+            <p class="text-center text-danger">{{$errors->first()}}</p>
         @endif
         <div class="d-flex justify-content-between mb-4">
             <button type="submit" class='btn btn-outline-dark mx-2'>Save Changes</button>
