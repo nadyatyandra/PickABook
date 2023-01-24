@@ -42,8 +42,6 @@ Route::post('/register', [AuthController::class, 'register']);
 //route utk logout
 Route::post('/logout', [AuthController::class, 'logout']);
 
-// might want to change the route to '/'
-// Reply: maybe '/' is more suitable for welcome page(?)
 Route::get('/home', [BookController::class, 'home'])->name('home')->middleware('userM');
 
 Route::get('/bookDetail/{id}', [BookController::class, 'bookDetail'])->middleware('userM');

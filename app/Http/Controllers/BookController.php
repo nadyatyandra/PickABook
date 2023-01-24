@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\DB;
 class BookController extends BaseController
 {
     public function home(){
+        // $books = DB::table('books');
+        // return view('home', compact('books'));
         return view('home');
     }
 
