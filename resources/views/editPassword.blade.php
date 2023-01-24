@@ -1,6 +1,6 @@
 @extends('master.template')
 
-@section('title', 'Edit Passwrpd')
+@section('title', 'Edit Password')
 
 @section('body')
 <form action="" method="post">
