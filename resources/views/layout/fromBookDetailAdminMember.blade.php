@@ -20,7 +20,7 @@
                         <p class="card-text">Book Publisher</p>
                         {{-- after model relation has been determined on publisher, with function name publisher--}}
                         {{-- <p class="card-text">{{$book->publisher->name}}</p> --}}
-                        @yield(details)
+                        @yield('details')
                     </div>
                 </div>
             </div>
