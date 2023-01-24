@@ -30,6 +30,9 @@
                             <option value="{{$library->id}}">{{$library->name}}</option>
                         @endforeach
                     </select>
+                    @if ($errors->any())
+                        <p class="text-warning">{{$errors->first()}}</p>
+                    @endif
                     <button class="btn btn-outline-dark col-6 mt-4" type="submit">Add To Cart</button>
                 </form>
             </div>
