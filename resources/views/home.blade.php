@@ -119,7 +119,7 @@
         <h1 class="text-center mt-3">Best Author 2023</h1>
         <div class="d-flex flex-row m-1 justify-content-center">
             @foreach ($authors as $author)
-                <button type="button" class="btn btn-outline-{{$colours[$loop->index%5]}} mx-1">{{$author->name}}</button>
+                <a class="btn btn-outline-{{$colours[$loop->index%5]}} mx-1" href="/BooksBy/{{$author->name}}">{{$author->name}}</a>
             @endforeach
         </div>
     </div>
