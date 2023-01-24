@@ -19,7 +19,7 @@ class StatusSeeder extends Seeder
                 'status' => 'Order Placed'
             ],
             [
-                'status' => 'Pickup Method Confirmed'
+                'status' => 'Pickup Method Confirmed - Waiting for Admin Confirmation'
             ],
             [
                 'status' => 'Borrowing'
