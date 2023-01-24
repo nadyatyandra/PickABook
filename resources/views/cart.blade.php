@@ -23,13 +23,13 @@
                     <div class="row border rounded m-3 align-items-center">
                         <div class="col-md-4 p-3">
                             {{-- img size has to be changed --}}
-                            <img src="{{url('storage\app\public\images\books\\'.$cartDetail->book->photoPath)}}" class="img-fluid rounded-start ms-4" alt="{{$cartDetail->book->title}}">
+                            <img src="{{url('storage\app\public\images\books\\'.$cartDetail->book->photoPath)}}" class="bookimage img-fluid rounded-start ms-4" alt="{{$cartDetail->book->title}}">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
                                 <h5 class="card-title">{{$cartDetail->book->title}}</h5>
                                 <p class="card-text">{{$cartDetail->book->author->name}}</p>
-                                <p class="card-text">{{$cartDetail->book->synopsis}}</p>
+                                <p class="card-text">Weight: {{$cartDetail->book->weight}}</p>
                                 <div class="d-grid gap-2 d-md-flex">
                                     <form method="post" action="/cart/delete/{{$cartHeader->libraryId}}/{{$cartDetail->bookId}}">
                                         @csrf
@@ -44,4 +44,13 @@
             </div>
         @endforeach
     </div>
+
+    <style>
+        .bookimage{
+            width: 100%;
+            height: 27vw;
+            object-fit: cover;
+        }
+    </style>
+
 @endsection
