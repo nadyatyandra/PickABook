@@ -29,7 +29,11 @@ class DatabaseSeeder extends Seeder
             CartHeaderSeeder::class,
             CartDetailSeeder::class,
             GroupSeeder::class,
-            BookGroupSeeder::class
+            BookGroupSeeder::class,
+            StatusSeeder::class,
+            OrderHeaderSeeder::class,
+            OrderDetailSeeder::class,
+
         ]);
         // \App\Models\User::factory(10)->create();
     }

@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class OrderHeader extends Model
 {
     use HasFactory;
+
+    public function orderDetail(){
+        return $this->hasMany(OrderDetail::class, 'orderHeaderId', 'id');
+    }
+
+    public function status(){
+        return $this->belongsTo(Status::class, 'statusId', 'id');
+    }
 }

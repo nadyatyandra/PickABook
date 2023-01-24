@@ -28,4 +28,8 @@ class Book extends Model
     public function group(){
         return $this->belongsToMany(Group::class, 'book_groups', 'bookId', 'groupId');
     }
+
+    public function orderDetail(){
+        return $this->hasMany(OrderDetail::class, 'bookId', 'id');
+    }
 }

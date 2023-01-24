@@ -9,6 +9,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\CartHeaderController;
 use App\Http\Controllers\CourierController;
+use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ProfileController;
 
 /*
@@ -51,7 +52,7 @@ Route::delete('/cart/delete/{libraryId}/{bookId}', [CartHeaderController::class,
 Route::get('/checkout', [CourierController::class, 'checkout'])->middleware('memberM');
 Route::get('/pickup', [CourierController::class, 'pickup'])->name('pickup')->middleware('memberM');
 
-Route::get('/history', [BookController::class, 'history'])->name('history')->middleware('memberM');
+Route::get('/history', [MemberController::class, 'history'])->name('history')->middleware('memberM');
 
 Route::get('/manageBook', [BookController::class, 'getBookDetail'])->name('manageBook')->middleware('adminM');
 Route::delete('admin/delete-book/{bookId}', [AdminController::class, 'deleteBook']);

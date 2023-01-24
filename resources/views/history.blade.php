@@ -5,12 +5,26 @@
 @section('body')
     <h1 class="d-flex flex-wrap justify-content-center mt-4">History</h1>
     <div class="d-flex flex-wrap justify-content-center my-2">
-        <div class="card mb-2 mt-3 w-75">
-            <div class="card-body">
-                <h5 class="fw-bold mt-3">Borrow Date - Return Date</h5>
-                    <li>Borrowed books - ISBN</li>
-                <h5 class="fw-bold mt-3">Status</h5>
+        @foreach ($orders as $order)
+            {{-- ketika status masih order confirmed / belom atur pickup, maka gak masuk di history --}}
+            {{-- kalo pickup method confirmed = sudah atur pickup, tapi blm diaccept sama admin --}}
+            @if ($order->statusId != 1)
+            <div class="card mb-2 mt-3 w-75">
+                <div class="card-body">
+                    @php
+                        $date = Carbon::parse($order->date)->format('d M Y');
+                        $returnDate = Carbon::parse($date)->addDays(30)->format('d M Y');
+                    @endphp
+
+                    <h5 class="fw-bold mt-3">{{$date}} - Return by {{$returnDate}}</h5>
+
+                    @foreach ($order->orderDetail as $orderDetail)
+                        <li>{{$orderDetail->book->title}} - {{$orderDetail->book->ISBN}}</li>
+                    @endforeach
+                    <h5 class="fw-bold mt-3">Status: {{$order->status->status}}</h5>
+                </div>
             </div>
-        </div>
+            @endif
+        @endforeach
     </div>
 @endsection
