@@ -45,11 +45,62 @@
                         </div>
                         <a href="/bookDetail/{{$book->id}}" class="booksbtn btn btn-outline-dark">Book Detail</a>
                     </div>
+                @endforeach
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselRelease" data-bs-slide="prev">
+            <span class="below-carousel carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselRelease" data-bs-slide="next">
+            <span class="below-carousel carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
 
+    <!-- popular -->
+    <div id="carouselRelease" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="card container-fluid mt-3 w-75 pb-5" style="background-color: light">
+                <h1 class="text-center mt-3">Popular Books</h1>
+                <div class='card border-white container-fluid d-flex flex-row m-1 row row-cols-4 g-4 justify-content-center'>
+                @foreach ($books_popular as $book)
+                    <div class='bookoutline card m-2 p-1 zoom-in' style="width: 12rem">
+                        <img src="{{url('storage\app\public\images\books\\'.$book->photoPath)}}" class="card-img-top" alt="{{$book->title}}">
+                        <div class="bookcard card-body">
+                            <h5 class="card-title">{{$book->title}}</h5>
+                            <span class='card-subtitle mb-2 text-muted'>{{$book->author->name}}</span>
+                        </div>
+                        <a href="/bookDetail/{{$book->id}}" class="booksbtn btn btn-outline-dark">Book Detail</a>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselRelease" data-bs-slide="prev">
+            <span class="below-carousel carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselRelease" data-bs-slide="next">
+            <span class="below-carousel carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
 
-
-
-
+        <!-- editors pick -->
+        <div id="carouselRelease" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="card container-fluid mt-3 w-75 pb-5" style="background-color: light">
+                <h1 class="text-center mt-3">Editor's Pick</h1>
+                <div class='card border-white container-fluid d-flex flex-row m-1 row row-cols-4 g-4 justify-content-center'>
+                @foreach ($books_editorsPick as $book)
+                    <div class='bookoutline card m-2 p-1 zoom-in' style="width: 12rem">
+                        <img src="{{url('storage\app\public\images\books\\'.$book->photoPath)}}" class="card-img-top" alt="{{$book->title}}">
+                        <div class="bookcard card-body">
+                            <h5 class="card-title">{{$book->title}}</h5>
+                            <span class='card-subtitle mb-2 text-muted'>{{$book->author->name}}</span>
+                        </div>
+                        <a href="/bookDetail/{{$book->id}}" class="booksbtn btn btn-outline-dark">Book Detail</a>
+                    </div>
                 @endforeach
             </div>
         </div>

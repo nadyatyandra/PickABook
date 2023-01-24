@@ -20,4 +20,8 @@ class Library extends Model
     public function admin(){
         return $this->hasMany(Admin::class, 'libraryId', 'id');
     }
+
+    public function orderHeader(){
+        return $this->hasMany(orderHeader::class, 'libraryId', 'id');
+    }
 }
