@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserAdminTable extends Migration
+class CreateUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,16 @@ class CreateUserAdminTable extends Migration
      */
     public function up()
     {
-        Schema::create('user__admin', function (Blueprint $table) {
+        // untuk users, menggunakan approach https://dba.stackexchange.com/questions/75792/multiple-user-types-db-design-advice
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('NIK')->unique();
-            $table->string('KTP_photo');
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->date('DOB');
+            $table->unsignedBigInteger('role_id');
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade')->onUpdate('cascade');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -34,6 +35,6 @@ class CreateUserAdminTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user__admin');
+        Schema::dropIfExists('users');
     }
 }

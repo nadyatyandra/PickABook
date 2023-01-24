@@ -18,6 +18,7 @@ class CreateBookLibrariesTable extends Migration
             $table->foreignId('bookId')->constrained('books');
             $table->foreignId('libraryId')->constrained('libraries');
             $table->integer('stock');
+            $table->timestamps();
         });
     }
 
