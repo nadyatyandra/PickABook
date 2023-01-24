@@ -4,18 +4,19 @@
 
 @section('body')
 
-<div class="d-grid gap-2 d-md-flex justify-content-md-end m-4">
-    <a class="btn btn-outline-dark" type="button" href="...">Check Out</a>
-</div>
-
 <div class="d-flex flex-wrap justify-content-center">
     @if ($cartHeaders == '[]')
-        <h3>Cart is empty</h3>
+    <h3>Cart is empty</h3>
     @endif
     @foreach ($cartHeaders as $cartHeader)
-        <div class="card mb-3 mt-4 w-75">
-            {{-- ui design belum --}}
+    <div class="card mb-3 mt-4 w-75">
+        <div class="d-flex flex-row justify-content-betwen">
             <h3>{{$cartHeader->library->name}}</h3>
+            <div>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end m-4">
+                    <a class="btn btn-outline-dark" type="button" href="...">Check Out</a>
+                </div>
+            </div>
             @foreach ($cartHeader->cartDetail as $cartDetail)
                 <div class="row g-0">
                     <div class="col-md-4">
