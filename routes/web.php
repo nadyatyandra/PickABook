@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\OrderHeaderController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\CartHeaderController;
 use App\Http\Controllers\CourierController;
@@ -61,6 +62,8 @@ Route::delete('admin/delete-book/{bookId}', [AdminController::class, 'deleteBook
 Route::get('/updateBook', [BookController::class, 'updateBook'])->name('updateBook')->middleware('adminM');
 
 Route::get('/insertBook', [BookController::class, 'insertBook'])->name('insertBook')->middleware('adminM');
+
+Route::get('/manageOrder', [OrderHeaderController::class, 'manageOrder'])->name('manageOrder')->middleware('adminM');
 
 Route::get('/notFound', [PageController::class, 'notFound'])->name('notFound');
 
