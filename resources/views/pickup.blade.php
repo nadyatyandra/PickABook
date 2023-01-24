@@ -42,7 +42,7 @@
                 The Library Address is as below:
                 </div>
                 <div id="ifCourier" style="display:none">
-                Choose your Courier
+                Choose your Courier (Payment Method Available only COD)
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="JNE" id="JNE">
                         <label class="form-check-label" for="JNE">
@@ -67,9 +67,11 @@
                             Si Cepat
                         </label>
                     </div>
-
                 </div>
             </div>
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end m-4">
+            <button class="btn btn-outline-success disabled" type="button">Confirm Order</button>
         </div>
     </div>
 </div>
