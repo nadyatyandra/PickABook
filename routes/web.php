@@ -65,6 +65,8 @@ Route::get('/insertBook', [BookController::class, 'insertBook'])->name('insertBo
 
 Route::get('/manageOrder', [OrderHeaderController::class, 'manageOrder'])->name('manageOrder')->middleware('adminM');
 
+Route::get('/orderDetail/{id}', [OrderHeaderController::class, 'orderDetail'])->name('orderDetail')->middleware('adminM');
+
 Route::get('/notFound', [PageController::class, 'notFound'])->name('notFound');
 
 Route::get('/landing', [PageController::class, 'landingPage'])->name('landing')->middleware('guestM');

@@ -19,34 +19,36 @@
                 </tr>
             </thead>
             <tbody>
-                {{-- @foreach ($books as $book) --}}
+                @foreach ($orders as $order)
                     <tr>
-                        {{-- <th scope="row" class="text-center align-middle">{{$loop->index + 1}}</th> --}}
-                        <th scope="row" class="text-center align-middle">1</th>
-                        <td class="align-middle">asd</td>
-                        <td class="align-middle">asd</td>
-                        <td class="align-middle">asd</td>
-                        <td class="align-middle">asd</td>
-                        <td class="align-middle">asd</td>
-                        <td class="align-middle">asd</td>
+                        <th scope="row" class="text-center align-middle">{{$loop->index + 1}}</th>
+                        <td class="align-middle text-center">{{$order->memberId}}</td>
+                        <td class="align-middle text-center">{{$order->libraryId}}</td>
+                        <td class="align-middle text-center">asd</td>
+                        <td class="align-middle text-center">asd</td>
+                        @php
+                            $date = Carbon::parse($order->date)->format('d M Y');
+                            $returnDate = Carbon::parse($date)->addDays(30)->format('d M Y');
+                        @endphp
+                        <td class="align-middle text-center">{{$date}}</td>
+                        <td class="align-middle text-center">{{$returnDate}}</td>
                         <td class="text-center align-middle">
-                            {{-- sesuai database, tinggal isi di ... --}}
-                            {{-- @if ()
-                                <span class="text-white bg-primary p-1">...</span>
-                            @elseif ()
-                                <span class="text-white bg-secondary p-1">...</span>
-                            @elseif ()
-                                <span class="text-white bg-dark p-1">...</span>
+                            @if ($order->statusId == 1)
+                                {{-- <span class="text-white bg-primary p-1">{{$order->status->status}}</span> --}}
+                            @elseif ($order->statusId == 2)
+                                {{-- <span class="text-white bg-secondary p-1">{{$order->statusId}}</span> --}}
+                            @elseif ($order->statusId == 3)
+                                {{-- <span class="text-white bg-dark p-1">{{$order->statusId}}</span> --}}
                             @else
-                                 <span class="text-white bg-success p-1">...</span>
-                            @endif --}}
+                                 {{-- <span class="text-white bg-success p-1">{{$order->statusId}}</span> --}}
+                            @endif
                         </td>
                         <td class="text-center d-flex justify-content-center align-middle">
-                            <a href="" class="btn btn-outline-dark me-2">View Detail</a>
+                            <a href="/orderDetail/{{$order->id}}" class="btn btn-outline-dark me-2">View Detail</a>
                             <a href="" class="btn btn-outline-dark">Update Status</a>
                         </td>
                     </tr>
-                {{-- @endforeach --}}
+                @endforeach
             </tbody>
         </table>
     </div>
