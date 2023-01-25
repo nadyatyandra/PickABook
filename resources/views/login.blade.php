@@ -15,7 +15,7 @@
                 <label for="password" class="form-label">Password</label>
                 <input type="password" class="form-control" name='password' id="password">
             </div>
-            <div class="form-check">
+            <div class="form-check mb-3">
                 <input class="form-check-input" type="checkbox" value="" name="remember_me" id="remember_me">
                 <label class="form-check-label" for="remember_me">Remember Me</label>
             </div>

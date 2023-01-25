@@ -3,7 +3,7 @@
 @section('title', 'Edit Profile')
 
 @section('body')
-<form action="" method="post">
+<form action="/profile/editProfile" method="post">
     @csrf
     <div class="d-flex flex-column align-items-center container-fluid justify-content-center" style="background-color: bisque">
         <h1 class="text-center my-3">Edit Profile</h1>
