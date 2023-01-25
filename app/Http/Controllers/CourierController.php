@@ -23,6 +23,9 @@ class CourierController extends BaseController
         }
         else if($request['options'] == 'Courier'){
             $name = $request['courier'];
+            if($name == NULL){
+                return redirect()->back()->withErrors('Please choose the courier for courier pick-up');
+            }
             $courierId = Courier::where('name', $name)->first()->id;
         }
         else{
