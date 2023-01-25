@@ -18,17 +18,32 @@ class BookLibrarySeeder extends Seeder
             [
                 'bookId' => 1,
                 'libraryId' => 1,
-                'stock' => 1
+                'stock' => 2
             ],
             [
                 'bookId' => 2,
+                'libraryId' => 1,
+                'stock' => 3
+            ],
+            [
+                'bookId' => 4,
+                'libraryId' => 1,
+                'stock' => 5
+            ],
+            [
+                'bookId' => 7,
+                'libraryId' => 1,
+                'stock' => 2
+            ],
+            [
+                'bookId' => 9,
                 'libraryId' => 1,
                 'stock' => 2
             ],
             [
                 'bookId' => 1,
                 'libraryId' => 2,
-                'stock' => 3
+                'stock' => 4
             ],
             [
                 'bookId' => 5,

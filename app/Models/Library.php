@@ -24,4 +24,8 @@ class Library extends Model
     public function orderHeader(){
         return $this->hasMany(orderHeader::class, 'libraryId', 'id');
     }
+
+    public function bookLibrary(){
+        return $this->hasMany(bookLibrary::class, 'libraryId', 'id');
+    }
 }

@@ -62,9 +62,10 @@ class BookController extends BaseController
 
     // param boleh id, boleh ISBN. ISBN might be better.
     public function bookDetail($id){
-        $book = Book::whereId($id)->first();
+        $bookLibraries = BookLibrary::where('bookId', $id)->get();
+
         // book id not found.
-        if($book == NULL){
+        if($bookLibraries == '[]'){
             return redirect()->route('home');
         }
 
@@ -80,10 +81,10 @@ class BookController extends BaseController
 
         // dd($stock);
         if(Auth::user()->role_id == 1){
-            return view('bookDetailAdmin', compact('book', 'stock'));
+            return view('bookDetailAdmin', compact('bookLibraries', 'stock'));
         }
         else if(Auth::user()->role_id == 2){
-            return view('bookDetailMember', compact('book', 'stock'));
+            return view('bookDetailMember', compact('bookLibraries', 'stock'));
         }
         else{
             return redirect()->route('home');

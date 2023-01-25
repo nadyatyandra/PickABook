@@ -12,7 +12,7 @@ class Book extends Model
     public function author(){
         return $this->belongsTo(Author::class, 'authorId', 'id');
     }
-    
+
     public function publisher(){
         return $this->belongsTo(Publisher::class, 'publisherId', 'id');
     }
@@ -33,11 +33,16 @@ class Book extends Model
         return $this->hasMany(CartDetail::class, 'bookId', 'id');
     }
 
+
     public function group(){
         return $this->belongsToMany(Group::class, 'book_groups', 'bookId', 'groupId');
     }
 
     public function orderDetail(){
         return $this->hasMany(OrderDetail::class, 'bookId', 'id');
+    }
+
+    public function bookLibrary(){
+        return $this->hasMany(bookLibrary::class, 'bookId', 'id');
     }
 }
