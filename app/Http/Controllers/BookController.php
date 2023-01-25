@@ -157,6 +157,7 @@ class BookController extends BaseController
         Storage::putFileAs('public/images/books/', $image, $imageName);
         $inputPhotopath = $imageName;
 
+        //Update Book Details
         Book::where('id', $bookId) //Eloquent?
         ->update([
             'authorId' => $request->inputAuthor,
@@ -170,10 +171,22 @@ class BookController extends BaseController
             'weight' => $request->inputWeight,
         ]);
 
+        //Update Categories
         BookCategory::where('bookId', $bookId)
         ->first()
         ->update([
             'categoryId' => $request->categoryId
+        ]);
+
+        //Update Stock at Library
+        $userId = Auth::user()->id;
+        $libraryId = Admin::where('userId', $userId)->first()->libraryId;
+
+        BookLibrary::where('libraryId', $libraryId)
+        ->where('bookId', $bookId)
+        ->first()
+        ->update([
+            'stock' => $request->inputStock
         ]);
 
         return redirect()->route('manageBook');

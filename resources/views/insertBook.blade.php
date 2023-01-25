@@ -1,4 +1,4 @@
-@extends('layout.fromInsertUpdateBook')
+@extends('layout.fromInsertBook')
 
 @section('title', 'Insert Book')
 
