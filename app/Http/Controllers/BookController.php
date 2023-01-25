@@ -25,14 +25,29 @@ class BookController extends BaseController
         // $books = DB::table('books');
         // return view('home', compact('books'));
         // return view('home');
-        $books_editorsPick = Book::whereRelation('group', 'groupId', 1)->get();
-        $books_popular = Book::whereRelation('group', 'groupId', 2)->get();
-        $books = Book::whereRelation('group', 'groupId', 3)->get();
+        $books_editorsPick = Book::whereRelation('group', 'groupId', 1)->limit(3)->get();
+        $books_popular = Book::whereRelation('group', 'groupId', 2)->limit(3)->get();
+        $books = Book::whereRelation('group', 'groupId', 3)->limit(3)->get();
         // change n in take(n) to change the number of authors shown
         $authors = Author::all()->shuffle()->take(6);
         $colours = ['primary', 'dark', 'danger', 'warning', 'success'];
         // dd($books_newRelease);
         return view('home', compact('books', 'books_popular', 'books_editorsPick', 'authors', 'colours'));
+    }
+
+    public function newRelease(){
+        $books = Book::whereRelation('group', 'groupId', 3)->Paginate(4);
+        return view('newRelease', compact('books'));
+    }
+
+    public function popularBooks(){
+        $books_popular = Book::whereRelation('group', 'groupId', 2)->Paginate(4);
+        return view('popularBooks', compact('books_popular'));
+    }
+
+    public function editorsPick(){
+        $books_editorsPick = Book::whereRelation('group', 'groupId', 1)->Paginate(4);
+        return view('editorsPick', compact('books_editorsPick'));
     }
 
     public function viewAll(){
