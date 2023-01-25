@@ -4,7 +4,8 @@
 
 @section('body')
     <div class='align-items-center p-5'>
-        <a href="{{route('insertBook')}}" class="btn btn-outline-dark me-3 my-3">Insert Book</a>
+        <a href="{{route('insertBook')}}" class="btn btn-outline-dark me-3 my-3">Insert New Book</a>
+        <a href="{{route('addToLibrary')}}" class="btn btn-outline-dark me-3 my-3">Add to Library</a>
         <table class="table">
             <thead class="table-dark justify-content-center text-center">
                 <tr>
