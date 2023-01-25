@@ -27,6 +27,18 @@ class CartDetailSeeder extends Seeder
                 'cartHeaderId' => 2,
                 'bookId' => 5
             ],
+            [
+                'cartHeaderId' => 3,
+                'bookId' => 1
+            ],
+            [
+                'cartHeaderId' => 3,
+                'bookId' => 5
+            ],
+            [
+                'cartHeaderId' => 4,
+                'bookId' => 4
+            ],
         ];
         foreach ($cart_detail as $key => $value) {
             CartDetail::create($value);

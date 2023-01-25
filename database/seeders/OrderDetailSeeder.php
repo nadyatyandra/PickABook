@@ -39,6 +39,18 @@ class OrderDetailSeeder extends Seeder
                 'orderHeaderId' => 4,
                 'bookId' => 2
             ],
+            [
+                'orderHeaderId' => 5,
+                'bookId' => 1
+            ],
+            [
+                'orderHeaderId' => 5,
+                'bookId' => 3
+            ],
+            [
+                'orderHeaderId' => 6,
+                'bookId' => 4
+            ],
 
         ];
         foreach ($order_details as $key => $value) {
