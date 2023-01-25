@@ -28,66 +28,57 @@ use App\Http\Controllers\ProfileController;
 //     return view('welcome');
 // });
 
-Route::get('/login', [AuthController::class, 'loginPage'])->name('login')->middleware('guestM');
-Route::post('/authenticate', [AuthController::class, 'login']);
+Route::middleware(['middleware' => 'guestM'])->group(function () {
+    Route::get('/login', [AuthController::class, 'loginPage'])->name('login');
+    Route::post('/authenticate', [AuthController::class, 'login']);
+    Route::get('/register', [AuthController::class, 'registerPage'])->name('register');
+    Route::post('/register', [AuthController::class, 'register']);
+    Route::get('/landing', [PageController::class, 'landingPage'])->name('landing');
+});
 
-Route::get('/register', [AuthController::class, 'registerPage'])->name('register')->middleware('guestM');
-Route::post('/register', [AuthController::class, 'register']);
+Route::middleware(['middleware' => 'userM'])->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout']);
+    // might want to change the route to '/'
+    // Reply: maybe '/' is more suitable for welcome page(?)
+    // RE:RE: for now it's for home, but feel free to change ya
+    Route::get('/', [BookController::class, 'home'])->name('home');
+    Route::get('/search', [BookController::class, 'search'])->name('search');
+    Route::get('/bookDetail/{id}', [BookController::class, 'bookDetail']);
+    Route::post('add-book/{bookId}', [BookController::class, 'addBookToCart']);
+    Route::get('/category/{name}', [BookController::class, 'category'])->name('category');
+    Route::get('/BooksBy/{authorName}', [BookController::class, 'bookAuthor'])->name('bookAuthor');
+    Route::get('/books', [BookController::class, 'viewAll'])->name('books');
+    Route::get('/search', [BookController::class, 'searchBook'])->name('search');
+    Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
+    Route::get('/profile/editPassword', [ProfileController::class, 'editPasswordPage'])->name('editPassword');
+    Route::post('/profile/editPassword', [ProfileController::class, 'editPassword']);
+});
 
-//route utk logout
-Route::post('/logout', [AuthController::class, 'logout']);
+Route::middleware(['middleware' => 'memberM'])->group(function () {
+    Route::get('/cart', [CartHeaderController::class, 'cart'])->name('cart');
+    Route::delete('/cart/delete/{libraryId}/{bookId}', [CartHeaderController::class, 'removeFromCart']);
+    Route::post('/cart/checkout/{libraryId}', [CartHeaderController::class, 'checkout']);
+    // Route::get('/checkout', [CourierController::class, 'checkout']);
+    Route::get('/pickup', [CourierController::class, 'pickup'])->name('pickup');
+    Route::post('/pickup/confirm/{orderId}', [CourierController::class, 'checkout']);
+    Route::get('/history', [MemberController::class, 'history'])->name('history');
+    Route::get('/profile/editProfile', [ProfileController::class, 'editProfilePage'])->name('editProfile');
+    Route::post('/profile/editProfile', [ProfileController::class, 'editProfile']);
+});
 
-// might want to change the route to '/'
-// Reply: maybe '/' is more suitable for welcome page(?)
-// RE:RE: for now it's for home, but feel free to change ya
-Route::get('/', [BookController::class, 'home'])->name('home')->middleware('userM');
-Route::get('/search', [BookController::class, 'search'])->name('search');
-
-Route::get('/bookDetail/{id}', [BookController::class, 'bookDetail'])->middleware('userM');
-Route::post('add-book/{bookId}', [BookController::class, 'addBookToCart']);
-
-Route::get('/category/{name}', [BookController::class, 'category'])->name('category');
-Route::get('/BooksBy/{authorName}', [BookController::class, 'bookAuthor'])->name('bookAuthor');
-
-Route::get('/cart', [CartHeaderController::class, 'cart'])->name('cart')->middleware('memberM');
-Route::delete('/cart/delete/{libraryId}/{bookId}', [CartHeaderController::class, 'removeFromCart']);
-Route::post('/cart/checkout/{libraryId}', [CartHeaderController::class, 'checkout']);
-
-// Route::get('/checkout', [CourierController::class, 'checkout'])->middleware('memberM');
-Route::get('/pickup', [CourierController::class, 'pickup'])->name('pickup')->middleware('memberM');
-Route::post('/pickup/confirm/{orderId}', [CourierController::class, 'checkout']);
-
-Route::get('/history', [MemberController::class, 'history'])->name('history')->middleware('memberM');
-
-Route::get('/manageBook', [BookController::class, 'getBookDetail'])->name('manageBook')->middleware('adminM');
-
-Route::delete('admin/delete-book/{bookId}', [AdminController::class, 'deleteBook']);
-
-Route::get('/updateBook', [BookController::class, 'updateBook'])->name('updateBook')->middleware('adminM');
-
-
-Route::get('/insertBook', [BookController::class, 'insertBook'])->name('insertBook')->middleware('adminM');
-Route::post('/insertBooktoMaster', [BookController::class, 'insertBooktoMaster'])->name('insertBooktoMaster')->middleware('adminM');
-Route::get('/viewAddToLibrary', [BookController::class, 'viewAddToLibrary'])->name('viewAddToLibrary')->middleware('adminM');
-Route::post('/addToLibrary', [BookController::class, 'AddToLibrary'])->name('AddToLibrary')->middleware('adminM');
-
-
-Route::get('/manageOrder', [OrderHeaderController::class, 'manageOrder'])->name('manageOrder')->middleware('adminM');
-Route::get('/orderDetail/{id}', [OrderHeaderController::class, 'orderDetail'])->name('orderDetail')->middleware('adminM');
-
-Route::get('/books', [BookController::class, 'viewAll'])->name('books')->middleware('userM');
-
-Route::get('/search', [BookController::class, 'searchBook'])->name('search')->middleware('userM');
+Route::middleware(['middleware' => 'adminM'])->group(function () {
+    Route::get('/manageBook', [BookController::class, 'getBookDetail'])->name('manageBook');
+    Route::delete('admin/delete-book/{bookId}', [AdminController::class, 'deleteBook']);
+    Route::get('/updateBook', [BookController::class, 'updateBook'])->name('updateBook');
+    Route::get('/insertBook', [BookController::class, 'insertBook'])->name('insertBook');
+    Route::post('/insertBooktoMaster', [BookController::class, 'insertBooktoMaster'])->name('insertBooktoMaster');
+    Route::get('/viewAddToLibrary', [BookController::class, 'viewAddToLibrary'])->name('viewAddToLibrary');
+    Route::post('/addToLibrary', [BookController::class, 'AddToLibrary'])->name('AddToLibrary');
+    Route::get('/manageOrder', [OrderHeaderController::class, 'manageOrder'])->name('manageOrder');
+    Route::get('/orderDetail/{id}', [OrderHeaderController::class, 'orderDetail'])->name('orderDetail');
+});
 
 Route::get('/notFound', [PageController::class, 'notFound'])->name('notFound');
-
-Route::get('/landing', [PageController::class, 'landingPage'])->name('landing')->middleware('guestM');
-
-Route::get('/profile', [ProfileController::class, 'profile'])->name('profile')->middleware('userM');
-Route::get('/profile/editProfile', [ProfileController::class, 'editProfilePage'])->name('editProfile')->middleware('memberM');
-Route::post('/profile/editProfile', [ProfileController::class, 'editProfile']);
-Route::get('/profile/editPassword', [ProfileController::class, 'editPasswordPage'])->name('editPassword')->middleware('userM');
-Route::post('/profile/editPassword', [ProfileController::class, 'editPassword']);
 
 Route::fallback(function(){
     return redirect()->route('notFound');
