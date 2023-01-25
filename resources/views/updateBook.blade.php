@@ -57,11 +57,8 @@
 @endsection
 
 @section('categoryOption')
-<option value="{{$currBook->authorId}}">{{$currBook->author->name}}</option>
-    @foreach ($authors as $author) <!-- pake foreach krn datanya berbntk array -->
-        @if ($author->id != $currBook->authorId)
-            <option value="{{$author->id}}">{{$author->name}}</option>
-        @endif
+    @foreach ($categories as $category)
+        <option value="{{$category->id}}">{{$category->name}}</option>
     @endforeach
 @endsection
 
