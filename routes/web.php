@@ -59,11 +59,13 @@ Route::post('/pickup/confirm/{orderId}', [CourierController::class, 'checkout'])
 Route::get('/history', [MemberController::class, 'history'])->name('history')->middleware('memberM');
 
 Route::get('/manageBook', [BookController::class, 'getBookDetail'])->name('manageBook')->middleware('adminM');
+
 Route::delete('admin/delete-book/{bookId}', [AdminController::class, 'deleteBook']);
 
 Route::get('/updateBook', [BookController::class, 'updateBook'])->name('updateBook')->middleware('adminM');
-
 Route::get('/insertBook', [BookController::class, 'insertBook'])->name('insertBook')->middleware('adminM');
+Route::get('/insertBooktoMaster', [BookController::class, 'insertBooktoMaster'])->name('insertBooktoMaster')->middleware('adminM');
+Route::get('/addToLibrary', [BookController::class, 'addToLibrary'])->name('addToLibrary')->middleware('adminM');
 
 Route::get('/manageOrder', [OrderHeaderController::class, 'manageOrder'])->name('manageOrder')->middleware('adminM');
 
