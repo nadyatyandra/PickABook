@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class OrderHeaderController extends Controller
 {
     public function manageOrder(){
-        $orders = DB::table('order_headers')->get();
+        $orders = OrderHeader::all();
         return view('manageOrder', compact('orders'));
     }
 

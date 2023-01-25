@@ -12,11 +12,11 @@
                     $returnDate = Carbon::parse($date)->addDays(30)->format('d M Y');
                 @endphp
                 <h5>Member ID: {{$order->memberId}}</h5>
-                <h5>Member Name:</h5>
+                <h5>Member Name: {{$order->user->name}}</h5>
                 <h5>Library ID: {{$order->libraryId}}</h5>
-                <h5>Library Name:</h5>
-                <h5>Book ISBN:</h5>
-                <h5>Book Title:</h5>
+                <h5>Library Name: {{$order->library->name}}</h5>
+                <h5>Book ISBN: {{$order->orderDetail->book->isbn}}</h5>
+                <h5>Book Title: {{$order->orderDetail->book->name}}</h5>
                 <h5>Delivery Method:</h5>
                 {{-- @if () --}}
                     <h5>Courier ID:</h5>
@@ -25,7 +25,7 @@
                 <h5>Borrow date: {{$date}}</h5>
                 <h5>Return date: {{$returnDate}}</h5>
                 <h5>Status ID: {{$order->statusId}}</h5>
-                <h5>Status Name:</h5>
+                <h5>Status Name: {{$order->status->status}}</h5>
             </div>
         </div>
     </div>
