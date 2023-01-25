@@ -41,6 +41,7 @@ Route::post('/logout', [AuthController::class, 'logout']);
 // Reply: maybe '/' is more suitable for welcome page(?)
 // RE:RE: for now it's for home, but feel free to change ya
 Route::get('/', [BookController::class, 'home'])->name('home')->middleware('userM');
+Route::get('/search', [BookController::class, 'search'])->name('search');
 
 Route::get('/bookDetail/{id}', [BookController::class, 'bookDetail'])->middleware('userM');
 Route::post('add-book/{bookId}', [BookController::class, 'addBookToCart']);
@@ -68,8 +69,11 @@ Route::get('/insertBooktoMaster', [BookController::class, 'insertBooktoMaster'])
 Route::get('/addToLibrary', [BookController::class, 'addToLibrary'])->name('addToLibrary')->middleware('adminM');
 
 Route::get('/manageOrder', [OrderHeaderController::class, 'manageOrder'])->name('manageOrder')->middleware('adminM');
-
 Route::get('/orderDetail/{id}', [OrderHeaderController::class, 'orderDetail'])->name('orderDetail')->middleware('adminM');
+
+Route::get('/books', [BookController::class, 'viewAll'])->name('books')->middleware('userM');
+
+Route::get('/search', [BookController::class, 'searchBook'])->name('search')->middleware('userM');
 
 Route::get('/notFound', [PageController::class, 'notFound'])->name('notFound');
 

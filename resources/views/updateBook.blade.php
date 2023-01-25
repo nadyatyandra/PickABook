@@ -33,6 +33,10 @@
     value=''
 @endsection
 
+@section('stockValue')
+    value=''
+@endsection
+
 @section('authorOption')
     {{-- error when no library was chosen --}}
     {{-- <option selected disabled value="0">Choose Available Library</option>

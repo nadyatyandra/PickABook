@@ -31,7 +31,6 @@
                 <label for="address" class="form-label">Address</label>
                 <textarea class="form-control" name='address' id="address" placeholder="(min 5 letters)"></textarea>
             </div>
-            {{-- DOB belum ada --}}
             <div class="col-md-6 mb-4">
                 <label for="number" class="form-label">Phone Number</label>
                 <input type="number" class="form-control" name='number' id="number" placeholder="(10-14 digits)" value="{{old('number')}}">

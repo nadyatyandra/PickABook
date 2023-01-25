@@ -12,10 +12,10 @@
     <p class="m-4">Order Book Summary - {{$summary->library->name}}</p>
     <div class="d-flex flex-wrap justify-content-center">
         @foreach ($summary->orderDetail as $orderDetail)
-            <div class="card mb-3 mt-4 w-75">
-                <div class="row g-0">
+            <div class="card mb-3 mt-4 w-75 p-4">
+                <div class="d-flex flex-row justify-content-between align-items-center">
                     <div class="col-md-4">
-                    <img src="..." class="img-fluid rounded-start" alt="...">
+                    <img style="max-height:15rem; max-width:8rem; width:auto; height:auto;" src="{{url('storage\app\public\images\books\\'.$orderDetail->book->photoPath)}}" class="bookimage img-fluid rounded-start ms-4" alt="...">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
@@ -110,5 +110,13 @@
         }
     }
 </script>
+
+<style>
+    .bookimage{
+        width: 100%;
+        height: 30vw;
+        object-fit: cover;
+    }
+</style>
 
 @endsection
