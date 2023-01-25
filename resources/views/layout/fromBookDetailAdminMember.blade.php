@@ -5,7 +5,7 @@
 @section('body')
     <div class="d-flex flex-wrap justify-content-center">
         <div class="card mb-3 mt-4 w-75 p-5 align-items-center">
-            <div class="row align-items-center">
+            <div class="row align-items-center" style="width: 800px;">
                 <div class="col-md-4 px-1">
                     <img src="{{url('storage\app\public\images\books\\'.$book->photoPath)}}" class="img-fluid rounded-start" alt="{{$book->photoPath}}">
                 </div>

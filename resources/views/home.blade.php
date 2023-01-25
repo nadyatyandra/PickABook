@@ -16,9 +16,6 @@
             <div class="carousel-item">
                 <img src="{{asset('images/commercial_2.jpeg')}}" class="bookimage d-block w-100" alt="...">
             </div>
-            <!-- <div class="carousel-item">
-            <img src="..." class="d-block w-100" alt="...">
-            </div> -->
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselAutoplaying" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -36,16 +33,7 @@
             <div class="card container-fluid mt-3 w-75 pb-5" style="background-color: light">
                 <h1 class="text-center mt-3">New Release</h1>
                 <div class='card border-white container-fluid d-flex flex-row m-1 row row-cols-4 g-4 justify-content-center'>
-                @foreach ($books_newRelease as $book)
-                    <div class='bookoutline card m-2 p-1 zoom-in' style="width: 12rem">
-                        <img src="{{url('storage\app\public\images\books\\'.$book->photoPath)}}" class="bookimage card-img-top" alt="{{$book->title}}">
-                        <div class="bookcard card-body">
-                            <h5 class="card-title">{{$book->title}}</h5>
-                            <span class='card-subtitle mb-2 text-muted'>{{$book->author->name}}</span>
-                        </div>
-                        <a href="/bookDetail/{{$book->id}}" class="booksbtn btn btn-outline-dark">Book Detail</a>
-                    </div>
-                @endforeach
+                @include('layout.bookCard')
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselRelease" data-bs-slide="prev">
@@ -64,16 +52,7 @@
             <div class="card container-fluid mt-3 w-75 pb-5" style="background-color: light">
                 <h1 class="text-center mt-3">Popular Books</h1>
                 <div class='card border-white container-fluid d-flex flex-row m-1 row row-cols-4 g-4 justify-content-center'>
-                @foreach ($books_popular as $book)
-                    <div class='bookoutline card m-2 p-1 zoom-in' style="width: 12rem">
-                        <img src="{{url('storage\app\public\images\books\\'.$book->photoPath)}}" class="bookimage card-img-top" alt="{{$book->title}}">
-                        <div class="bookcard card-body">
-                            <h5 class="card-title">{{$book->title}}</h5>
-                            <span class='card-subtitle mb-2 text-muted'>{{$book->author->name}}</span>
-                        </div>
-                        <a href="/bookDetail/{{$book->id}}" class="booksbtn btn btn-outline-dark">Book Detail</a>
-                    </div>
-                @endforeach
+                @include('layout.bookPopularCard')
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselRelease" data-bs-slide="prev">
@@ -92,16 +71,7 @@
             <div class="card container-fluid mt-3 w-75 pb-5" style="background-color: light">
                 <h1 class="text-center mt-3">Editor's Pick</h1>
                 <div class='card border-white container-fluid d-flex flex-row m-1 row row-cols-4 g-4 justify-content-center'>
-                @foreach ($books_editorsPick as $book)
-                    <div class='bookoutline card m-2 p-1 zoom-in' style="width: 12rem">
-                        <img src="{{url('storage\app\public\images\books\\'.$book->photoPath)}}" class="bookimage card-img-top" alt="{{$book->title}}">
-                        <div class="bookcard card-body">
-                            <h5 class="card-title">{{$book->title}}</h5>
-                            <span class='card-subtitle mb-2 text-muted'>{{$book->author->name}}</span>
-                        </div>
-                        <a href="/bookDetail/{{$book->id}}" class="booksbtn btn btn-outline-dark">Book Detail</a>
-                    </div>
-                @endforeach
+                    @include('layout.bookEditorsCard')
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselRelease" data-bs-slide="prev">
@@ -137,8 +107,6 @@
             display: inline;
         }
         .below-carousel{
-            /* outline:black;
-            border: 1px solid black; */
             border-radius:50%;
             background-color:black
         }

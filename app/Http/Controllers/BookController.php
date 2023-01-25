@@ -27,12 +27,12 @@ class BookController extends BaseController
         // return view('home');
         $books_editorsPick = Book::whereRelation('group', 'groupId', 1)->get();
         $books_popular = Book::whereRelation('group', 'groupId', 2)->get();
-        $books_newRelease = Book::whereRelation('group', 'groupId', 3)->get();
+        $books = Book::whereRelation('group', 'groupId', 3)->get();
         // change n in take(n) to change the number of authors shown
         $authors = Author::all()->shuffle()->take(6);
         $colours = ['primary', 'dark', 'danger', 'warning', 'success'];
         // dd($books_newRelease);
-        return view('home', compact('books_newRelease', 'books_popular', 'books_editorsPick', 'authors', 'colours'));
+        return view('home', compact('books', 'books_popular', 'books_editorsPick', 'authors', 'colours'));
     }
 
     public function viewAll(){
@@ -200,7 +200,7 @@ class BookController extends BaseController
         $languages = DB::table('languages')->get();
         $categories = DB::table('categories')->get();
         return view('insertBook', compact('publishers', 'authors', 'languages', 'categories'    ));
-    
+
     }
 
     public function insertBooktoMaster(Request $request){
@@ -224,7 +224,7 @@ class BookController extends BaseController
         $newBook->weight = $request->input('weight');
         $newBook->save();
 
-        
+
         //add new BookId to a category?
 
         $bookId = Book::latest()->first()->id;
@@ -250,7 +250,7 @@ class BookController extends BaseController
         ]); //Validate ISBN
 
         if (!Book::where('ISBN', '=', $request->input('isbn'))->exists()) {
-            
+
             return redirect()->back()->withErrors('ISBN Not Found!');
         }
 
@@ -259,7 +259,7 @@ class BookController extends BaseController
 
          $userId = Auth::user()->id;
          $libraryId = Admin::where('userId', $userId)->first()->libraryId;
- 
+
          $newBookLibrary = new BookLibrary();
          $newBookLibrary->bookId = $currBookId;
          $newBookLibrary->libraryId = $libraryId;
