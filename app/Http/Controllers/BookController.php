@@ -17,7 +17,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-
+use Symfony\Component\Console\Input\Input;
 
 class BookController extends BaseController
 {
@@ -233,21 +233,26 @@ class BookController extends BaseController
     public function addToLibrary(Request $request){
 
         $request->validate([
-            'ISBN' => 'required|min:13|max:13|unique:books',
+            'ISBN' => 'required|min:13|max:13|',
             'stock' => 'required|min:1',
         ]); //Validate ISBN
 
-        $currBook = Book::where('ISBN', $request->input('ISBN'))
-        ->first;
+        if (!Book::where('ISBN', '=', $request->input('ISBN'))->exists()) {
+            
+            return redirect()->back()->withErrors('ISBN Not Found!');
+        }
 
-        $userId = Auth::user()->id;
-        $libraryId = Admin::where('userId', $userId)->first()->libraryId;
+         // book found
+         $currBook = Book::where('ISBN', $request->input('ISBN'))->first;
 
-        $newBookLibrary = new BookLibrary();
-        $newBookLibrary->bookId = $currBook->bookId;
-        $newBookLibrary->libraryId = $libraryId;
-        $newBookLibrary->stock = $request->input('stock');
-        $newBookLibrary->save(); //Add to Library
+         $userId = Auth::user()->id;
+         $libraryId = Admin::where('userId', $userId)->first()->libraryId;
+ 
+         $newBookLibrary = new BookLibrary();
+         $newBookLibrary->bookId = $currBook->bookId;
+         $newBookLibrary->libraryId = $libraryId;
+         $newBookLibrary->stock = $request->input('stock');
+         $newBookLibrary->save(); //Add to Library
 
         return redirect()->route('manageBook');
 
