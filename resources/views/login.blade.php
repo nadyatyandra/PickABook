@@ -15,6 +15,10 @@
                 <label for="password" class="form-label">Password</label>
                 <input type="password" class="form-control" name='password' id="password">
             </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" name="rememberMe" id="rememberMe">
+                <label class="form-check-label" for="rememberMe">Remember Me</label>
+            </div>
             @if ($errors->any())
                 <p class="text-center text-danger">{{$errors->first()}}</p>
             @endif
