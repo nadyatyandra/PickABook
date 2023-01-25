@@ -3,7 +3,7 @@
 @section('title', 'Profile')
 
 @section('body')
-    <div class="d-flex flex-wrap justify-content-center my-4">
+    <div class="d-flex flex-wrap justify-content-center my-auto mb-0">
         <div class="col-md-6 py-6 card">
             <div class="card-body text-center">
                 <h3 class="card-title fs-1">My Profile</h3>
