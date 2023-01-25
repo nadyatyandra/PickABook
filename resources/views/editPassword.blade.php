@@ -23,7 +23,7 @@
             <p class="text-center text-danger">{{$errors->first()}}</p>
         @endif
         <div class="d-flex justify-content-between mb-4">
-            <button type="submit" class='btn btn-dark mx-2' href="{{route('profile')}}">Back</button>
+            <a type="submit" class='btn btn-dark mx-2' href="{{route('profile')}}">Back</a>
             <button type="submit" class='btn btn-outline-dark mx-2'>Save Password</button>
         </div>
     </div>
