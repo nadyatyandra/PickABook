@@ -17,6 +17,9 @@ class CreateAuthorsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('photoPath');
+            $table->string('birthPlace');
+            $table->date('birthDate');
+            $table->longText('biography');
             $table->timestamps();
         });
     }
