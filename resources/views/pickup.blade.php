@@ -40,6 +40,9 @@
         @csrf
         <div class="m-4">
             <p>Choose pick-up method</p>
+            @if ($errors->any())
+                    <p class="text-warning">{{$errors->first()}}</p>
+                @endif
             <div>
                 <input type="radio" onclick="javascript:pickupCheck();" class="btn-check" name="options" id="self" autocomplete="off">
                 <label class="btn btn-outline-secondary" for="self">Self Pick-Up</label>
