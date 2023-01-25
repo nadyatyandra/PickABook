@@ -68,15 +68,4 @@ class AdminController extends BaseController
 
     }
         
-
-    public function create(){
-    
-        $authors = Author::get(); // Eloquent?
-        $publishers = Publisher::get();
-        $languages = Language::get();
-        $categories = Category::get();
-
-        return view('insertBook', compact('publishers', 'languages', 'categories', 'authors'));
-    }
-
-}
+}       
