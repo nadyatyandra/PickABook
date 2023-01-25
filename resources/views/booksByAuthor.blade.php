@@ -5,7 +5,22 @@
 @section('body')
 
 <div class="card container-fluid mt-3 w-75 pb-3 mb-3" style="background-color: light">
-    <h1  class="m-4">Books By: {{$name}}</h1>
+    <h1  class="m-4">About {{$name}}</h1>
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="{{url('storage\app\public\authors\\'.$author->photoPath)}}" class="card-img-top m-4" alt="...">
+        </div>
+        <div class="col-md-8">
+        <div class="card-body">
+            <h5 class="card-title">Biography</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        </div>
+        </div>
+    </div>
+</div>
+
+<div class="card container-fluid mt-3 w-75 pb-3 mb-3" style="background-color: light">
+    <h1  class="m-4">Books By {{$name}}</h1>
     <!-- <img src="{{url('storage\app\public\authors\\'.$author->photoPath)}}" class="card-img-top" alt="..."> -->
     <div class="m-4">
         <button type="button" class="btn btn-outline-dark">Best Seller</button>

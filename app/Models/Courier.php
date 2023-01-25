@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Courier extends Model
 {
     use HasFactory;
+
+    public function orderHeader(){
+        return $this->hasMany(orderHeader::class, 'courierId', 'id');
+    }
 }
