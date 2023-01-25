@@ -160,48 +160,50 @@ class BookController extends BaseController
         $publishers = Publisher::get();
         $languages = Language::get();
         $categories = Category::get();
-        return view('updateBook', compact('currBook', 'publishers', 'languages', 'categories', 'authors'));
+
+        $userId = Auth::user()->id;
+        $libraryId = Admin::where('userId', $userId)->get()->first()->libraryId;
+        $currStock = BookLibrary::where('bookId', '=', $bookId, 'and')->where('libraryId', $libraryId)->first()->stock;
+        return view('updateBook', compact('currBook', 'publishers', 'languages', 'categories', 'authors', 'currStock'));
     }
 
     public function updateBooktoMaster(Request $request, $bookId){
 
-        $image = $request->file('inputImage');
-        $imageName = $image->getClientOriginalName();
+        // $image = $request->file('inputImage');
+        // $imageName = $image->getClientOriginalName();
 
         // Please check path
-        Storage::putFileAs('public/images/books/', $image, $imageName);
-        $inputPhotopath = $imageName;
+        // Storage::putFileAs('public/images/books/', $image, $imageName);
+        // $inputPhotopath = $imageName;
 
         //Update Book Details
         Book::where('id', $bookId) //Eloquent?
         ->update([
-            'authorId' => $request->inputAuthor,
-            'publisherId' => $request->inputPublisher,
-            'title' => $request->inputTitle,
-            'ISBN' => $request->inputISBN,
-            'photoPath' => $inputPhotopath,
-            'synopsis' => $request->inputSynopsis,
-            'languageId' => $request->inputLanguageId,
-            'publishedYear' => $request->inputPublishedYear,
-            'weight' => $request->inputWeight,
+            'authorId' => $request->author,
+            'publisherId' => $request->publisher,
+            'title' => $request->title,
+            'ISBN' => $request->isbn,
+            'synopsis' => $request->synopsis,
+            'languageId' => $request->language,
+            'publishedYear' => $request->publishedYear,
+            'weight' => $request->weight,
         ]);
 
         //Update Categories
         BookCategory::where('bookId', $bookId)
         ->first()
         ->update([
-            'categoryId' => $request->categoryId
+            'categoryId' => $request->category
         ]);
 
         //Update Stock at Library
         $userId = Auth::user()->id;
         $libraryId = Admin::where('userId', $userId)->first()->libraryId;
 
-        BookLibrary::where('libraryId', $libraryId)
+        BookLibrary::where('libraryId', '=', $libraryId, 'and')
         ->where('bookId', $bookId)
-        ->first()
         ->update([
-            'stock' => $request->inputStock
+            'stock' => $request->stock
         ]);
 
         return redirect()->route('manageBook');
