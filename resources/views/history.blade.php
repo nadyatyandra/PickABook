@@ -16,7 +16,7 @@
                         $returnDate = Carbon::parse($date)->addDays(30)->format('d M Y');
                     @endphp
 
-                    <h5 class="fw-bold mt-3">{{$date}} - Return by {{$returnDate}}</h5>
+                    <h5 class="fw-bold mt-3">{{$order->library->name}} - {{$date}} - Return by {{$returnDate}}</h5>
 
                     @foreach ($order->orderDetail as $orderDetail)
                         <li>{{$orderDetail->book->title}} - {{$orderDetail->book->ISBN}}</li>

@@ -16,7 +16,7 @@
                         <p class="card-text">ISBN   : {{$book->ISBN}}</p>
                         <p class="card-text">Year   : {{$book->publishedYear}}</p>
                         @yield('stock-count')
-                        <p class="card-text">Book Publisher</p>
+                        <p class="card-text">Publisher: {{$book->publisher->name}}</p>
                         {{-- after model relation has been determined on publisher, with function name publisher--}}
                         {{-- <p class="card-text">{{$book->publisher->name}}</p> --}}
                         @yield('details')
