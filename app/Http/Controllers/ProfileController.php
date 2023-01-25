@@ -44,7 +44,7 @@ class ProfileController extends BaseController
             'email' => $request['email']
         ]);
 
-        Member::where('user_id', Auth::user()->id)->update([
+        Member::where('userId', Auth::user()->id)->update([
             'address' => $request['address'],
             'phoneNumber' => $request['number']
         ]);
