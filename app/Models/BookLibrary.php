@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class BookLibrary extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['libraryId' , 'stock'];
 }

@@ -9,7 +9,7 @@
 @endsection
 
 @section('action')
-    action=''
+    action='/updateBook/{{$currBook->id}}'
 @endsection
 
 @section('method_field')
@@ -17,24 +17,25 @@
 @endsection
 
 @section('isbnValue')
-    value=''
+    value='{{$currBook->ISBN}}'
 @endsection
 
 @section('titleValue')
-    value=''
+    value='{{$currBook->title}}'
 @endsection
 
 @section('synopsisValue')
+{{$currBook->synopsis}}
 {{-- hrs rapet kyk gini ya krn textarea --}}
 {{-- {{$currBike->bikeDescription}} --}}
 @endsection
 
 @section('publishedYearValue')
-    value=''
+    value='{{$currBook->publishedYear}}'
 @endsection
 
 @section('stockValue')
-    value=''
+    value='{{$currStock}}'
 @endsection
 
 @section('authorOption')
@@ -72,7 +73,7 @@
 @endsection
 
 @section('weightValue')
-    value=''
+    value='{{$currBook->weight}}'
 @endsection
 
 @section('button')
