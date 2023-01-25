@@ -51,7 +51,10 @@
                             </td>
                             <td class="text-center d-flex justify-content-center align-middle py-3">
                                 <a href="/orderDetail/{{$orderDetail->orderHeaderId}}/{{$orderDetail->bookId}}" class="btn btn-outline-dark me-2">View Detail</a>
-                                <a href="" class="btn btn-outline-dark">Update Status</a>
+                                <form action="/manageOrder/updateStatus/{{$order->id}}" method="post">
+                                    @csrf
+                                    <button type="submit" class="btn btn-outline-dark {{($order->statusId == 2 || $order->statusId == 3)? '' : 'disabled'}}">Update Status</button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach

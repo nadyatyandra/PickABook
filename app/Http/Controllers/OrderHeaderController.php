@@ -23,4 +23,12 @@ class OrderHeaderController extends Controller
         $order = OrderDetail::where('orderHeaderId', '=', $orderHeaderId, 'and')->where('bookId', $bookId)->first();
         return view('orderDetail', compact('order'));
     }
+
+    public function updateStatus($orderHeaderId){
+        $status = OrderHeader::whereId($orderHeaderId)->first()->statusId;
+        OrderHeader::whereId($orderHeaderId)->update([
+            'statusId' => $status + 1
+        ]);
+        return redirect()->route('manageOrder');
+    }
 }
