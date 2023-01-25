@@ -36,12 +36,6 @@
     @endforeach
 @endsection
 
-@section('libraryOption')
-    @foreach ($libraries as $library)
-        <option value="{{$library->id}}">{{$library->name}}</option>
-    @endforeach
-@endsection
-
 @section('insertImage')
     <div class="col-md-6 mb-4">
         <label for="inputImage" class="form-label">Image</label>

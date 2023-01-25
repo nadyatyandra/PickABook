@@ -69,7 +69,7 @@ Route::middleware(['middleware' => 'memberM'])->group(function () {
 Route::middleware(['middleware' => 'adminM'])->group(function () {
     Route::get('/manageBook', [BookController::class, 'getBookDetail'])->name('manageBook');
     Route::delete('admin/delete-book/{bookId}', [AdminController::class, 'deleteBook']);
-    Route::get('/updateBook', [BookController::class, 'updateBook'])->name('updateBook');
+    Route::get('/updateBook/{bookId}', [BookController::class, 'updateBook'])->name('updateBook');
     Route::get('/insertBook', [BookController::class, 'insertBook'])->name('insertBook');
     Route::post('/insertBooktoMaster', [BookController::class, 'insertBooktoMaster'])->name('insertBooktoMaster');
     Route::get('/viewAddToLibrary', [BookController::class, 'viewAddToLibrary'])->name('viewAddToLibrary');
