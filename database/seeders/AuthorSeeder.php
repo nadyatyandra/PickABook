@@ -62,7 +62,7 @@ class AuthorSeeder extends Seeder
                 'photoPath' => 'marthen.jpg',
                 'birthPlace' => 'Makassar, Indonesia',
                 'birthDate' => '1958-03-31',
-                'biography' => 'Ir. Marthen Kanginan, M.Sc., lahir di Makassar, 31 Maret 1958. Alumnus Fisika Institut Teknologi Bandung yang mengidolakan Einstein ini telah mulai mengajar sejak di tingkat 2. Saat itu, ia mengajar di SMA Darmabakti, SMA Tut Wuri Handayani, dan SMA Negeri 2 Cimahi. <br>Ia adalah seorang yang tekun sehingga mampu menguasai ilmu pasti seperti matematika, fisika dan kimia. Ketekunannya itu pun diwujudkan dalam bentuk karya. Saat ini, ia telah menulis lebih dari 40 buku pelajaran dalam bidang Matematika dan Fisika tingkat SMP dan SMA, Siaga dan Sukses Jelang Ujian Nasional Matematika IPS, dan buku OSN Fisika. Kiprahnya dalam dunia pendidikan juga semakin meluas dengan keaktifannya membina OSN Fisika di SMA Kristen Penabur 1 Bandung, SMAN 1 Rancaekek, SMAN 1 Lembang, Tim Matematika dan Fisika SMP Cimahi, SMAN 4 Bandung serta membawakan seminar hampir di seluruh Indonesia tentang pembelajaran matematika dan fisika, baik dalam menghadapi UN, SNMPTN, OSN maupun pendalaman materi.'
+                'biography' => 'Ir. Marthen Kanginan, M.Sc. is a Physics alumnus from Institut Teknologi Bandung who idolizes Einstein has started teaching since he was still in grade 2. At that time, he taught at Darmabakti High School, Tut Wuri Handayani High School, and Cimahi State 2 High School.'
             ],
             [
                 'name' => 'James Dashner',
