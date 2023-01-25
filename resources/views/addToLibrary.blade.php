@@ -9,7 +9,7 @@
 @endsection
 
 @section('action')
-    action=''
+    action='/addToLibrary'
 @endsection
 
 @section('button')

@@ -16,11 +16,19 @@ class CartHeaderSeeder extends Seeder
     {
         $cart_headers = [
             [
-                'memberId' => 1,
+                'memberId' => 3,
                 'libraryId' => 1
             ],
             [
-                'memberId' => 1,
+                'memberId' => 3,
+                'libraryId' => 2
+            ],
+            [
+                'memberId' => 4,
+                'libraryId' => 1
+            ],
+            [
+                'memberId' => 5,
                 'libraryId' => 2
             ],
         ];

@@ -245,23 +245,23 @@ class BookController extends BaseController
     public function addToLibrary(Request $request){
 
         $request->validate([
-            'ISBN' => 'required|min:13|max:13|',
+            'isbn' => 'required|min:13|max:13|',
             'stock' => 'required|min:1',
         ]); //Validate ISBN
 
-        if (!Book::where('ISBN', '=', $request->input('ISBN'))->exists()) {
+        if (!Book::where('ISBN', '=', $request->input('isbn'))->exists()) {
             
             return redirect()->back()->withErrors('ISBN Not Found!');
         }
 
          // book found
-         $currBook = Book::where('ISBN', $request->input('ISBN'))->first;
+         $currBookId = Book::where('ISBN', $request->input('isbn'))->first()->id;
 
          $userId = Auth::user()->id;
          $libraryId = Admin::where('userId', $userId)->first()->libraryId;
  
          $newBookLibrary = new BookLibrary();
-         $newBookLibrary->bookId = $currBook->bookId;
+         $newBookLibrary->bookId = $currBookId;
          $newBookLibrary->libraryId = $libraryId;
          $newBookLibrary->stock = $request->input('stock');
          $newBookLibrary->save(); //Add to Library

@@ -16,7 +16,7 @@
                 <input type="password" class="form-control" name='password' id="password">
             </div>
             <div class="form-check mb-3">
-                <input class="form-check-input checkboxBlack" type="checkbox" value="" name="remember" id="remember" checked={{Cookie::get('emailCookie') !== null}}>
+                <input class="form-check-input checkboxBlack" type="checkbox" name="remember" id="remember" checked={{Cookie::get('emailCookie') !== null}}>
                 <label class="form-check-label" for="remember">Remember Me</label>
             </div>
             @if ($errors->any())
