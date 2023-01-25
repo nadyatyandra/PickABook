@@ -27,6 +27,9 @@
                 <h5>Return date: {{$returnDate}}</h5>
                 <h5>Status ID: {{$order->orderHeader->statusId}}</h5>
                 <h5>Status Name: {{$order->orderHeader->status->status}}</h5>
+                <div class="text-center">
+                    <a type="submit" class='btn btn-dark mt-3' href="{{route('manageOrder')}}">Back</a>
+                </div>
             </div>
         </div>
     </div>
