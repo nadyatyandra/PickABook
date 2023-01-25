@@ -76,6 +76,7 @@ Route::middleware(['middleware' => 'adminM'])->group(function () {
     Route::post('/addToLibrary', [BookController::class, 'AddToLibrary']);
     Route::get('/manageOrder', [OrderHeaderController::class, 'manageOrder'])->name('manageOrder');
     Route::get('/orderDetail/{orderHeaderid}/{bookId}', [OrderHeaderController::class, 'orderDetail'])->name('orderDetail');
+    Route::post('/manageOrder/updateStatus/{orderHeaderId}', [OrderHeaderController::class, 'updateStatus']);
 });
 
 Route::get('/notFound', [PageController::class, 'notFound'])->name('notFound');
