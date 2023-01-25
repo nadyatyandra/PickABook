@@ -36,12 +36,12 @@ class BookController extends BaseController
     }
 
     public function viewAll(){
-        $books = Book::Paginate(6);
+        $books = Book::Paginate(8);
         return view('books', compact('books'));
     }
 
     public function searchBook(Request $request){
-        $books = Book::where('title', 'LIKE', "%$request->q%")->Paginate(6);
+        $books = Book::where('title', 'LIKE', "%$request->q%")->Paginate(8);
         return view('books', compact('books'));
     }
 

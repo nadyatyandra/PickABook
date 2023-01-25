@@ -1,5 +1,5 @@
 @foreach ($books_popular as $book)
-    <div class='bookoutline card m-2 p-1 zoom-in' style="width: 12rem">
+    <div class='bookoutline card m-2 p-1 zoom-in' style="width: 16rem">
         <img src="{{url('storage\app\public\images\books\\'.$book->photoPath)}}" class="bookimage card-img-top" alt="{{$book->title}}">
         <div class="bookcard card-body">
             <h5 class="card-title">{{$book->title}}</h5>
