@@ -28,60 +28,37 @@
     </div>
 
     <!-- new release -->
-    <div id="carouselRelease" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="card container-fluid mt-3 w-75 pb-5" style="background-color: light">
-                <h1 class="text-center mt-3">New Release</h1>
-                <div class='card border-white container-fluid d-flex flex-row m-1 row row-cols-4 g-4 justify-content-center'>
-                @include('layout.bookCard')
-            </div>
+    <div class="card container-fluid mt-3 w-75 pb-5" style="background-color: light">
+        <h1 class="text-center mt-3">New Release</h1>
+        <div class='card border-white container-fluid d-flex flex-row m-1 row row-cols-4 g-4 justify-content-center'>
+            @include('layout.bookCard')
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselRelease" data-bs-slide="prev">
-            <span class="below-carousel carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselRelease" data-bs-slide="next">
-            <span class="below-carousel carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+        <div class="d-flex justify-content-center mt-4">
+            <a href="{{route('books')}}" class="btn btn-dark">See More Recommendations</a>
+        </div>
     </div>
 
     <!-- popular -->
-    <div id="carouselRelease" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="card container-fluid mt-3 w-75 pb-5" style="background-color: light">
-                <h1 class="text-center mt-3">Popular Books</h1>
-                <div class='card border-white container-fluid d-flex flex-row m-1 row row-cols-4 g-4 justify-content-center'>
-                @include('layout.bookPopularCard')
-            </div>
+    <div class="card container-fluid mt-3 w-75 pb-5" style="background-color: light">
+        <h1 class="text-center mt-3">Popular Books</h1>
+        <div class='card border-white container-fluid d-flex flex-row m-1 row row-cols-4 g-4 justify-content-center'>
+            @include('layout.bookPopularCard')
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselRelease" data-bs-slide="prev">
-            <span class="below-carousel carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselRelease" data-bs-slide="next">
-            <span class="below-carousel carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+        <div class="d-flex justify-content-center mt-4">
+            <a href="{{route('books')}}" class="btn btn-dark">See More Recommendations</a>
+        </div>
     </div>
 
+
     <!-- editors pick -->
-    <div id="carouselRelease" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="card container-fluid mt-3 w-75 pb-5" style="background-color: light">
-                <h1 class="text-center mt-3">Editor's Pick</h1>
-                <div class='card border-white container-fluid d-flex flex-row m-1 row row-cols-4 g-4 justify-content-center'>
-                    @include('layout.bookEditorsCard')
-            </div>
+    <div class="card container-fluid mt-3 w-75 pb-5" style="background-color: light">
+        <h1 class="text-center mt-3">Editor's Pick</h1>
+        <div class='card border-white container-fluid d-flex flex-row m-1 row row-cols-4 g-4 justify-content-center'>
+            @include('layout.bookEditorsCard')
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselRelease" data-bs-slide="prev">
-            <span class="below-carousel carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselRelease" data-bs-slide="next">
-            <span class="below-carousel carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+        <div class="d-flex justify-content-center mt-4">
+            <a href="{{route('books')}}" class="btn btn-dark">See More Recommendations</a>
+        </div>
     </div>
 
     <!-- authors -->
@@ -93,27 +70,4 @@
             @endforeach
         </div>
     </div>
-
-    <!-- button -->
-    <div class="d-flex justify-content-center my-3">
-        <a href="{{route('books')}}" class="btn btn-dark">See More Recommendations</a>
-    </div>
-
-    <style>
-        .booksbtn{
-            display:none;
-        }
-        .bookcard:hover + .booksbtn, .booksbtn:hover{
-            display: inline;
-        }
-        .below-carousel{
-            border-radius:50%;
-            background-color:black
-        }
-        .bookimage{
-            width: 100%;
-            height: 30vw;
-            object-fit: cover;
-        }
-    </style>
 @endsection

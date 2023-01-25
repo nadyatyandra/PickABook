@@ -1,6 +1,6 @@
 @extends('master.template')
 
-@section('title', 'BooksByAuthor')
+@section('title', 'Books By Author')
 
 @section('body')
     <div class="card container-fluid mt-3 w-75 pb-3 mb-3" style="background-color: light">
