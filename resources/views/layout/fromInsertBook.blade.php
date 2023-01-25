@@ -47,12 +47,6 @@
                 </select>
             </div>
             <div class="col-md-6 mb-4">
-                <label for="library" class="form-label">Library</label>
-                <select class="form-select" aria-label="Default select example" name='library'>
-                    @yield('libraryOption')
-                </select>
-            </div>
-            <div class="col-md-6 mb-4">
                 <label for="weight" class="form-label">Weight</label>
                 <input type="number" class="form-control" name='weight' id="weight" placeholder=">0" @yield('weightValue')>
             </div>

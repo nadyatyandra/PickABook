@@ -140,7 +140,7 @@ class BookController extends BaseController
     }
 
     public function updateBook($bookId){
-        $currBook = Book::where('bookId', $bookId)->first()->bookId;
+        $currBook = Book::where('id', $bookId)->first();
         $authors = Author::get();
         $publishers = Publisher::get();
         $languages = Language::get();
@@ -199,8 +199,7 @@ class BookController extends BaseController
         $publishers = DB::table('publishers')->get();
         $languages = DB::table('languages')->get();
         $categories = DB::table('categories')->get();
-        $libraries = DB::table('libraries')->get();
-        return view('insertBook', compact('publishers', 'authors', 'languages', 'categories', 'libraries'));
+        return view('insertBook', compact('publishers', 'authors', 'languages', 'categories'    ));
     
     }
 
