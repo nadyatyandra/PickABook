@@ -38,36 +38,37 @@
 @endsection
 
 @section('authorOption')
-    {{-- error when no library was chosen --}}
-    {{-- <option selected disabled value="0">Choose Available Library</option>
-    @foreach ($book->library as $library)
-        <option value="{{$library->id}}">{{$library->name}}</option>
-    @endforeach --}}
-
-
-    {{-- CONTOH LAB --}}
-    {{-- <option value="{{$currBike->brandId}}">{{$currBike->brandName}}</option>
-    @foreach ($brandsets as $brand) <!-- pake foreach krn datanya berbntk array -->
-        @if ($brand->brandId != $currBike->brandId)
-            <option value="{{$brand->brandId}}">{{$brand->brandName}}</option>
+    <option value="{{$currBook->authorId}}">{{$currBook->author->name}}</option>
+    @foreach ($authors as $author) <!-- pake foreach krn datanya berbntk array -->
+        @if ($author->id != $currBook->authorId)
+            <option value="{{$author->id}}">{{$author->name}}</option>
         @endif
-    @endforeach --}}
+    @endforeach
 @endsection
 
 @section('languageOption')
+<option value="{{$currBook->languageId}}">{{$currBook->language->name}}</option>
+    @foreach ($languages as $language) <!-- pake foreach krn datanya berbntk array -->
+        @if ($language->id != $currBook->languageId)
+            <option value="{{$language->id}}">{{$language->name}}</option>
+        @endif
+    @endforeach
 
 @endsection
 
 @section('categoryOption')
-
+    @foreach ($categories as $category)
+        <option value="{{$category->id}}">{{$category->name}}</option>
+    @endforeach
 @endsection
 
 @section('publisherOption')
-
-@endsection
-
-@section('libraryOption')
-
+<option value="{{$currBook->publisherId}}">{{$currBook->publisher->name}}</option>
+    @foreach ($publishers as $publisher) <!-- pake foreach krn datanya berbntk array -->
+        @if ($publisher->id != $currBook->publisherId)
+            <option value="{{$publisher->id}}">{{$publisher->name}}</option>
+        @endif
+    @endforeach
 @endsection
 
 @section('weightValue')

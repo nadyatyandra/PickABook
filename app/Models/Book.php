@@ -17,6 +17,10 @@ class Book extends Model
         return $this->belongsTo(Publisher::class, 'publisherId', 'id');
     }
 
+    public function language(){
+        return $this->belongsTo(Language::class, 'languageId', 'id');
+    }
+
     public function category(){
         return $this->belongsToMany(Category::class, 'book_categories', 'bookId', 'categoryId');
     }

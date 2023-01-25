@@ -26,7 +26,7 @@
                         <td class="align-middle">{{$book->author->name}}</td>
                         <td class="align-middle">{{$book->publishedYear}}</td>
                         <td class="text-center d-flex justify-content-center align-middle">
-                            <a href="{{route('updateBook')}}" class="btn btn-outline-dark me-2">Update Book</a>
+                            <a href="/updateBook/{{$book->id}}" class="btn btn-outline-dark me-2">Update Book</a>
                             <form action="/admin/delete-book/{{$book->id}}" method="post">
                                 @csrf
                                 @method('delete')

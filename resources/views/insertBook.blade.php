@@ -9,7 +9,7 @@
 @endsection
 
 @section('action')
-    action=''
+    action="/insertBooktoMaster"
 @endsection
 
 @section('authorOption')
@@ -33,12 +33,6 @@
 @section('publisherOption')
     @foreach ($publishers as $publisher)
         <option value="{{$publisher->id}}">{{$publisher->name}}</option>
-    @endforeach
-@endsection
-
-@section('libraryOption')
-    @foreach ($libraries as $library)
-        <option value="{{$library->id}}">{{$library->name}}</option>
     @endforeach
 @endsection
 

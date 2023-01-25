@@ -140,7 +140,7 @@ class BookController extends BaseController
     }
 
     public function updateBook($bookId){
-        $currBook = Book::where('bookId', $bookId)->first()->bookId;
+        $currBook = Book::where('id', $bookId)->first();
         $authors = Author::get();
         $publishers = Publisher::get();
         $languages = Language::get();
@@ -199,8 +199,7 @@ class BookController extends BaseController
         $publishers = DB::table('publishers')->get();
         $languages = DB::table('languages')->get();
         $categories = DB::table('categories')->get();
-        $libraries = DB::table('libraries')->get();
-        return view('insertBook', compact('publishers', 'authors', 'languages', 'categories', 'libraries'));
+        return view('insertBook', compact('publishers', 'authors', 'languages', 'categories'    ));
     
     }
 
@@ -214,15 +213,15 @@ class BookController extends BaseController
         $inputPhotopath = $imageName;
 
         $newBook = new Book();
-        $newBook->authorId = $request->inputAuthor;
-        $newBook->publisherId = $request->inputPublisher;
-        $newBook->title = $request->inputTitle;
-        $newBook->ISBN = $request->inputISBN;
+        $newBook->authorId = $request->input('author');
+        $newBook->publisherId = $request->input('publisher');
+        $newBook->title = $request->input('title');
+        $newBook->ISBN = $request->input('isbn');
         $newBook->photoPath = $inputPhotopath;
-        $newBook->synopsis = $request->inputSynopsis;
-        $newBook->languageId = $request->inputLanguage;
-        $newBook->publishedYear = $request->inputPublishedYear;
-        $newBook->weight = $request->inputWeight;
+        $newBook->synopsis = $request->input('synopsis');
+        $newBook->languageId = $request->input('language');
+        $newBook->publishedYear = $request->input('publishedYear');
+        $newBook->weight = $request->input('weight');
         $newBook->save();
 
         
@@ -231,7 +230,7 @@ class BookController extends BaseController
         $bookId = Book::latest()->first()->id;
         $newBookCategories = new BookCategory();
         $newBookCategories->bookId = $bookId;
-        $newBookCategories->categoryId = $request->inputCategory;
+        $newBookCategories->categoryId = $request->input('category');
         $newBookCategories->save();
 
         return redirect()->route('manageBook');
