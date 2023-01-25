@@ -64,9 +64,13 @@ Route::get('/manageBook', [BookController::class, 'getBookDetail'])->name('manag
 Route::delete('admin/delete-book/{bookId}', [AdminController::class, 'deleteBook']);
 
 Route::get('/updateBook', [BookController::class, 'updateBook'])->name('updateBook')->middleware('adminM');
+
+
 Route::get('/insertBook', [BookController::class, 'insertBook'])->name('insertBook')->middleware('adminM');
-Route::get('/insertBooktoMaster', [BookController::class, 'insertBooktoMaster'])->name('insertBooktoMaster')->middleware('adminM');
-Route::get('/addToLibrary', [BookController::class, 'addToLibrary'])->name('addToLibrary')->middleware('adminM');
+Route::post('/insertBooktoMaster', [BookController::class, 'insertBooktoMaster'])->name('insertBooktoMaster')->middleware('adminM');
+Route::get('/viewAddToLibrary', [BookController::class, 'viewAddToLibrary'])->name('viewAddToLibrary')->middleware('adminM');
+Route::post('/addToLibrary', [BookController::class, 'AddToLibrary'])->name('AddToLibrary')->middleware('adminM');
+
 
 Route::get('/manageOrder', [OrderHeaderController::class, 'manageOrder'])->name('manageOrder')->middleware('adminM');
 Route::get('/orderDetail/{id}', [OrderHeaderController::class, 'orderDetail'])->name('orderDetail')->middleware('adminM');

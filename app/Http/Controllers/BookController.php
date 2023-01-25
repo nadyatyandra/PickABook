@@ -10,6 +10,8 @@ use App\Models\CartDetail;
 use App\Models\CartHeader;
 use App\Models\Category;
 use App\Models\Library;
+use App\Models\Publisher;
+use App\Models\Language;
 use App\Models\BookCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -137,9 +139,47 @@ class BookController extends BaseController
         return view('manageBook', compact('books'));
     }
 
-    public function updateBook(){
-        return view('updateBook');
+    public function updateBook($bookId){
+        $currBook = Book::where('bookId', $bookId)->first()->bookId;
+        $authors = Author::get();
+        $publishers = Publisher::get();
+        $languages = Language::get();
+        $categories = Category::get();
+        return view('updateBook', compact('currBook', 'publishers', 'languages', 'categories', 'authors'));
     }
+
+    public function updateBooktoMaster(Request $request, $bookId){
+
+        $image = $request->file('inputImage');
+        $imageName = $image->getClientOriginalName();
+
+        // Please check path
+        Storage::putFileAs('public/images/books/', $image, $imageName);
+        $inputPhotopath = $imageName;
+
+        Book::where('id', $bookId) //Eloquent?
+        ->update([
+            'authorId' => $request->inputAuthor,
+            'publisherId' => $request->inputPublisher,
+            'title' => $request->inputTitle,
+            'ISBN' => $request->inputISBN,
+            'photoPath' => $inputPhotopath,
+            'synopsis' => $request->inputSynopsis,
+            'languageId' => $request->inputLanguageId,
+            'publishedYear' => $request->inputPublishedYear,
+            'weight' => $request->inputWeight,
+        ]);
+
+        BookCategory::where('bookId', $bookId)
+        ->first()
+        ->update([
+            'categoryId' => $request->categoryId
+        ]);
+
+        return redirect()->route('manageBook');
+
+    }
+
 
     public function insertBook(){
         $authors = DB::table('authors')->get();
@@ -187,7 +227,7 @@ class BookController extends BaseController
 
     public function viewAddToLibrary(){
 
-        return view('addtoLibrary');
+        return view('addToLibrary');
     }
 
     public function addToLibrary(Request $request){
