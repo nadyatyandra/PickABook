@@ -23,12 +23,33 @@ class ProfileController extends BaseController
         }
     }
 
-    public function editProfile(){
+    public function editProfilePage(){
         return view('editProfile');
     }
 
     public function editPasswordPage(){
         return view('editPassword');
+    }
+
+    public function editProfile(Request $request){
+        $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|string|email|unique:users',
+            'address' => 'required|string|min:5',
+            'number' => 'required|min:10|max:14'
+        ]);
+
+        User::whereId(Auth::user()->id)->update([
+            'name' => $request['name'],
+            'email' => $request['email']
+        ]);
+
+        Member::where('user_id', Auth::user()->id)->update([
+            'address' => $request['address'],
+            'phoneNumber' => $request['number']
+        ]);
+
+        return redirect()->route('profile');
     }
 
     public function editPassword(Request $request){
