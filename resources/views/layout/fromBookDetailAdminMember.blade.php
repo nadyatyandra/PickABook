@@ -15,8 +15,7 @@
                         <h4 class="card-text">{{$book->author->name}}</h4>
                         <p class="card-text">ISBN   : {{$book->ISBN}}</p>
                         <p class="card-text">Year   : {{$book->publishedYear}}</p>
-                        <p class="card-text">Stock  : {{$stock}}</p>
-
+                        @yield('stock-count')
                         <p class="card-text">Book Publisher</p>
                         {{-- after model relation has been determined on publisher, with function name publisher--}}
                         {{-- <p class="card-text">{{$book->publisher->name}}</p> --}}
