@@ -213,15 +213,15 @@ class BookController extends BaseController
         $inputPhotopath = $imageName;
 
         $newBook = new Book();
-        $newBook->authorId = $request->inputAuthor;
-        $newBook->publisherId = $request->inputPublisher;
-        $newBook->title = $request->inputTitle;
-        $newBook->ISBN = $request->inputISBN;
+        $newBook->authorId = $request->input('author');
+        $newBook->publisherId = $request->input('publisher');
+        $newBook->title = $request->input('title');
+        $newBook->ISBN = $request->input('isbn');
         $newBook->photoPath = $inputPhotopath;
-        $newBook->synopsis = $request->inputSynopsis;
-        $newBook->languageId = $request->inputLanguage;
-        $newBook->publishedYear = $request->inputPublishedYear;
-        $newBook->weight = $request->inputWeight;
+        $newBook->synopsis = $request->input('synopsis');
+        $newBook->languageId = $request->input('language');
+        $newBook->publishedYear = $request->input('publishedYear');
+        $newBook->weight = $request->input('weight');
         $newBook->save();
 
         
@@ -230,7 +230,7 @@ class BookController extends BaseController
         $bookId = Book::latest()->first()->id;
         $newBookCategories = new BookCategory();
         $newBookCategories->bookId = $bookId;
-        $newBookCategories->categoryId = $request->inputCategory;
+        $newBookCategories->categoryId = $request->input('category');
         $newBookCategories->save();
 
         return redirect()->route('manageBook');
