@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
             GroupSeeder::class,
             BookGroupSeeder::class,
             StatusSeeder::class,
+            CourierSeeder::class,
             OrderHeaderSeeder::class,
             OrderDetailSeeder::class,
 

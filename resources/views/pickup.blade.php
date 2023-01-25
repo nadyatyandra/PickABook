@@ -35,7 +35,9 @@
             @endforeach
         @endif
     </div>
-        @if ($summary != NULL)
+    @if ($summary != NULL)
+    <form action="/pickup/confirm/{{$summary->id}}" method="post">
+        @csrf
         <div class="m-4">
             <p>Choose pick-up method</p>
             <div>
@@ -56,25 +58,25 @@
                 <div id="ifCourier" style="display:none">
                 Choose your Courier (Payment Method Available only COD)
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="courier" id="JNE">
+                        <input class="form-check-input" type="radio" name="courier" id="JNE" value='JNE'>
                         <label class="form-check-label" for="JNE">
                             JNE express
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="courier" id="Gojek">
+                        <input class="form-check-input" type="radio" name="courier" id="Gojek" value='Gojek'>
                         <label class="form-check-label" for="Gojek">
                             Gojek instant
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="courier" id="Grab">
+                        <input class="form-check-input" type="radio" name="courier" id="Grab" value='Grab'>
                         <label class="form-check-label" for="Grab">
                             Grab instant
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="courier" id="Cepat">
+                        <input class="form-check-input" type="radio" name="courier" id="Cepat" value='Si Cepat'>
                         <label class="form-check-label" for="Cepat">
                             Si Cepat
                         </label>
@@ -82,30 +84,32 @@
                 </div>
             </div>
         </div>
-        <form action="/pickup/confirm/{{$summary->id}}" method="post">
-            @csrf
             <div class="d-grid gap-2 d-md-flex justify-content-md-end m-4">
                 <button id='confirmOrderButton' class="btn btn-outline-success" disabled type="submit">Confirm Order</button>
             </div>
-        </form>
-        @endif
-    </div>
+            @endif
+        </div>
+    </form>
 </div>
 
 <script type="text/javascript">
     function pickupCheck() {
         if (document.getElementById('self').checked) {
+            document.getElementById('self').value = "Self Pick-Up";
             document.getElementById('ifSelf').style.display = 'block';
             document.getElementById('confirmOrderButton').disabled = false;
 
         } else{
             document.getElementById('ifSelf').style.display = 'none';
+            // document.getElementById('self').value = 0;
         }
 
         if (document.getElementById('courier').checked) {
+            document.getElementById('courier').value = "Courier";
             document.getElementById('ifCourier').style.display = 'block';
             document.getElementById('confirmOrderButton').disabled = false;
         } else{
+            // document.getElementById('courier').value = 0;
             document.getElementById('ifCourier').style.display = 'none';
         }
     }

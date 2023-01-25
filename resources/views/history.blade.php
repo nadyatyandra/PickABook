@@ -22,6 +22,7 @@
                         <li>{{$orderDetail->book->title}} - {{$orderDetail->book->ISBN}}</li>
                     @endforeach
                     <h5 class="fw-bold mt-3">Status: {{$order->status->status}}</h5>
+                    <h5 class="fw-bold mt-3">Pick-Up method: {{$order->courier->name}}</h5>
                 </div>
             </div>
             @endif

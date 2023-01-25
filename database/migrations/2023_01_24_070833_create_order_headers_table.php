@@ -24,6 +24,8 @@ class CreateOrderHeadersTable extends Migration
             $table->foreign('statusId')->references('id')->on('statuses')->onDelete('cascade')->onDelete('cascade');
             $table->unsignedBigInteger('libraryId');
             $table->foreign('libraryId')->references('id')->on('libraries')->onDelete('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('courierId')->nullable();
+            $table->foreign('courierId')->references('id')->on('couriers')->onDelete('cascade')->onDelete('cascade');
 
             $table->timestamps();
         });

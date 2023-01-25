@@ -25,19 +25,22 @@ class OrderHeaderSeeder extends Seeder
                 'memberId' => 1,
                 'date' => '2023-01-15',
                 'statusId' => 2,
-                'libraryId' => 1
+                'libraryId' => 1,
+                'courierId' => 1
             ],
             [
                 'memberId' => 1,
                 'date' => '2023-01-10',
                 'statusId' => 3,
-                'libraryId' => 1
+                'libraryId' => 1,
+                'courierId' => 3
             ],
             [
                 'memberId' => 1,
                 'date' => '2022-12-20',
                 'statusId' => 4,
-                'libraryId' => 1
+                'libraryId' => 1,
+                'courierId' => 2
             ],
         ];
         foreach ($order_headers as $key => $value) {

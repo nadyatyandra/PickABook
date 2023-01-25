@@ -43,6 +43,14 @@ class BookGroupSeeder extends Seeder
                 'bookId' => 2,
                 'groupId' => 2
             ],
+            [
+                'bookId' => 9,
+                'groupId' => 2
+            ],
+            [
+                'bookId' => 8,
+                'groupId' => 2
+            ],
 
         ];
         foreach($book_groups as $key => $value){
