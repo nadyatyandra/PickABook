@@ -9,7 +9,6 @@
                 <tr>
                     <th scope="col">No.</th>
                     <th scope="col">Member</th>
-                    <th scope="col">Library</th>
                     <th scope="col">Book Title</th>
                     <th scope="col">Method</th>
                     <th scope="col">Borrow Date</th>
@@ -19,14 +18,20 @@
                 </tr>
             </thead>
             <tbody>
+                @php
+                    $ctr = 0;
+                @endphp
                 @foreach ($orders as $order)
                     @foreach ($order->orderDetail as $orderDetail)
+                        @php
+                            $ctr+=1;
+                        @endphp
                         <tr>
-                            <th scope="row" class="text-center align-middle">{{$loop->index + 1}}</th>
-                            <td class="align-middle text-center">{{$order->memberId}}</td>
-                            <td class="align-middle text-center">{{$order->libraryId}}</td>
+                            <th scope="row" class="text-center align-middle">{{$ctr}}</th>
+                            <td class="align-middle text-center">{{$order->user->name}}</td>
                             <td class="align-middle text-center">{{$orderDetail->book->title}}</td>
-                            <td class="align-middle text-center">asd</td>
+
+                            <td class="align-middle text-center">{{($order->courier != null)? $order->courier->name : "Not Specified Yet"}}</td>
                             @php
                                 $date = Carbon::parse($order->date)->format('d M Y');
                                 $returnDate = Carbon::parse($date)->addDays(30)->format('d M Y');
@@ -45,7 +50,7 @@
                                 @endif
                             </td>
                             <td class="text-center d-flex justify-content-center align-middle py-3">
-                                <a href="/orderDetail/{{$order->id}}" class="btn btn-outline-dark me-2">View Detail</a>
+                                <a href="/orderDetail/{{$orderDetail->orderHeaderId}}/{{$orderDetail->bookId}}" class="btn btn-outline-dark me-2">View Detail</a>
                                 <a href="" class="btn btn-outline-dark">Update Status</a>
                             </td>
                         </tr>

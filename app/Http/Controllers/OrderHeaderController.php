@@ -2,19 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
+use App\Models\Library;
+use App\Models\OrderDetail;
 use App\Models\OrderHeader;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class OrderHeaderController extends Controller
 {
     public function manageOrder(){
-        $orders = OrderHeader::all();
+        $adminId = Auth::user()->id;
+        $libraryId = Admin::where('userId', $adminId)->first()->libraryId;
+        $orders = OrderHeader::where('libraryId', $libraryId)->get();
         return view('manageOrder', compact('orders'));
     }
 
-    public function orderDetail($id){
-        $order = OrderHeader::findOrFail($id);
+    public function orderDetail($orderHeaderId, $bookId){
+        $order = OrderDetail::where('orderHeaderId', '=', $orderHeaderId, 'and')->where('bookId', $bookId)->first();
         return view('orderDetail', compact('order'));
     }
 }

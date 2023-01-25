@@ -46,14 +46,14 @@ class OrderHeaderSeeder extends Seeder
                 'memberId' => 5,
                 'date' => '2023-01-01',
                 'statusId' => 3,
-                'libraryId' => 1,
+                'libraryId' => 2,
                 'courierId' => 3
             ],
             [
                 'memberId' => 5,
                 'date' => '2022-12-05',
                 'statusId' => 4,
-                'libraryId' => 1,
+                'libraryId' => 2,
                 'courierId' => 2
             ],
         ];
