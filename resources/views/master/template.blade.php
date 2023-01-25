@@ -37,9 +37,12 @@
         }
     </style>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     @include('layout.header')
-    @yield('body')
+    {{-- <div class='align-items-center'> --}}
+        @yield('body')
+    {{-- </div> --}}
+    {{-- @yield('body') --}}
     @include('layout.footer')
 </body>
 </html>

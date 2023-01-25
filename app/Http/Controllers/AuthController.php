@@ -60,8 +60,6 @@ class AuthController extends BaseController
             'password' => 'required|string'
         ]);
 
-        // remember me (remove if not used)
-        // cookie only for 5 min
         if($request->remember){
             Cookie::queue('emailCookie', $request->email, 5);
         }
