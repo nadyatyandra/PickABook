@@ -42,6 +42,9 @@ Route::middleware(['middleware' => 'userM'])->group(function () {
     // Reply: maybe '/' is more suitable for welcome page(?)
     // RE:RE: for now it's for home, but feel free to change ya
     Route::get('/', [BookController::class, 'home'])->name('home');
+    Route::get('/newRelease', [BookController::class, 'newRelease'])->name('newRelease');
+    Route::get('/popularBooks', [BookController::class, 'popularBooks'])->name('popularBooks');
+    Route::get('/editorsPick', [BookController::class, 'editorsPick'])->name('editorsPick');
     Route::get('/search', [BookController::class, 'search'])->name('search');
     Route::get('/bookDetail/{id}', [BookController::class, 'bookDetail']);
     Route::post('add-book/{bookId}', [BookController::class, 'addBookToCart']);

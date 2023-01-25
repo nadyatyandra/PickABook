@@ -34,7 +34,7 @@
             @include('layout.bookCard')
         </div>
         <div class="d-flex justify-content-center mt-4">
-            <a href="{{route('books')}}" class="btn btn-dark">See More Recommendations</a>
+            <a href="{{route('newRelease')}}" class="btn btn-dark">See More Recommendations</a>
         </div>
     </div>
 
@@ -45,10 +45,9 @@
             @include('layout.bookPopularCard')
         </div>
         <div class="d-flex justify-content-center mt-4">
-            <a href="{{route('books')}}" class="btn btn-dark">See More Recommendations</a>
+            <a href="{{route('popularBooks')}}" class="btn btn-dark">See More Recommendations</a>
         </div>
     </div>
-
 
     <!-- editors pick -->
     <div class="card container-fluid mt-3 w-75 pb-5" style="background-color: light">
@@ -57,7 +56,7 @@
             @include('layout.bookEditorsCard')
         </div>
         <div class="d-flex justify-content-center mt-4">
-            <a href="{{route('books')}}" class="btn btn-dark">See More Recommendations</a>
+            <a href="{{route('editorsPick')}}" class="btn btn-dark">See More Recommendations</a>
         </div>
     </div>
 
