@@ -251,20 +251,25 @@ class BookController extends BaseController
 
         if (!Book::where('ISBN', '=', $request->input('isbn'))->exists()) {
 
-            return redirect()->back()->withErrors('ISBN Not Found!');
+            return redirect()->back()->withErrors('ISBN not found. Please insert the book first.');
         }
 
-         // book found
-         $currBookId = Book::where('ISBN', $request->input('isbn'))->first()->id;
+        // book found
+        $currBookId = Book::where('ISBN', $request->input('isbn'))->first()->id;
 
-         $userId = Auth::user()->id;
-         $libraryId = Admin::where('userId', $userId)->first()->libraryId;
+        $userId = Auth::user()->id;
+        $libraryId = Admin::where('userId', $userId)->first()->libraryId;
 
-         $newBookLibrary = new BookLibrary();
-         $newBookLibrary->bookId = $currBookId;
-         $newBookLibrary->libraryId = $libraryId;
-         $newBookLibrary->stock = $request->input('stock');
-         $newBookLibrary->save(); //Add to Library
+        //check if book already in library
+        if(BookLibrary::where('bookId', '=', $currBookId, 'and')->where('libraryId', $libraryId)->first() != null){
+            return redirect()->back()->withErrors('Book exists');
+        }
+
+        $newBookLibrary = new BookLibrary();
+        $newBookLibrary->bookId = $currBookId;
+        $newBookLibrary->libraryId = $libraryId;
+        $newBookLibrary->stock = $request->input('stock');
+        $newBookLibrary->save(); //Add to Library
 
         return redirect()->route('manageBook');
 

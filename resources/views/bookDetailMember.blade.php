@@ -1,5 +1,9 @@
 @extends('layout.fromBookDetailAdminMember')
 
+@section('stock-count')
+    <p class="card-text">Stock  : {{$stock}}</p>
+@endsection
+
 @section('details')
     <form action="/add-book/{{$book->id}}" method="post">
         @csrf
