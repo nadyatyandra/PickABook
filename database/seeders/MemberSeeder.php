@@ -16,8 +16,18 @@ class MemberSeeder extends Seeder
     {
         $members = [
             [
-                'userId' => 1,
-                'address' => 'Jl. Anggur No 1',
+                'userId' => 3,
+                'address' => 'Jl. Member No 1',
+                'phoneNumber' => '08123456789',
+            ],
+            [
+                'userId' => 4,
+                'address' => 'Jl. Member No 2',
+                'phoneNumber' => '08123456789',
+            ],
+            [
+                'userId' => 5,
+                'address' => 'Jl. Member No 3',
                 'phoneNumber' => '08123456789',
             ],
 

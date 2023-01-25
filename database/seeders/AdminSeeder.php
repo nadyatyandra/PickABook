@@ -16,8 +16,12 @@ class AdminSeeder extends Seeder
     {
         $admins = [
             [
-                'userId' => 2,
+                'userId' => 1,
                 'libraryId' => 1
+            ],
+            [
+                'userId' => 2,
+                'libraryId' => 2
             ],
 
         ];
