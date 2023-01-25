@@ -185,6 +185,11 @@ class BookController extends BaseController
 
     }
 
+    public function viewAddToLibrary(){
+
+        return view('addtoLibrary');
+    }
+
     public function addToLibrary(Request $request){
 
         $request->validate([
