@@ -5,7 +5,7 @@
 @section('body')
     <div class="d-flex flex-wrap justify-content-center">
         @if ($cartHeaders == '[]')
-            <h3>Cart is empty</h3>
+            <h3 class="mt-4">Cart is empty</h3>
         @endif
         @if ($errors->any())
             <p class="text-warning pt-3">{{$errors->first()}}</p>

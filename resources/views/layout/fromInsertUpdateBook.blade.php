@@ -1,7 +1,7 @@
 @extends('master.template')
 
 @section('body')
-    <form enctype="multipart/form-data" form @yield('method') @yield('action')>
+    <form enctype="multipart/form-data" @yield('method') @yield('action')>
         @csrf
         @yield('method_field')
         <div class="d-flex flex-column align-items-center container-fluid justify-content-center">
@@ -21,10 +21,6 @@
             <div class="col-md-6 mb-4">
                 <label for="publishedYear" class="form-label">Published Year</label>
                 <input type="number" class="form-control" name='publishedYear' id="publishedYear" placeholder="(4 digits)" @yield('publishedYearValue')>
-            </div>
-            <div class="col-md-6 mb-4">
-                <label for="stock" class="form-label">Stock</label>
-                <input type="number" class="form-control" name='stock' id="stock" placeholder=">0" @yield('stockValue')>
             </div>
             <div class="col-md-6 mb-4">
                 <label for="author" class="form-label">Author</label>
@@ -58,8 +54,9 @@
             @if ($errors->any())
                 <p class="text-center text-danger">{{$errors->first()}}</p>
             @endif
-            <div class="d-flex justify-content-between mb-4">
+            <div class="d-flex flex-row justify-content-between mb-4">
                 @yield('button')
+                <a class="btn btn-outline-dark" href="{{url()->previous()}}">Back</a>
             </div>
         </div>
     </form>

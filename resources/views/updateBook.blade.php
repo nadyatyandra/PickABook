@@ -1,4 +1,4 @@
-@extends('layout.fromUpdateBook')
+@extends('layout.fromInsertUpdateBook')
 
 @section('title', 'Update Book')
 
@@ -26,8 +26,6 @@
 
 @section('synopsisValue')
 {{$currBook->synopsis}}
-{{-- hrs rapet kyk gini ya krn textarea --}}
-{{-- {{$currBike->bikeDescription}} --}}
 @endsection
 
 @section('publishedYearValue')
@@ -49,7 +47,7 @@
 
 @section('languageOption')
 <option value="{{$currBook->languageId}}">{{$currBook->language->name}}</option>
-    @foreach ($languages as $language) <!-- pake foreach krn datanya berbntk array -->
+    @foreach ($languages as $language)
         @if ($language->id != $currBook->languageId)
             <option value="{{$language->id}}">{{$language->name}}</option>
         @endif
@@ -65,7 +63,7 @@
 
 @section('publisherOption')
 <option value="{{$currBook->publisherId}}">{{$currBook->publisher->name}}</option>
-    @foreach ($publishers as $publisher) <!-- pake foreach krn datanya berbntk array -->
+    @foreach ($publishers as $publisher)
         @if ($publisher->id != $currBook->publisherId)
             <option value="{{$publisher->id}}">{{$publisher->name}}</option>
         @endif
