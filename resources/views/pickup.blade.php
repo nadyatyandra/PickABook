@@ -6,7 +6,7 @@
 
 <div class="d-flex flex-wrap justify-content-center">
     @if ($summary == NULL)
-        <h3>No Order to Pick-Up</h3>
+        <h3 class="my-3">No Order to Pick-Up</h3>
     @else
     <div class="card mb-3 mt-4 w-75">
     <p class="m-4">Order Book Summary - {{$summary->library->name}}</p>
