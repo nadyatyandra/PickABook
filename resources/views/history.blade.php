@@ -14,8 +14,9 @@
                     @php
                         $date = Carbon::parse($order->date)->format('d M Y');
                         $returnDate = Carbon::parse($date)->addDays(30)->format('d M Y');
+                        $dateForId = Carbon::parse($order->date)->format('Ymd');
                     @endphp
-
+                    <h5 class="fw-bold mt-3">Order #{{$dateForId}}-{{$order->id}}</h5>
                     <h5 class="fw-bold mt-3">{{$order->library->name}} - {{$date}} - Return by {{$returnDate}}</h5>
 
                     @foreach ($order->orderDetail as $orderDetail)
