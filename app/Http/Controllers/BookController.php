@@ -172,6 +172,19 @@ class BookController extends BaseController
         // Storage::putFileAs('public/images/books/', $image, $imageName);
         // $inputPhotopath = $imageName;
 
+        //validate input first
+        $request->validate([
+            'isbn' => 'required|min:10|max:13|unique:books,isbn',
+            'title' => 'required|min:5|string',
+            'synopsis' => 'required|min:5',
+            'publishedYear' => 'required|min:4|max:4',
+            'stock' => 'required|min:1',
+            'author' => 'required',
+            'language' => 'required',
+            'publisher' => 'required',
+            'weight' => 'required|min:1'
+        ]);
+
         //Update Book Details
         Book::where('id', $bookId) //Eloquent?
         ->update([
@@ -185,12 +198,6 @@ class BookController extends BaseController
             'weight' => $request->weight,
         ]);
 
-        //Update Categories
-        BookCategory::where('bookId', $bookId)
-        ->first()
-        ->update([
-            'categoryId' => $request->category
-        ]);
 
         //Update Stock at Library
         $userId = Auth::user()->id;
@@ -217,6 +224,18 @@ class BookController extends BaseController
     }
 
     public function insertBooktoMaster(Request $request){
+        $request->validate([
+            'isbn' => 'required|min:10|max:13|unique:books,isbn',
+            'title' => 'required|min:5|string',
+            'synopsis' => 'required|min:5',
+            'publishedYear' => 'required|min:4|max:4',
+            'author' => 'required',
+            'language' => 'required',
+            'category' => 'required',
+            'publisher' => 'required',
+            'weight' => 'required|min:1',
+            'inputImage' => 'required|file'
+        ]);
 
         $image = $request->file('inputImage');
         $imageName = $image->getClientOriginalName();
@@ -258,7 +277,7 @@ class BookController extends BaseController
     public function addToLibrary(Request $request){
 
         $request->validate([
-            'isbn' => 'required|min:13|max:13|',
+            'isbn' => 'required|min:10|max:13|',
             'stock' => 'required|min:1',
         ]); //Validate ISBN
 
