@@ -62,12 +62,7 @@ class BookController extends BaseController
 
     // param boleh id, boleh ISBN. ISBN might be better.
     public function bookDetail($id){
-        $bookLibraries = BookLibrary::where('bookId', $id)->get();
-
-        // book id not found.
-        if($bookLibraries == '[]'){
-            return redirect()->route('home');
-        }
+        $book = Book::whereId($id)->first();
 
         $stock = 0;
 
@@ -79,12 +74,12 @@ class BookController extends BaseController
             ->first()->total_stock;
         }
 
-        // dd($stock);
+        // dd($book);
         if(Auth::user()->role_id == 1){
-            return view('bookDetailAdmin', compact('bookLibraries', 'stock'));
+            return view('bookDetailAdmin', compact('book', 'stock'));
         }
         else if(Auth::user()->role_id == 2){
-            return view('bookDetailMember', compact('bookLibraries', 'stock'));
+            return view('bookDetailMember', compact('book', 'stock'));
         }
         else{
             return redirect()->route('home');
@@ -256,8 +251,8 @@ class BookController extends BaseController
     }
 
     public function viewAddToLibrary(){
-
-        return view('addToLibrary');
+        $books = Book::all();
+        return view('addToLibrary', compact('books'));
     }
 
     public function addToLibrary(Request $request){
