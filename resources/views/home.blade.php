@@ -24,7 +24,7 @@
     <!-- new release -->
     <div class="card container-fluid mt-3 w-75 pb-5" style="background-color: light">
         <h1 class="text-center mt-3">New Release</h1>
-        <div class='card border-white container-fluid d-flex flex-row m-1 row row-cols-4 g-4 justify-content-center'>
+        <div class='d-flex flex-row m-1 row row-cols-3 g-3 justify-content-center'>
             @include('layout.bookCard')
         </div>
         <div class="d-flex justify-content-center mt-4">
@@ -35,7 +35,7 @@
     <!-- popular -->
     <div class="card container-fluid mt-3 w-75 pb-5" style="background-color: light">
         <h1 class="text-center mt-3">Popular Books</h1>
-        <div class='card border-white container-fluid d-flex flex-row m-1 row row-cols-4 g-4 justify-content-center'>
+        <div class='d-flex flex-row m-1 row row-cols-3 g-3 justify-content-center'>
             @include('layout.bookPopularCard')
         </div>
         <div class="d-flex justify-content-center mt-4">
@@ -46,7 +46,7 @@
     <!-- editors pick -->
     <div class="card container-fluid mt-3 w-75 pb-5" style="background-color: light">
         <h1 class="text-center mt-3">Editor's Pick</h1>
-        <div class='card border-white container-fluid d-flex flex-row m-1 row row-cols-4 g-4 justify-content-center'>
+        <div class='d-flex flex-row m-1 row row-cols-3 g-3 justify-content-center'>
             @include('layout.bookEditorsCard')
         </div>
         <div class="d-flex justify-content-center mt-4">
@@ -64,13 +64,3 @@
         </div>
     </div>
 @endsection
-
-<style>
-    .round {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background-color: black;
-        position: relative;
-    }
-</style>

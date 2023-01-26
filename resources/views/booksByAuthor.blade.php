@@ -29,7 +29,9 @@
                 @if ($books == '[]')
                     <h3>No Book Found...</h3>
                 @endif
-                @include('layout.bookCard')
+                <div class='d-flex flex-row m-1 row row-cols-3 g-3 justify-content-center'>
+                    @include('layout.bookCard')
+                </div>
             </div>
         </div>
     </div>
