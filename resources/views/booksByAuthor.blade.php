@@ -8,7 +8,7 @@
             <h1 class="mb-4">About {{$name}}</h1>
             <div class="row align-items-center" style="width: 800px;">
                 <div class="col-md-4 px-1">
-                    <img src="{{url('storage\app\public\images\authors\\'.$author->photoPath)}}" class="img-fluid" alt="{{$author->photoPath}}">
+                    <img src="{{url('storage\app\public\images\authors\\'.$author->photoPath)}}" class="img-fluid rounded" alt="{{$author->photoPath}}">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">

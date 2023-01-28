@@ -38,7 +38,7 @@
 
 @section('authorOption')
     <option value="{{$currBook->authorId}}">{{$currBook->author->name}}</option>
-    @foreach ($authors as $author) <!-- pake foreach krn datanya berbntk array -->
+    @foreach ($authors as $author)
         @if ($author->id != $currBook->authorId)
             <option value="{{$author->id}}">{{$author->name}}</option>
         @endif

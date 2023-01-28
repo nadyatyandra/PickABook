@@ -9,6 +9,6 @@
         @yield('pagination')
     </div>
     <div class="d-flex flex-row justify-content-center mb-4">
-        <a class="btn btn-outline-dark" href="{{url()->previous()}}">Back</a>
+        <a class="btn btn-outline-dark" href="{{route('home')}}">Back</a>
     </div>
 @endsection

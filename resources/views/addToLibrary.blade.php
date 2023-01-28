@@ -30,7 +30,7 @@
             @endif
             <div class="d-flex flex-row justify-content-between mb-4">
                 <button type="submit" class="btn btn-dark mx-2">Add to Library</button>
-                <a class="btn btn-outline-dark" href="{{url()->previous()}}">Back</a>
+                <a class="btn btn-outline-dark" href="{{route('manageBook')}}">Back</a>
             </div>
         </div>
     </form>

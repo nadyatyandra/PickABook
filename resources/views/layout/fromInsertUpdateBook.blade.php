@@ -56,7 +56,7 @@
             @endif
             <div class="d-flex flex-row justify-content-between mb-4">
                 @yield('button')
-                <a class="btn btn-outline-dark" href="{{url()->previous()}}">Back</a>
+                <a class="btn btn-outline-dark" href="{{route('manageBook')}}">Back</a>
             </div>
         </div>
     </form>
