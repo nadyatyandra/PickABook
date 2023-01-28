@@ -22,6 +22,7 @@
                 <label for="publishedYear" class="form-label">Published Year</label>
                 <input type="number" class="form-control" name='publishedYear' id="publishedYear" placeholder="(4 digits)" @yield('publishedYearValue')>
             </div>
+            @yield('stockValue')
             <div class="col-md-6 mb-4">
                 <label for="author" class="form-label">Author</label>
                 <select class="form-select" aria-label="Default select example" name='author'>
@@ -34,12 +35,7 @@
                     @yield('languageOption')
                 </select>
             </div>
-            <div class="col-md-6 mb-4">
-                <label for="category" class="form-label">Category</label>
-                <select class="form-select" aria-label="Default select example" name='category'>
-                    @yield('categoryOption')
-                </select>
-            </div>
+            @yield('categoryOption')
             <div class="col-md-6 mb-4">
                 <label for="publisher" class="form-label">Publisher</label>
                 <select class="form-select" aria-label="Default select example" name='publisher'>

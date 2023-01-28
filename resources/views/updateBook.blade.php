@@ -33,7 +33,10 @@
 @endsection
 
 @section('stockValue')
-    value='{{$currStock}}'
+<div class="col-md-6 mb-4">
+    <label for="publishedYear" class="form-label">Stock</label>
+    <input type="number" class="form-control" name='stock' id="stock" placeholder="Book Stock" value={{$currStock}}>
+</div>
 @endsection
 
 @section('authorOption')
@@ -53,12 +56,6 @@
         @endif
     @endforeach
 
-@endsection
-
-@section('categoryOption')
-    @foreach ($categories as $category)
-        <option value="{{$category->id}}">{{$category->name}}</option>
-    @endforeach
 @endsection
 
 @section('publisherOption')
