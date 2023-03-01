@@ -1,5 +1,13 @@
-Deployed with [railway](https://pick-a-book-app-production.up.railway.app/).
+# PickABook
+PickABook is a web-based app for readers to easily borrow hardcover books from local libraries. After applying for a membership, users of PickABook will be able to browse our extensive shared list of titles gathered from multiple libraries. Each book is equipped with data showing the author, title, ISBN, cover image, synopsis, published date, publisher, and weight.
 
+Users are able to add multiple books they would like to borrow to a cart. After filling their cart, users must choose the pick-up method, whether they choose to come and pick up the book at the library by themselves, or delivered by the courier. Users are also able to track their book delivery through the app.
+
+The app is also equipped with relevant administrative features for librarians. Users with administrator privileges will be able to insert, update, and delete books from the database, update information about the books, and update their status based on whether they are ready to be borrowed.
+
+This project is created as our final project in Web Programming course.
+
+---
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
